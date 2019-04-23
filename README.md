@@ -33,7 +33,19 @@ SNSを活用して、簡単に進捗を報告していく機能や他の人が�
 - 学習した量をTweetする機能
   - [ ] tweet用リンクテンプレート作成機能
 
-### 使用予定Gem
+### カタログ設計
+https://docs.google.com/spreadsheets/d/1pXMDRlHGCzki-XH-6Krt-7bfg5JN9tx6vi7zmyai1qs/edit?usp=sharing
+
+### テーブル定義
+https://docs.google.com/spreadsheets/d/1pXMDRlHGCzki-XH-6Krt-7bfg5JN9tx6vi7zmyai1qs/edit#gid=1383315016
+
+### 画面遷移図
+https://docs.google.com/spreadsheets/d/1pXMDRlHGCzki-XH-6Krt-7bfg5JN9tx6vi7zmyai1qs/edit#gid=1956762831
+
+### 画面ワイヤーフレーム
+https://docs.google.com/spreadsheets/d/1pXMDRlHGCzki-XH-6Krt-7bfg5JN9tx6vi7zmyai1qs/edit#gid=56437265
+
+#### 使用予定Gem
 * ransack
 * devise
 * omniouth
