@@ -1,16 +1,47 @@
 # tundocker
-* Ruby version
 
-* System dependencies
+### バージョン
+[![Ruby](https://img.shields.io/badge/Ruby-2.5.0-red.svg)](https://docs.ruby-lang.org/ja/2.5.0/doc/index.html)
+[![Ruby on Rails](https://img.shields.io/badge/Ruby%20on%20Rails-5.2.3-red.svg)](https://guides.rubyonrails.org/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-10.6.1-yellow.svg)](https://www.postgresql.org/)
 
-* Configuration
+### 概要
+プログラミングなどの学習をする際に参考書などを買って満足することがある人のためのサイト
+消化していく本のみ登録し学習した内容を書き出していくことで積読を解消します。
 
-* Database creation
+### コンセプト
+SNSを活用して、簡単に進捗を報告していく機能や他の人が考えたBookListを参考に質の高い学習を目指します。
 
-* Database initialization
 
-* How to run the test suite
+### 機能
+- ユーザー
+  - [ ] ユーザー登録、編集、削除
+  - [ ] ユーザーログイン、ログアウト
+  - [ ] Twitterアカウントを利用したログイン
+- 本の登録機能
+  - [ ] 本の登録、編集、削除
+  - [ ] 本の検索
+- 本の学習記録記事機能
+  - [ ] 記事の作成、編集、削除
+  - [ ] 記事にいいねをつける機能
+  - [ ] 自身の学習記録の中で全文検索
+- 本のリスト作成機能
+  - [ ] リストの作成、編集、削除
+  - [ ] リスト自体にいいねをつける機能
+  - [ ] リストの本を自身の本として登録する機能
+  - [ ] リストに登録する本の数を可変にする。
+- 学習した量をTweetする機能
+  - [ ] tweet用リンクテンプレート作成機能
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+### 使用予定Gem
+* ransack
+* devise
+* omniouth
+* omniouth-twitter
+* kaminari
+* carrierwave
+* mini_magick
+* bootstrap
+* dotenv-rails
+* bullet
+* squasher
