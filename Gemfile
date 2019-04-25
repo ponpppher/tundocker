@@ -30,12 +30,22 @@ gem 'kaminari-bootstrap'
 # deploy
 gem 'capistrano-rails', group: :development
 
+# advanced function
+gem 'ransack'
+
+# twitter login
+gem 'omniauth'
+gem 'omniauth-twitter'
+
+
+
 
 
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'factory_bot_rails', '~> 4.11'
+
 end
 
 group :development do
@@ -45,6 +55,11 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'faker'
   gem 'bullet'
+  # aggregate migration files
+  gem 'squasher'
+
+  # lint tool
+  gem 'rubocop', '~> 0.55.0', require: false
 end
 
 group :test do
