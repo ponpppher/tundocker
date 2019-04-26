@@ -24,6 +24,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 # basic util
 gem 'devise'
+gem 'bootstrap'
 gem 'carrierwave'
 gem 'mini_magick', '~> 4.8'
 gem 'kaminari'
