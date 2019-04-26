@@ -29,6 +29,7 @@ gem 'carrierwave'
 gem 'mini_magick', '~> 4.8'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
+gem 'rails_autolink'
 
 # deploy
 gem 'capistrano-rails', group: :development
