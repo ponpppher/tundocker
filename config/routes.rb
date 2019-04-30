@@ -2,11 +2,11 @@
 
 Rails.application.routes.draw do
   # landing page
-  root to: "homes#index"
-  
+  root to: 'homes#index'
+
   resources :books
   resources :articles
   resources :reccomends
 
-  resources :tags, only: %i[new create destroy]
+  resources :tags, only: [:new, :create, :destroy]
 end
