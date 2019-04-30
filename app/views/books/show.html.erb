@@ -1,2 +1,23 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<h1>Book detail</h1>
+
+<h4><%= @book.title %></h4>
+<div class="d-flex bd-hightlight">
+  <div class="p-2 bd-hightlight">
+<%= image_tag @book.image.to_s, :size => '180x180' %>
+  </div>
+  <div class="p-2 bd-hightlight">
+    <div>
+      Publish: <%= @book.publish_on %>
+    </div>
+    <div>
+      number of pages of book: <%= @book.sheets %>page
+    </div>
+    <div>
+      Price: <%= @book.price %>yen
+    </div>
+  </div>
+</div>
+<h2>Article Lists</h2>
+no impletemts<br/>
+
+<%= link_to 'back to book list page', books_path %>

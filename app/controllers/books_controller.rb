@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class BooksController < ApplicationController
+  before_action :set_book, only: [:edit, :show, :update, :destory]
   def index
     @books = Book.all
   end
@@ -28,5 +29,9 @@ private
 
   def book_params
     params.require(:book).permit(:title, :publish_on, :sheets, :price, :image)
+  end
+
+  def set_book
+    @book = Book.find(params[:id])
   end
 end

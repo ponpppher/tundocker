@@ -12,8 +12,8 @@
 <% if @books.exists? %>
   <div class="card-deck">
     <% @books.each do |book| %>
-      <div class="card" style="width: 20rem;">
-        <%= image_tag book.image.to_s, {:size => '100x150', class: "card-img-top"} %>
+      <div class="card" style="width: 200;">
+        <%= link_to image_tag(book.image.to_s, :size => '190x180'), book_path(book.id), { class: "card-img-top" } %>
         <div class="card-body">
           <h4 class="card-title"><%= book.title %></h4>
         </div>
