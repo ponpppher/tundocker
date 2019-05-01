@@ -190,3 +190,7 @@ Style/StringLiterals:
 # SupportedStyles: percent, brackets
 Style/SymbolArray:
   EnforcedStyle: brackets
+
+# to user compact
+ClassAndModuleChildren:
+  Enabled: false

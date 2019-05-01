@@ -23,7 +23,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 
 # basic util
-gem 'devise'
+gem 'devise', '>= 4.6.0'
 gem 'bootstrap'
 gem 'carrierwave'
 gem 'mini_magick', '~> 4.8'
