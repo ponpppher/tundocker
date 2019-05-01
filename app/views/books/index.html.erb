@@ -1,5 +1,5 @@
 <h3>
-  <%= link_to image_tag('logo.png', :size => '200x180'), root_path %>
+  <%= link_to image_tag('logo.png', :size => '100x90'), root_path %>
   Book index
 </h3>
 
@@ -13,7 +13,7 @@
   <div class="card-deck">
     <% @books.each do |book| %>
       <div class="card" style="width: 200;">
-        <%= link_to image_tag(book.image.to_s, :size => '190x180'), book_path(book.id), { class: "card-img-top" } %>
+        <%= link_to image_tag(book.image.to_s, :size => '100x90'), book_path(book.id), { class: "card-img-top" } %>
         <div class="card-body">
           <h4 class="card-title"><%= book.title %></h4>
         </div>

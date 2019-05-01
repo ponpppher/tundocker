@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class BooksController < ApplicationController
-  before_action :set_book, only: [:edit, :show, :update, :destory]
+  before_action :set_book, only: [:edit, :show, :update, :destroy]
   def index
-    @books = Book.all
+    @books = Book.all.order(updated_at: :desc)
   end
 
   def show; end
@@ -23,7 +23,18 @@ class BooksController < ApplicationController
 
   def edit; end
 
-  def destory; end
+  def update
+    if @book.update(book_params)
+      redirect_to books_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @book.destroy
+    redirect_to books_path, flash: { notice: 'success delete book' }
+  end
 
 private
 

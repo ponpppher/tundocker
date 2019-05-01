@@ -1,0 +1,29 @@
+<%= form_with(model:@book, local:true, url: choose_new_or_edit) do |f| %>
+  <div class="form-group">
+    <%= f.label :title, "Title" %>
+    <%= f.text_field :title, {class: 'form-control', placeholder: 'Tile'} %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :publish_on, "Publish date"%>
+    <%= f.date_select :publish_on, {}, {class: 'form-control'} %>
+  </div>
+  <div class="form-group">
+    <%= f.label :sheets, "Number of pages of book"%>
+    <%= f.number_field :sheets, min: 0, max: 10000000, step: 1 %>
+  </div>
+
+  </div>
+  <div class="form-group">
+    <%= f.label :price, "Price"%>
+    <%= f.number_field :price, min: 1, max: 10000000, step: 1 %>
+  </div>
+  <div class="form-group">
+    <%= f.label :image, "Picture of book"%>
+    <%= f.file_field :image %>
+  </div>
+  <div class="form-group">
+  </div>
+
+  <%= f.submit %>
+<% end %>
