@@ -25,7 +25,7 @@ ja:
         subject: 'アカウントの凍結解除について'
       password_change:
         subject: 'パスワードの変更について'
-    omniauth_callbacks:
+    omniauth_callback:
       failure: "%{kind} アカウントによる認証に失敗しました。理由：（%{reason}）"
       success: "%{kind} アカウントによる認証に成功しました。"
     passwords:
