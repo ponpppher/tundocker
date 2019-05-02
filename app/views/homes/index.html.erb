@@ -1,3 +1,14 @@
 <h1>homes#index</h1>
 
+landing page
+<br />
 <a href="books">my book</a>
+
+<% if false %>
+<% if user_signed_in? %>
+  <h1>こんにちは、<%= current_user.username %>さん</h1>
+  <p>ユーザー用ページです。</p>
+<% else %>
+  <p>ログインしてください</p>
+<% end %>
+<% end %>

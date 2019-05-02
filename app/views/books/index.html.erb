@@ -1,5 +1,5 @@
 <h3>
-  <%= link_to image_tag('logo.png', :size => '100x90'), root_path %>
+  <%= link_to image_tag('logo.png', :size => '100x90'), books_path %>
   Book index
 </h3>
 
@@ -16,15 +16,13 @@
         <%= link_to image_tag(book.image.to_s, :size => '100x90'), book_path(book.id), { class: "card-img-top" } %>
         <div class="card-body">
           <h4 class="card-title"><%= book.title %></h4>
+          <%= link_to "write article", books_path %>
         </div>
       </div>
     <% end %> 
   </div>
 <% end %>
-<%= link_to "+", new_book_path, {class: :book_plus} %>
 
-<div class="back">
-  <%= link_to 'back to home', root_path %>
-</div>
+<%= link_to "add new book", new_book_path, {class: :book_plus} %>
 
 <div>Logo made with <a href="https://www.designevo.com/en/" title="Free Online Logo Maker">DesignEvo</a></div>
