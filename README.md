@@ -15,11 +15,11 @@
 
 ### 機能
 - ユーザー
-  - [ ] ユーザー登録、編集、削除
-  - [ ] ユーザーログイン、ログアウト
-  - [ ] Twitterアカウントを利用したログイン
+  - [x] ユーザー登録、編集、削除
+  - [x] ユーザーログイン、ログアウト
+  - [x] Twitterアカウントを利用したログイン
 - 本の登録機能
-  - [ ] 本の登録、編集、削除
+  - [x] 本の登録、編集、削除
   - [ ] 本の検索
 - 本の学習記録記事機能
   - [ ] 記事の作成、編集、削除
@@ -59,3 +59,4 @@ https://docs.google.com/spreadsheets/d/1pXMDRlHGCzki-XH-6Krt-7bfg5JN9tx6vi7zmyai
 * squasher
 * redcarpet
 * coderay
+* rubocop
