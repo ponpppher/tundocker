@@ -14,12 +14,16 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       ## Rememberable
       t.datetime :remember_created_at
 
+      ## default columns
+      t.string :name, comment: "名前"
+      t.string :provider, comment: "連携サービス"
+      t.string :uid, comment: "ユニークID"
+      t.string :username, comment: "サービス登録名"
+
       t.timestamps null: false
     end
 
     add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true
-    # add_index :users, :confirmation_token,   unique: true
-    # add_index :users, :unlock_token,         unique: true
   end
 end

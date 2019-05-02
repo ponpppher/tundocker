@@ -1,0 +1,28 @@
+<h3>
+  <%= link_to image_tag('logo.png', :size => '100x90'), books_path %>
+  Book index
+</h3>
+
+<div class="page title">
+  <h4>
+    your book list
+  </h4>
+</div>
+
+<% if @books.exists? %>
+  <div class="card-deck">
+    <% @books.each do |book| %>
+      <div class="card" style="width: 200;">
+        <%= link_to image_tag(book.image.to_s, :size => '100x90'), book_path(book.id), { class: "card-img-top" } %>
+        <div class="card-body">
+          <h4 class="card-title"><%= book.title %></h4>
+          <%= link_to "write article", books_path %>
+        </div>
+      </div>
+    <% end %> 
+  </div>
+<% end %>
+
+<%= link_to "add new book", new_book_path, {class: :book_plus} %>
+
+<div>Logo made with <a href="https://www.designevo.com/en/" title="Free Online Logo Maker">DesignEvo</a></div>

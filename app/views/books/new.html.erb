@@ -1,0 +1,14 @@
+<h1>submit book infomation</h1>
+
+<% if @book.errors.any? %>
+  <div id = "error_explanation">
+    <h2><%= "#{@book.errors.count}エラーがありました。" %></h2>
+    <ul>
+      <% @book.errors.full_messages.each do |msg| %>
+        <p><%= msg %></p>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= render 'form' %>

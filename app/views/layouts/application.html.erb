@@ -14,8 +14,11 @@
       <nav>
         <% if user_signed_in? %>
           <div class="d-flex justify-content-end">
-            <strong><%= link_to current_user.name, homes_show_path %></strong>
-            <%= link_to 'プロフィール変更', edit_user_registration_path %>
+            <% if current_user.name.empty? %>
+              <strong><%= link_to "No Name User", user_path(current_user.id) %></strong>
+            <% else %>
+              <strong><%= link_to current_user.name, user_path(current_user.id) %></strong>
+            <% end %>
             <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
           </div>
         <% else %>

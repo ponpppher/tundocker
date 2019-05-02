@@ -16,7 +16,7 @@ private
 
     if @user.persisted?
       flash[:notice] = I18n.t('devise.omniauth_callback.success', kind: provider.capitalize)
-      sign_in_and_redirect @user, event: :authentication
+      sign_in_and_redirect @user, event: :authenticated
     else
       session["devise.#{provider}_data"] = request.env['omniauth.auth']
       redirect_to new_user_registration_url

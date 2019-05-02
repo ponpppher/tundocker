@@ -1,0 +1,20 @@
+<h1>User profile</h1>
+
+<div>
+  name: <%= @user.name %>
+</div>
+<div>
+  email: <%= @user.email %>
+</div>
+<div>
+  start at: <%= @user.created_at %>
+</div>
+
+<br />
+
+<div>
+<%= link_to 'プロフィール変更', edit_user_registration_path %>
+</div>
+<div>
+<%= link_to "back to book list", books_path %>
+</div>

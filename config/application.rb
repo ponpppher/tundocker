@@ -12,8 +12,12 @@ module Tundocker
 
     # set application timezone
     config.time_zone = 'Tokyo'
+
     # set active_record timezone
     config.active_record.default_timezone = :local
+
+    # carrierwave path
+    config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]
 
     # set default locale
     config.i18n.default_locale = :ja
