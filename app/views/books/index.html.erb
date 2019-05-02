@@ -16,7 +16,8 @@
         <%= link_to image_tag(book.image.to_s, :size => '100x90'), book_path(book.id), { class: "card-img-top" } %>
         <div class="card-body">
           <h4 class="card-title"><%= book.title %></h4>
-          <%= link_to "write article", books_path %>
+          <%= link_to "write article", books_path, { class: "btn btn-sm btn-primary" } %>
+          <%= link_to "unregist this book", books_path, { class: "btn btn-sm btn-danger" } %>
         </div>
       </div>
     <% end %> 

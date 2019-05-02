@@ -3,7 +3,7 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:edit, :show, :update, :destroy]
   def index
-    @books = Book.all.order(updated_at: :desc)
+    @books = current_user.books.order(updated_at: :desc)
   end
 
   def show; end
@@ -13,8 +13,10 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new(book_params)
-    if @book.save
+    book = Book.new(book_params)
+    if book.save
+      # regst user's book list
+      current_user.regist_books.build(book.id).save
       redirect_to books_path, flash: { notice: 'success subscribe your book!' }
     else
       render :new

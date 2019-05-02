@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  has_many :regist_books, dependent: :destroy
+  has_many :books, through: :regist_books
+
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :omniauthable
 
   def self.find_for_oauth(auth)
