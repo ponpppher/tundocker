@@ -7,6 +7,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @user.name = NameGen::NAME if @user.name.empty?
+    @user.name = NameGen::NAME if @user.name.blank?
   end
 end

@@ -2,6 +2,7 @@
 
 class BooksController < ApplicationController
   before_action :set_book, only: [:edit, :show, :update, :destroy]
+
   def index
     @books = current_user.books.order(updated_at: :desc)
   end

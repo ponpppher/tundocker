@@ -1,0 +1,15 @@
+<%= form_with(model: @recommend, local: true, url: choose_new_or_edit) do |f| %>
+  <div class='form_group'>
+    <%= f.label :name %>
+    <%= f.text_field :name, { class: 'form-control', placeholder: 'Group Name' } %>
+  </div>
+
+  <div class='form_group'>
+    <%= f.label :summary %>
+    <%= f.text_field :summary, { class: 'form-control', placeholder: 'Summary' } %>
+  </div>
+
+  <%= f.submit %>
+<% end %>
+
+<%= link_to "back to group page", recommends_path %>
