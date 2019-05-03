@@ -2,11 +2,15 @@
 
 <div class="border border-primary py-2">
   <p>created group</p>
-  <%= link_to 'make book group?', new_recommend_path, { class: 'btn btn-sm btn-primary' } %>
+  <%= link_to 'make new book group?', new_recommend_path, { class: 'btn btn-sm btn-primary' } %>
   <div class="card-deck">
     <% @recommend.each do |r| %>
       <div class="card" style="width: 200;">
-        <%= link_to r.name, recommend_path(r.id) %>
+        <p class="col-sm-6">
+          <%= link_to r.name, recommend_path(r.id) %>
+          <%= link_to 'edit' , edit_recommend_path(r.id), { class: 'btn btn-sm btn-info' } %>
+          <%= link_to 'delete' , recommend_path(r.id), { method: :delete, class: 'btn btn-sm btn-danger' } %>
+        </p>
         name: <%= r.name %><br />
         summary: <%= r.summary.truncate(20) %><br />
         fav: Number of fav

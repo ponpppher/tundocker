@@ -1,2 +1,12 @@
-<h1>Recommend#show</h1>
-<p>Find me in app/views/recommend/show.html.erb</p>
+<h2>Book Group</h2>
+<div lass="d-flex flex-column">
+  <div>
+    Author: <%= @user.name %>
+  </div>
+  <div>
+    GroupNmae: <%= @recommend.name %>
+  </div>
+  <div>
+    Summary: <%= @recommend.summary %>
+  </div>
+</div>

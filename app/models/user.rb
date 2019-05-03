@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  module NameGen
+    (NAME = 'no name').freeze
+  end
+
   has_many :regist_books, dependent: :destroy
   has_many :books, through: :regist_books
   has_many :recommends, dependent: :destroy
@@ -18,6 +22,11 @@ class User < ApplicationRecord
       username: auth.info.nickname,
       password: Devise.friendly_token[0, 20]
     )
+    user
+  end
+
+  def self.safe_name(user)
+    user.name = NameGen::NAME if user.name.blank?
     user
   end
 end

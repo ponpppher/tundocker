@@ -9,7 +9,9 @@ class RecommendsController < ApplicationController
     # return favorite group here
   end
 
-  def show; end
+  def show
+    @user = User.safe_name(current_user)
+  end
 
   def new
     @recommend = Recommend.new
