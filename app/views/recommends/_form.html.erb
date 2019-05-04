@@ -9,7 +9,34 @@
     <%= f.text_field :summary, { class: 'form-control', placeholder: 'Summary' } %>
   </div>
 
+  <%= field_set_tag 'books' do %>
+    <% @recommend.group_books.each do |book| %>
+      <%= fields_for book do |b| %>
+      <div class="form-row">
+        <div class='form-group col-sm-2'>
+          <%= b.label :title %>
+          <%= b.text_field :title, { class: 'form-control' } %>
+        </div>
+        <div class='form-group'>
+          <%= b.label :publish_on %>
+          <%= b.date_field :publish_on, { class: 'form-control col-mb-6' } %>
+        </div>
+        <div class='form-group col-sm-1'>
+          <%= b.label :sheets %>
+          <%= b.number_field :sheets, { class: 'form-control' } %>
+        </div>
+        <div class='form-group col-sm-1'>
+          <%= b.label :price %>
+          <%= b.number_field :price, { class: 'form-control' } %>
+        </div>
+        <div class='form-group'>
+          <%= b.label :image %><br />
+          <%= b.file_field :image, { class: 'form-controle-file' } %>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+  <% end %>
+
   <%= f.submit %>
 <% end %>
-
-<%= link_to "back to group page", recommends_path %>

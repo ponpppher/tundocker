@@ -1,5 +1,7 @@
 <h2>Book Group</h2>
-<div lass="d-flex flex-column">
+<div lass="d-flex flex-column card">
+  <%= link_to 'edit', edit_recommend_path(@recommend.id), { class: 'btn btn-sm btn-info' } %>
+  <%= link_to 'delete', recommend_path(@recommend.id), {method: :delete, class: 'btn btn-sm btn-danger' } %>
   <div>
     Author: <%= @user.name %>
   </div>
@@ -10,3 +12,27 @@
     Summary: <%= @recommend.summary %>
   </div>
 </div>
+
+<% unless @groups.exists? %>
+  no book registrated
+  <br />
+<% else %>
+  <% @groups.each do |g| %>
+    <div class="card bg-light" style="max-width: 15rem;">
+      <div class="card-body">
+        <h4 class="card-title">
+          book title: <%= g.book.title %>
+        </h4>
+        <%= link_to 'more', book_path(g.book.id), { class: 'btn btn-sm btn-info' } %>
+        <div>
+          price: <%= g.book.price %>
+        </div>
+        <p class="card-text">
+          description: <%= g.description %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
+<%= link_to 'back to book group', recommends_path %>

@@ -1,0 +1,13 @@
+class CreateGroups < ActiveRecord::Migration[5.2]
+  def change
+    create_table :groups do |t|
+      t.references :recommend, foreign_key: true, null: false
+      t.references :book, foreign_key: true, null: false
+      t.string :description, comment: "登録した本の詳細文"
+
+      t.timestamps
+    end
+
+    add_index :groups, [:recommend_id, :book_id], unique: true
+  end
+end

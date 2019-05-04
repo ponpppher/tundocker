@@ -3,9 +3,13 @@
 <div>
   name: <%= @user.name %>
 </div>
-<div>
-  email: <%= @user.email %>
-</div>
+
+<% if @user.provider.blank? %>
+  <div>
+    email: <%= @user.email %>
+  </div>
+<% end %>
+
 <div>
   start at: <%= @user.created_at %>
 </div>

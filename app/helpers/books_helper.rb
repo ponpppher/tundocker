@@ -8,4 +8,8 @@ module BooksHelper
       books_path
     end
   end
+
+  def is_regist?(book)
+    current_user.regist_books.find_by(book_id: book.id)
+  end
 end

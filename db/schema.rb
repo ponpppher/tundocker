@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_02_190447) do
+ActiveRecord::Schema.define(version: 2019_05_03_152110) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(version: 2019_05_02_190447) do
     t.string "image", comment: "本のサムネイル"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.bigint "recommend_id", null: false
+    t.bigint "book_id", null: false
+    t.string "description", comment: "登録した本の詳細文"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_groups_on_book_id"
+    t.index ["recommend_id", "book_id"], name: "index_groups_on_recommend_id_and_book_id", unique: true
+    t.index ["recommend_id"], name: "index_groups_on_recommend_id"
   end
 
   create_table "recommends", force: :cascade do |t|
@@ -60,6 +71,8 @@ ActiveRecord::Schema.define(version: 2019_05_02_190447) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "groups", "books"
+  add_foreign_key "groups", "recommends"
   add_foreign_key "recommends", "users"
   add_foreign_key "regist_books", "books"
   add_foreign_key "regist_books", "users"

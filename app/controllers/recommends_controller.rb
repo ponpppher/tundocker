@@ -10,11 +10,20 @@ class RecommendsController < ApplicationController
   end
 
   def show
+    @groups = @recommend.groups
     @user = User.safe_name(current_user)
   end
 
   def new
     @recommend = Recommend.new
+
+    # set group instance
+    # @recommend.groups.build
+
+    # set book instance
+    3.times do
+      @recommend.group_books.build
+    end
   end
 
   def create
@@ -27,7 +36,9 @@ class RecommendsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    @recommend.groups.build
+  end
 
   def update
     if @recommend.update(recommend_params)
@@ -47,7 +58,18 @@ class RecommendsController < ApplicationController
 private
 
   def recommend_params
-    params.require(:recommend).permit(:name, :summary)
+    params.require(:recommend).permit(
+      :name,
+      :summary,
+      group_books_attributes: [
+        :id,
+        :title,
+        :publish_on,
+        :price,
+        :sheets,
+        :image
+      ]
+    )
   end
 
   def set_recommend
