@@ -1,0 +1,13 @@
+<%= form_with(model: @article, local:true, url: article_choose_new_or_edit) do |f| %>
+  <div class="form-group">
+    <%= f.label :title, "Title" %>
+    <%= f.text_field :title, {class: 'form-control', placeholder: 'Tile'} %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :body, "input area"%>
+    <%= f.text_area :body, {class: 'form-control'} %>
+  </div>
+
+  <%= f.submit %>
+<% end %>

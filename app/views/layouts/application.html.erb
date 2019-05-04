@@ -14,7 +14,7 @@
       <nav>
         <% if user_signed_in? %>
           <div class="d-flex justify-content-end">
-            <% if current_user.name.empty? %>
+            <% if current_user.name.blank? %>
               <strong><%= link_to "No Name User", user_path(current_user.id) %></strong>
             <% else %>
               <strong><%= link_to current_user.name, user_path(current_user.id) %></strong>

@@ -10,14 +10,28 @@
 </div>
 
 <% if @books.exists? %>
-  <div class="card-deck">
+  <div class="card-deck" style="width: 50rem">
     <% @books.each do |book| %>
-      <div class="card" style="width: 200;">
-        <%= link_to image_tag(book.image.to_s, :size => '100x90'), book_path(book.id), { class: "card-img-top" } %>
+      <div class="card">
+        <div class="d-flex">
+          <%= link_to image_tag(book.image.to_s, :size => '80x75'), book_path(book.id) %>
+          <div class="flex-column">
+            <h4 class="card-title col-mb-4"><%= book.title %></h4>
+            <div>
+              <%= link_to "write", books_path, { class: "btn btn-sm btn-primary col-mb-1" } %>
+              <%= link_to "unregist", regist_book_path(book.id), { method: :delete, class: "btn btn-sm btn-danger col-mb-2" } %>
+            </div>
+          </div>
+        </div>
         <div class="card-body">
-          <h4 class="card-title"><%= book.title %></h4>
-          <%= link_to "write article", books_path, { class: "btn btn-sm btn-primary" } %>
-          <%= link_to "unregist this book", regist_book_path(book.id), { method: :delete, class: "btn btn-sm btn-danger" } %>
+          <% book_articles(book.id).each do |ar| %>
+            <div class="flex-column">
+              <%= link_to "#{ar.title}", article_path(ar.id) %>
+            </div>
+          <% end %>
+          <div class="d-flex justify-content-end">
+            <%= link_to 'more articles', books_path, { class: 'btn btn-sm btn-primary' } %>
+          </div>
         </div>
       </div>
     <% end %> 
