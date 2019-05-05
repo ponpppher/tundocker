@@ -13,7 +13,8 @@
     <div>
       Price: <%= @book.price %>yen
     </div>
-    <%= link_to "edit", edit_article_path(@article), { class: "btn btn-sm btn-primary col-mb-1" } %>
+    <%= link_to "edit", edit_book_article_path(@article), { class: "btn btn-sm btn-primary col-mb-1" } %>
+    <%= link_to "delete", book_article_path(@article), { method: :delete, class: "btn btn-sm btn-danger col-mb-1" } %>
   </div>
 </div>
 
