@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_02_150224) do
+ActiveRecord::Schema.define(version: 2019_05_04_180852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "articles", force: :cascade do |t|
+    t.string "title", null: false, comment: "記事のタイトル"
+    t.text "body", comment: "記事の本文"
+    t.bigint "book_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_articles_on_book_id"
+    t.index ["user_id", "book_id"], name: "index_articles_on_user_id_and_book_id"
+    t.index ["user_id"], name: "index_articles_on_user_id"
+  end
 
   create_table "books", force: :cascade do |t|
     t.string "title", null: false, comment: "本のタイトル"
@@ -51,6 +63,8 @@ ActiveRecord::Schema.define(version: 2019_05_02_150224) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "articles", "books"
+  add_foreign_key "articles", "users"
   add_foreign_key "regist_books", "books"
   add_foreign_key "regist_books", "users"
 end

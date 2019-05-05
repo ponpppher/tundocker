@@ -14,8 +14,10 @@ Rails.application.routes.draw do
     root to: 'homes#index', as: :unauthenticated #-> if user is not logged in
   end
 
-  resources :books
-  resources :articles
+  resources :books do
+    resources :articles
+  end
+
   resources :reccomends
   resources :regist_books, only: [:destroy]
 
