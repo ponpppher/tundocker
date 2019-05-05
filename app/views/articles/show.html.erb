@@ -1,0 +1,28 @@
+<div class="d-flex">
+  <div class="p-2">
+    <%= image_tag @book.image.to_s, :size => '80x80' %>
+  </div>
+  <div class="p-2">
+    <h5>Book Title: <%= @book.title %></h5>
+    <div>
+      Publish: <%= @book.publish_on %>
+    </div>
+    <div>
+      number of pages of book: <%= @book.sheets %>page
+    </div>
+    <div>
+      Price: <%= @book.price %>yen
+    </div>
+    <%= link_to "edit", edit_book_article_path(@article), { class: "btn btn-sm btn-primary col-mb-1" } %>
+    <%= link_to "delete", book_article_path(@article), { method: :delete, class: "btn btn-sm btn-danger col-mb-1" } %>
+  </div>
+</div>
+
+<div>
+  Title: <%= @article.title %>
+</div>
+<div>
+  Text: <%= @article.body %>
+</div>
+
+<%= link_to 'back to book list page', books_path %>
