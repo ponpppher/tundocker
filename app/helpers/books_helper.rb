@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module BooksHelper
-  def choose_new_or_edit
+  def book_choose_new_or_edit
     if action_name == 'edit'
       book_path
     else

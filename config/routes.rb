@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   resources :recommends
   resources :regist_books, only: [:create, :destroy]
-# resources :regist_books, only: [:destroy]
+  # resources :regist_books, only: [:destroy]
   resources :groups, only: [:create, :destroy]
   resources :tags, only: [:new, :create, :destroy]
 end

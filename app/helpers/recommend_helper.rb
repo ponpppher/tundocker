@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module RecommendHelper
-  def choose_new_or_edit
+  def recommend_choose_new_or_edit
     if action_name == 'edit'
       recommend_path
     else
