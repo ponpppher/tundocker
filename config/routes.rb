@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+
   # callback routing
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
@@ -15,7 +16,9 @@ Rails.application.routes.draw do
   end
 
   resources :books do
-    resources :articles
+    resources :articles do
+      resources :comments
+    end
   end
 
   resources :reccomends
