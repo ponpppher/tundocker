@@ -16,14 +16,15 @@ class RecommendsController < ApplicationController
 
   def new
     @recommend = Recommend.new
+    @recommend.groups.build
+    #@recommend.books.build
+    @recommend.group_books.build
 
-    # set group instance
-    # @recommend.groups.build
-
+    # @recommend = @recommend.groups.build
     # set book instance
-    3.times do
-      @recommend.group_books.build
-    end
+    #3.times do
+    #  @recommend.group_books.build
+    #end
   end
 
   def create
@@ -50,7 +51,7 @@ class RecommendsController < ApplicationController
     end
   end
 
-  def destroy
+  def destro
     @recommend.destroy
     redirect_to recommends_path, flash: { notice: 'group deleted' }
   end
@@ -61,13 +62,30 @@ private
     params.require(:recommend).permit(
       :name,
       :summary,
-      group_books_attributes: [
+      groups_attributes: [
         :id,
-        :title,
-        :publish_on,
-        :price,
-        :sheets,
-        :image
+        :_destroy,
+        :recommend_id,
+        :book_id,
+        :description,
+#        books: [
+#          :id,
+#          :_destroy,
+#          :title,
+#          :publish_on,
+#          :sheets,
+#          :price,
+#          :image,
+#        ]
+      ],
+      group_books_attributes: [
+          :id,
+          :_destroy,
+          :title,
+          :publish_on,
+          :sheets,
+          :price,
+          :image,
       ]
     )
   end

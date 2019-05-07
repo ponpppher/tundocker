@@ -9,10 +9,16 @@
     <%= f.text_field :summary, { class: 'form-control', placeholder: 'Summary' } %>
   </div>
 
-  <%= field_set_tag 'books' do %>
-    <% @recommend.group_books.each do |book| %>
-      <%= fields_for book do |b| %>
-      <div class="form-row">
+<% if false %>
+  <div class='form_group'>
+  <%= f.fields_for :groups do |g| %>
+    <div class="form-row">
+      <div class='form-group col-sm-2'>
+        <%= g.label :description %>
+        <%= g.text_field :description, { class: 'form-control' } %>
+      </div>
+        <%= g.hidden_field :id %>
+      <%= g.fields_for :books do |b| %>
         <div class='form-group col-sm-2'>
           <%= b.label :title %>
           <%= b.text_field :title, { class: 'form-control' } %>
@@ -33,10 +39,25 @@
           <%= b.label :image %><br />
           <%= b.file_field :image, { class: 'form-controle-file' } %>
         </div>
-      </div>
+        <%= b.hidden_field :id %>
       <% end %>
-    <% end %>
+    </div>
   <% end %>
+  </div>
+<% end %>
+      <%= f.fields_for :groups do |b| %>
+        <div class='form-group col-sm-2'>
+          <%= b.label :description %>
+          <%= b.text_field :description , { class: 'form-control' } %>
+        </div>
+      <% end %>
+
+      <%= f.fields_for :group_books do |b| %>
+        <div class='form-group col-sm-2'>
+          <%= b.label :title %>
+          <%= b.text_field :title, { class: 'form-control' } %>
+        </div>
+      <% end %>
 
   <%= f.submit %>
 <% end %>
