@@ -17,8 +17,8 @@ class RecommendsController < ApplicationController
   def new
     @recommend = Recommend.new
     @recommend.groups.build
-    #@recommend.books.build
-    @recommend.group_books.build
+    @recommend.books.build
+    #@recommend.group_books.build
 
     # @recommend = @recommend.groups.build
     # set book instance
@@ -28,13 +28,29 @@ class RecommendsController < ApplicationController
   end
 
   def create
-    @recommend = current_user.recommends.build(recommend_params)
+#    puts "params: #{recommend_params}"
+#    puts "groups_param: #{recommend_params[:groups_attributes]}"
+#    @recommend = current_user.recommends.new.groups.build(recommend_params[:groups_attributes][0])
+#    puts "build: #{@recommend}"
+#    # @recommend = current_user.recommends.build( { name: recommend_params[:recommend][:name], summary: recommend_params[:recommend][:summary] } )
+#    book = Book.new(recommend_params[:books_attributes][0])
+#    puts "book: #{book.title}"
+#    @recommend[:book_id] = book.id
+#    
+#    puts "rec: #{@recommend.first.description}"
+#    @recommend = current_user.recommends.new(recommend_params)
+#    @recommend.groups.build(recommend_params[:groups_attributes][0])
+#    @recommend.groups[:book] << Book.new([:books_attributes][0])
+
+    #@recommend.books << recommend_params[:recommend][:books_attributes]
     if @recommend.save
       redirect_to recommends_path, flash: { notice: 'save your group' }
     else
-      flash[:notice] = 'failed save group'
+      flash[:notice] = "#{@recommend.errors.full_messages}"
+      #flash[:notice] = 'failed save group'
       render :new
     end
+    
   end
 
   def edit
@@ -77,8 +93,9 @@ private
 #          :price,
 #          :image,
 #        ]
+        books: []
       ],
-      group_books_attributes: [
+      books_attributes: [
           :id,
           :_destroy,
           :title,

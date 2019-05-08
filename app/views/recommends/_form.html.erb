@@ -52,11 +52,12 @@
         </div>
       <% end %>
 
-      <%= f.fields_for :group_books do |b| %>
+      <%= f.fields_for :books do |b| %>
         <div class='form-group col-sm-2'>
           <%= b.label :title %>
           <%= b.text_field :title, { class: 'form-control' } %>
         </div>
+        <%= b.hidden_field :id %>
       <% end %>
 
   <%= f.submit %>

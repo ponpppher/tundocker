@@ -38,8 +38,8 @@ ActiveRecord::Schema.define(version: 2019_05_04_180852) do
   end
 
   create_table "groups", force: :cascade do |t|
-    t.bigint "recommend_id", null: false
-    t.bigint "book_id", null: false
+    t.bigint "recommend_id"
+    t.bigint "book_id"
     t.string "description", comment: "登録した本の詳細文"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -51,15 +51,15 @@ ActiveRecord::Schema.define(version: 2019_05_04_180852) do
   create_table "recommends", force: :cascade do |t|
     t.string "name", null: false, comment: "グループ名"
     t.text "summary", null: false, comment: "概要"
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_recommends_on_user_id"
   end
 
   create_table "regist_books", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "book_id", null: false
+    t.bigint "user_id"
+    t.bigint "book_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["book_id"], name: "index_regist_books_on_book_id"
