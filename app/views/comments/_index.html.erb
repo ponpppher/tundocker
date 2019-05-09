@@ -1,0 +1,12 @@
+<ul>
+  <% comments.each do |comment| %>
+    <% if comment.id.present? %>
+      <li>
+        <p>
+          <%= comment.content %>
+          <%= link_to "del", book_article_comment_path(article_id: article.id, id: comment.id), { method: :delete, class: "btn btn-sm btn-danger" } %>
+        </p>
+      </li>
+    <% end %>
+  <% end %>
+</ul>

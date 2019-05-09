@@ -25,4 +25,10 @@
   Text: <%= @article.body %>
 </div>
 
+<div id="comments_area">
+  <h4>comments</h4>
+  <%= render partial: 'comments/index', locals: { comments: @comments, article: @article } %>
+</div>
+<%= render partial: 'comments/form', locals: { book: @book, comment: @comment, article: @article } %>
+
 <%= link_to 'back to book list page', books_path %>

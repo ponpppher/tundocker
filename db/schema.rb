@@ -38,8 +38,8 @@ ActiveRecord::Schema.define(version: 2019_05_07_002907) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "article_id", null: false
+    t.bigint "user_id"
+    t.bigint "article_id"
     t.text "content", comment: "コメント本文"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
