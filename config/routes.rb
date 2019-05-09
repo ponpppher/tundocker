@@ -15,7 +15,9 @@ Rails.application.routes.draw do
   end
 
   resources :books do
-    resources :articles
+    resources :articles do
+      resources :comments, only: [:create, :destroy]
+    end
   end
 
   resources :reccomends
