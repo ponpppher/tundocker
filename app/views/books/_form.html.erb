@@ -23,6 +23,8 @@
     <%= f.file_field :image %>
   </div>
   <div class="form-group">
+    <%= f.label :tag_list %>
+    <%= f.text_field :tag_list, { value: @book.tag_list.join(','), class: "form-control" } %>
   </div>
 
   <%= f.submit %>

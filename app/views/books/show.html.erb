@@ -1,7 +1,7 @@
 <h1>Book detail</h1>
 
 <h4><%= @book.title %></h4>
-<%= link_to "edit", edit_book_article_path(@book.id), { class: "btn btn-primary btn-sm" } %>
+<%= link_to "edit", edit_book_path(@book.id), { class: "btn btn-primary btn-sm" } %>
 <%= link_to "delete", book_path(@book.id), { method: :delete,  class: "btn btn-danger btn-sm" } %>
 <div class="d-flex bd-hightlight">
   <div class="p-2 bd-hightlight">
@@ -16,6 +16,13 @@
     </div>
     <div>
       Price: <%= @book.price %>yen
+    </div>
+    <div>
+      <% if @book.tag_list.present? %>
+        tags: <%= render 'books/tag_list', tag_list: @book.tag_list %>
+      <% else %>
+        tags: no tags
+      <% end %>
     </div>
   </div>
 </div>
