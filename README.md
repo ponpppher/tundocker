@@ -62,3 +62,4 @@ https://docs.google.com/spreadsheets/d/1pXMDRlHGCzki-XH-6Krt-7bfg5JN9tx6vi7zmyai
 * redcarpet
 * coderay
 * rubocop
+* acts-as-taggable-on
