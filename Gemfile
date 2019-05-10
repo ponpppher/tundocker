@@ -32,6 +32,9 @@ gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem 'rails_autolink'
 
+# tag generate
+gem 'acts-as-taggable-on', '~> 6.0'
+
 # deploy
 gem 'capistrano-rails', group: :development
 
