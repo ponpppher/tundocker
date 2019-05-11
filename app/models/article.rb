@@ -13,7 +13,8 @@ class Article < ApplicationRecord
   end
 
   def unfav(user)
-    article_fav.find_by(user_id: user.id).destroy
+    fav = article_fav.find_by(user_id: user.id)
+    fav.destroy
   end
 
   def faved?(user)
