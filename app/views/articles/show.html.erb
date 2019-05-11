@@ -3,7 +3,9 @@
     <%= image_tag @book.image.to_s, :size => '80x80' %>
   </div>
   <div class="p-2">
-    <h5>Book Title: <%= @book.title %></h5>
+    <h5>
+    Book Title: <%= @book.title %>
+    </h5>
     <div>
       Publish: <%= @book.publish_on %>
     </div>
@@ -20,6 +22,7 @@
 
 <div>
   Title: <%= @article.title %>
+  <%= render 'favs/fav', article: @article %>
 </div>
 <div>
   Text: <%= @article.body %>
