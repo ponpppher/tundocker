@@ -1,0 +1,7 @@
+<% if !article.faved?(current_user) %>
+  <%= link_to article_favs_path(id: "#{article.id}"), { method: :post, class: "fav fa fa-heart-o", remote: true } do %>
+  <% end %>
+<% else %>
+  <%= link_to(article_fav_path(article), method: :delete, class: "fav fa fa-heart", remote: true ) do %>
+  <% end %>
+<% end %>

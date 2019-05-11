@@ -1,6 +1,7 @@
 <h3>
   <%= link_to image_tag('logo.png', :size => '100x90'), books_path %>
   Book index
+  <%= fa_icon("home 1g", text: "home")%>
 </h3>
 
 <div class="page title">
@@ -18,7 +19,7 @@
           <div class="flex-column">
             <h4 class="card-title col-mb-4"><%= book.title %></h4>
             <div>
-              <%= link_to "write", new_book_article_path(book.id), { class: "btn btn-sm btn-primary col-mb-1" } %>
+              <%= link_to "write", new_book_article_path(book.id), { class: "btn btn-sm btn-primary col-mb-1 fa fa-pencil" } %>
               <%= link_to "unregist", regist_book_path(book.id), { method: :delete, class: "btn btn-sm btn-danger col-mb-2" } %>
             </div>
           </div>
@@ -26,7 +27,7 @@
         <div class="card-body">
           <% book_articles(book.id).each do |ar| %>
             <div class="flex-column">
-              <%= link_to "#{ar.title}", book_article_path(id: ar.id, book_id: book.id) %>
+              <%= link_to " #{ar.title}", book_article_path(id: ar.id, book_id: book.id), { class:"fa fa-book" } %>
             </div>
           <% end %>
 

@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :article_favs, only: [:create, :destroy]
+
   resources :reccomends
   resources :regist_books, only: [:destroy]
 
