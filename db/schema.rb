@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 2019_05_04_180852) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["book_id"], name: "index_groups_on_book_id"
-    t.index ["recommend_id", "book_id"], name: "index_groups_on_recommend_id_and_book_id", unique: true
     t.index ["recommend_id"], name: "index_groups_on_recommend_id"
   end
 

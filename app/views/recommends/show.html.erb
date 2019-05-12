@@ -13,11 +13,11 @@
   </div>
 </div>
 
-<% unless @groups.exists? %>
-  no book registrated
-  <br />
-<% else %>
-  <% @groups.each do |g| %>
+<% @groups.each do |g| %>
+  <% if g.book.nil? %>
+    no book registrated
+    <br />
+  <% else %>
     <div class="card bg-light" style="max-width: 15rem;">
       <div class="card-body">
         <h4 class="card-title">
@@ -27,9 +27,11 @@
         <div>
           price: <%= g.book.price %>
         </div>
+        <% if false %>
         <p class="card-text">
           description: <%= g.description %>
         </p>
+        <% end %>
       </div>
     </div>
   <% end %>

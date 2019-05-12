@@ -16,41 +16,26 @@ class RecommendsController < ApplicationController
 
   def new
     @recommend = Recommend.new
-    @recommend.groups.build
-    @recommend.books.build
-    #@recommend.group_books.build
+    # @recommend.groups.build
 
-    # @recommend = @recommend.groups.build
-    # set book instance
-    #3.times do
-    #  @recommend.group_books.build
-    #end
+    # require 3 books
+    3.times { @recommend.books.build }
   end
 
   def create
-#    puts "params: #{recommend_params}"
-#    puts "groups_param: #{recommend_params[:groups_attributes]}"
-#    @recommend = current_user.recommends.new.groups.build(recommend_params[:groups_attributes][0])
-#    puts "build: #{@recommend}"
-#    # @recommend = current_user.recommends.build( { name: recommend_params[:recommend][:name], summary: recommend_params[:recommend][:summary] } )
-#    book = Book.new(recommend_params[:books_attributes][0])
-#    puts "book: #{book.title}"
-#    @recommend[:book_id] = book.id
-#    
-#    puts "rec: #{@recommend.first.description}"
-#    @recommend = current_user.recommends.new(recommend_params)
-#    @recommend.groups.build(recommend_params[:groups_attributes][0])
-#    @recommend.groups[:book] << Book.new([:books_attributes][0])
+    @recommend = current_user.recommends.new(recommend_params)
 
-    #@recommend.books << recommend_params[:recommend][:books_attributes]
+    # ipnut groups
+    # @recommend.groups.each do |group|
+    #   @recommend.books.build(group.book)
+    # end
+
     if @recommend.save
       redirect_to recommends_path, flash: { notice: 'save your group' }
     else
-      flash[:notice] = "#{@recommend.errors.full_messages}"
-      #flash[:notice] = 'failed save group'
+      flash[:notice] = 'failed save group'
       render :new
     end
-    
   end
 
   def edit
@@ -67,7 +52,7 @@ class RecommendsController < ApplicationController
     end
   end
 
-  def destro
+  def destroy
     @recommend.destroy
     redirect_to recommends_path, flash: { notice: 'group deleted' }
   end
@@ -78,31 +63,14 @@ private
     params.require(:recommend).permit(
       :name,
       :summary,
-      groups_attributes: [
+      books_attributes: [
         :id,
         :_destroy,
-        :recommend_id,
-        :book_id,
-        :description,
-#        books: [
-#          :id,
-#          :_destroy,
-#          :title,
-#          :publish_on,
-#          :sheets,
-#          :price,
-#          :image,
-#        ]
-        books: []
-      ],
-      books_attributes: [
-          :id,
-          :_destroy,
-          :title,
-          :publish_on,
-          :sheets,
-          :price,
-          :image,
+        :title,
+        :publish_on,
+        :sheets,
+        :price,
+        :image
       ]
     )
   end

@@ -8,6 +8,6 @@ class CreateGroups < ActiveRecord::Migration[5.2]
       t.timestamps
     end
 
-    add_index :groups, [:recommend_id, :book_id], unique: true
+#    add_index :groups, [:recommend_id, :book_id], unique: true
   end
 end
