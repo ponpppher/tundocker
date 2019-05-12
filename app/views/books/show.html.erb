@@ -26,6 +26,13 @@
     </div>
   </div>
 </div>
+
+<% if is_regist?(@book) %>
+  <%= link_to "unregist this book", regist_book_path(@book.id), { method: :delete, class: "btn btn-sm btn-danger" } %>
+<% else %>
+  <%= link_to "regist this book", regist_books_path(book_id: @book.id), { method: :post, class: "btn btn-sm btn-info" } %>
+<% end %>
+
 <h2>Article Lists</h2>
 no impletemts<br/>
 

@@ -57,9 +57,28 @@ ActiveRecord::Schema.define(version: 2019_05_10_101214) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "groups", force: :cascade do |t|
+    t.bigint "recommend_id"
+    t.bigint "book_id"
+    t.string "description", comment: "登録した本の詳細文"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_groups_on_book_id"
+    t.index ["recommend_id"], name: "index_groups_on_recommend_id"
+  end
+
+  create_table "recommends", force: :cascade do |t|
+    t.string "name", null: false, comment: "グループ名"
+    t.text "summary", null: false, comment: "概要"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_recommends_on_user_id"
+  end
+
   create_table "regist_books", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "book_id", null: false
+    t.bigint "user_id"
+    t.bigint "book_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["book_id"], name: "index_regist_books_on_book_id"
@@ -114,6 +133,9 @@ ActiveRecord::Schema.define(version: 2019_05_10_101214) do
   add_foreign_key "articles", "users"
   add_foreign_key "comments", "articles"
   add_foreign_key "comments", "users"
+  add_foreign_key "groups", "books"
+  add_foreign_key "groups", "recommends"
+  add_foreign_key "recommends", "users"
   add_foreign_key "regist_books", "books"
   add_foreign_key "regist_books", "users"
 end

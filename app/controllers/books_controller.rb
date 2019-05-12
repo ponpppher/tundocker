@@ -2,6 +2,7 @@
 
 class BooksController < ApplicationController
   before_action :set_book, only: [:edit, :show, :update, :destroy]
+
   def index
     if params[:tag_name]
       @books = current_user.books.tagged_with(params[:tag_name].to_s)

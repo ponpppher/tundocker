@@ -46,6 +46,8 @@ gem 'ransack'
 gem 'omniauth'
 gem 'omniauth-twitter'
 
+gem 'cocoon'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'factory_bot_rails', '~> 4.11'
