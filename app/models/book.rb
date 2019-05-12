@@ -11,7 +11,6 @@ class Book < ApplicationRecord
 
   validates :title, presence: true
 
-
   # to user carrierwave
   mount_uploader :image, ImageUploader
 end
