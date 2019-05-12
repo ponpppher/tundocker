@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :books, through: :regist_books
   has_many :recommends, dependent: :destroy
   has_many :articles, dependent: :destroy
+  has_many :comments
+  has_many :article_fav, dependent: :destroy
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :omniauthable
 

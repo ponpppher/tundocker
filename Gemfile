@@ -13,11 +13,13 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'dotenv-rails'
+gem 'font-awesome-rails'
 
 # use javascript
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+gem 'jquery-rails'
 
 # encrypt
 gem 'bcrypt', '~> 3.1.7'
@@ -30,6 +32,9 @@ gem 'mini_magick', '~> 4.8'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem 'rails_autolink'
+
+# tag generate
+gem 'acts-as-taggable-on', '~> 6.0'
 
 # deploy
 gem 'capistrano-rails', group: :development

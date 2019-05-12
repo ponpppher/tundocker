@@ -3,7 +3,9 @@
     <%= image_tag @book.image.to_s, :size => '80x80' %>
   </div>
   <div class="p-2">
-    <h5>Book Title: <%= @book.title %></h5>
+    <h5>
+    Book Title: <%= @book.title %>
+    </h5>
     <div>
       Publish: <%= @book.publish_on %>
     </div>
@@ -20,9 +22,16 @@
 
 <div>
   Title: <%= @article.title %>
+  <%= render 'favs/fav', article: @article %>
 </div>
 <div>
   Text: <%= @article.body %>
 </div>
+
+<div id="comments_area">
+  <h4>comments</h4>
+  <%= render partial: 'comments/index', locals: { comments: @comments, article: @article } %>
+</div>
+<%= render partial: 'comments/form', locals: { book: @book, comment: @comment, article: @article } %>
 
 <%= link_to 'back to book list page', books_path %>

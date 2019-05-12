@@ -22,10 +22,12 @@
   - [x] 本の登録、編集、削除
   - [x] 本を自身の積読として登録、削除する
   - [ ] 本の検索
+  - [x] 本にタグをつける機能
 - 本の学習記録記事機能
-  - [ ] 記事の作成、編集、削除
-  - [ ] 記事にいいねをつける機能
+  - [x] 記事の作成、編集、削除
+  - [x] 記事にいいねをつける機能
   - [ ] 自身の学習記録の中で全文検索
+  - [x] 記事に対するコメントを書く機能
 - 本のリスト作成機能
   - [ ] リストの作成、編集、削除
   - [ ] リスト自体にいいねをつける機能
@@ -61,3 +63,5 @@ https://docs.google.com/spreadsheets/d/1pXMDRlHGCzki-XH-6Krt-7bfg5JN9tx6vi7zmyai
 * redcarpet
 * coderay
 * rubocop
+* acts-as-taggable-on
+* font-awesome-rails

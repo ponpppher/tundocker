@@ -9,7 +9,10 @@ class ArticlesController < ApplicationController
     # no implements
   end
 
-  def show; end
+  def show
+    @comments = @article.comments
+    @comment = @article.comments.build
+  end
 
   def new
     @article = Article.new

@@ -4,6 +4,11 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:edit, :show, :update, :destroy]
 
   def index
+    if params[:tag_name]
+      @books = current_user.books.tagged_with(params[:tag_name].to_s)
+      return
+    end
+
     @books = current_user.books.order(updated_at: :desc)
   end
 
@@ -42,7 +47,7 @@ class BooksController < ApplicationController
 private
 
   def book_params
-    params.require(:book).permit(:title, :publish_on, :sheets, :price, :image)
+    params.require(:book).permit(:title, :publish_on, :sheets, :price, :image, :tag_list)
   end
 
   def set_book

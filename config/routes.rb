@@ -15,12 +15,14 @@ Rails.application.routes.draw do
   end
 
   resources :books do
-    resources :articles
+    resources :articles do
+      resources :comments, only: [:create, :destroy]
+    end
   end
 
   resources :recommends
-  resources :regist_books, only: [:create, :destroy]
-  # resources :regist_books, only: [:destroy]
+  resources :article_favs, only: [:create, :destroy]
   resources :groups, only: [:create, :destroy]
+  resources :regist_books, only: [:create, :destroy]
   resources :tags, only: [:new, :create, :destroy]
 end
