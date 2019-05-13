@@ -5,6 +5,7 @@ class RecommendsController < ApplicationController
 
   def index
     @recommend = current_user.recommends
+    @favs = current_user.favs
 
     # return favorite group here
   end
