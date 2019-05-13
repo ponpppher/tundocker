@@ -6,9 +6,7 @@
   <div class="card-deck">
     <% @recommend.each do |r| %>
       <div class="card" style="width: 200;">
-        <p class="col-sm-6">
-          <%= link_to r.name, recommend_path(r.id) %>
-        </p>
+        <%= link_to r.name, recommend_path(r.id) %>
         name: <%= r.name %><br />
         summary: <%= r.summary.truncate(20) %><br />
         fav: Number of fav
@@ -21,11 +19,11 @@
 <div class="border border-danger py-2">
   <p>favorite group</p>
   <div class="card-deck">
-    <% @recommend.each do |r| %>
+    <% @favs.each do |fav| %>
       <div class="card" style="width: 200;">
-        <%= link_to r.name, recommend_path(r.id) %>
-        name: <%= r.name %><br />
-        summary: <%= r.summary.truncate(20) %><br />
+        <%= link_to fav.name, recommend_path(fav.id) %>
+        name: <%= fav.name %><br />
+        summary: <%= fav.summary.truncate(20) %><br />
         fav: Number of fav
       </div>
     <% end %>

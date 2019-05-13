@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_10_101214) do
+ActiveRecord::Schema.define(version: 2019_05_12_113758) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,16 @@ ActiveRecord::Schema.define(version: 2019_05_10_101214) do
     t.datetime "updated_at", null: false
     t.index ["book_id"], name: "index_groups_on_book_id"
     t.index ["recommend_id"], name: "index_groups_on_recommend_id"
+  end
+
+  create_table "recommend_favs", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "recommend_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recommend_id"], name: "index_recommend_favs_on_recommend_id"
+    t.index ["user_id", "recommend_id"], name: "index_recommend_favs_on_user_id_and_recommend_id", unique: true
+    t.index ["user_id"], name: "index_recommend_favs_on_user_id"
   end
 
   create_table "recommends", force: :cascade do |t|
@@ -135,6 +145,8 @@ ActiveRecord::Schema.define(version: 2019_05_10_101214) do
   add_foreign_key "comments", "users"
   add_foreign_key "groups", "books"
   add_foreign_key "groups", "recommends"
+  add_foreign_key "recommend_favs", "recommends"
+  add_foreign_key "recommend_favs", "users"
   add_foreign_key "recommends", "users"
   add_foreign_key "regist_books", "books"
   add_foreign_key "regist_books", "users"

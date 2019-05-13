@@ -12,7 +12,6 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require cocoon
 //= require turbolinks
 //= require_tree .
 //= require jquery
@@ -22,7 +21,7 @@
 *   switch favorite icon
 */
 $(function() {
-  $(document).on("ajax:success", ".fav", function(e) {
+  $(document).on("ajax:success", ".fav .rec_fav", function(e) {
     if ($('#' + e.detail[0]).hasClass('fa-heart')) {
       $('#' + e.detail[0]).removeClass('fa-heart').addClass('fa-heart-o');
     } else {

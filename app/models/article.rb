@@ -5,6 +5,7 @@ class Article < ApplicationRecord
   belongs_to :user
 
   has_many :comments, dependent: :destroy
+
   has_many :article_fav, dependent: :destroy
   has_many :fav_user, through: :article_fav, source: :user
 

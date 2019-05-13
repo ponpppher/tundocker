@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
   resources :recommends
   resources :article_favs, only: [:create, :destroy]
+  resources :recommend_favs, only: [:create, :destroy]
   resources :groups, only: [:create, :destroy]
   resources :regist_books, only: [:create, :destroy]
   resources :tags, only: [:new, :create, :destroy]
