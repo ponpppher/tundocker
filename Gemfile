@@ -41,6 +41,8 @@ gem 'capistrano-rails', group: :development
 
 # advanced function
 gem 'ransack'
+gem 'redcarpet', '~>2.3.0'
+gem 'coderay'
 
 # twitter login
 gem 'omniauth'
