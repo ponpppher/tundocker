@@ -1,0 +1,11 @@
+<span id="recommend_fav">
+  <% if !recommend.faved?(current_user) %>
+    <%= link_to recommend_favs_path(id: "#{recommend.id}"), { method: :post, class: "rec_fav", remote: true } do %>
+      <%= fa_icon("heart-o", id: "#{recommend.id}" )%>
+    <% end %>
+  <% else %>
+    <%= link_to recommend_fav_path(recommend), { method: :delete, class: "rec_fav", remote: true } do %>
+      <%= fa_icon("heart", id: "#{recommend.id}" )%>
+    <% end %>
+  <% end %>
+</span>
