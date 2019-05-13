@@ -25,7 +25,7 @@
   <%= render 'favs/fav', article: @article %>
 </div>
 <div>
-  Text: <%= @article.body %>
+  Text: <%= markdown(@article.body).html_safe %>
 </div>
 
 <div id="comments_area">

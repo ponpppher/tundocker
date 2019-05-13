@@ -41,6 +41,8 @@ gem 'capistrano-rails', group: :development
 
 # advanced function
 gem 'ransack'
+gem 'redcarpet', '~>2.3.0'
+gem 'coderay'
 
 # twitter login
 gem 'omniauth'
@@ -60,6 +62,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'faker'
   gem 'bullet'
+
   # aggregate migration files
   gem 'squasher'
 
