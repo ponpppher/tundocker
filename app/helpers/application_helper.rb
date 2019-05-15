@@ -1,30 +1,30 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
-  require "redcarpet"
-  require "coderay"
+  require 'redcarpet'
+  require 'coderay'
   def current_user?(user)
     user == current_user
   end
 
   class HTMLwithCoderay < Redcarpet::Render::HTML
     def block_code(code, language)
-      language = language.split(';')[0]
+      language = language.split(';')[0].to_s
 
-      case language.to_s
-      when 'rb'
-        lang = 'ruby'
-      when 'yml'
-        lang = 'yaml'
-      when 'css'
-        lang = 'css'
-      when 'html'
-        lang = 'html'
-      when ''
-        lang = 'md'
-      else
-        lang = language
-      end
+      lang =  case language
+              when 'rb'
+                'ruby'
+              when 'yml'
+                'yaml'
+              when 'css'
+                'css'
+              when 'html'
+                'html'
+              when ''
+                'md'
+              else
+                language
+              end
 
       CodeRay.scan(code, lang).div
     end
