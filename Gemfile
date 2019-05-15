@@ -13,7 +13,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'dotenv-rails'
-gem 'font-awesome-rails'
+gem 'font-awesome-sass', '~> 5.8.1'
 
 # use javascript
 gem 'coffee-rails', '~> 4.2'
@@ -26,7 +26,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 # basic util
 gem 'devise', '>= 4.6.0'
-gem 'bootstrap'
+gem 'bootstrap', '~> 4.3.1'
 gem 'carrierwave'
 gem 'mini_magick', '~> 4.8'
 gem 'kaminari'
