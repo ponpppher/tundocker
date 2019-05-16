@@ -1,8 +1,10 @@
 <h1>Book detail</h1>
 
-<h4><%= @book.title %></h4>
-<%= link_to "edit", edit_book_path(@book.id), { class: "btn btn-primary btn-sm" } %>
-<%= link_to "delete", book_path(@book.id), { method: :delete,  class: "btn btn-danger btn-sm" } %>
+<h4>
+  <%= @book.title %>
+  <%= link_to "edit", edit_book_path(@book.id), { class: "btn btn-primary btn-sm" } %>
+  <%= link_to "delete", book_path(@book.id), { method: :delete,  class: "btn btn-danger btn-sm" } %>
+</h4>
 <div class="d-flex bd-hightlight">
   <div class="p-2 bd-hightlight">
     <%= image_tag @book.image.to_s, :size => '180x180' %>
@@ -24,14 +26,15 @@
         tags: no tags
       <% end %>
     </div>
+    <div>
+      <% if is_regist?(@book) %>
+        <%= link_to "unregist this book", regist_book_path(@book.id), { method: :delete, class: "btn btn-sm btn-danger" } %>
+      <% else %>
+        <%= link_to "regist this book", regist_books_path(book_id: @book.id), { method: :post, class: "btn btn-sm btn-info" } %>
+      <% end %>
+    </div>
   </div>
 </div>
-
-<% if is_regist?(@book) %>
-  <%= link_to "unregist this book", regist_book_path(@book.id), { method: :delete, class: "btn btn-sm btn-danger" } %>
-<% else %>
-  <%= link_to "regist this book", regist_books_path(book_id: @book.id), { method: :post, class: "btn btn-sm btn-info" } %>
-<% end %>
 
 <h2>Article Lists</h2>
 no impletemts<br/>

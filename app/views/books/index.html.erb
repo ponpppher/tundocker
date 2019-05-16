@@ -17,7 +17,7 @@
           <div class="flex-column">
             <h4 class="card-title col-mb-4"><%= book.title %></h4>
             <div>
-              <%= link_to "write", new_book_article_path(book.id), { class: "btn btn-sm btn-primary col-mb-1 fa fa-pencil" } %>
+              <%= link_to "write", new_book_article_path(book.id), { class: "btn btn-sm btn-primary col-mb-1 fas fa-pen" } %>
               <%= link_to "unregist", regist_book_path(book.id), { method: :delete, class: "btn btn-sm btn-danger col-mb-2" } %>
             </div>
           </div>
@@ -39,5 +39,3 @@
 <% end %>
 
 <%= link_to "add new book", new_book_path, {class: :book_plus} %>
-
-<div>Logo made with <a href="https://www.designevo.com/en/" title="Free Online Logo Maker">DesignEvo</a></div>
