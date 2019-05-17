@@ -10,6 +10,35 @@
   }
 }
 
+/*
+* base css
+*/
+body {
+  background: asset-url('back_book.jpg') no-repeat fixed left bottom;
+  background-size: cover;
+  color: #151515;
+  text-align: center;
+
+  opacity: 1;
+}
+
+.home {
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 0.5;
+}
+
+h1 {
+  font-size: 5rem;
+  color: #fff;
+}
+
+
+.title-text::before,
+.title-text::after{
+  content: '';
+  vertical-align: middle;
+}
+
 .b-date {
   display: inline-block;
   width: auto;

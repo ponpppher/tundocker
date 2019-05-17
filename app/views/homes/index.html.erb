@@ -1,135 +1,97 @@
-landling page
-<br />
-<a href="books">my book</a>
-
-<% if user_signed_in? %>
-  <h1>こんにちは、<%= current_user.username %>さん</h1>
-  <p>ユーザー用ページです。</p>
-<% else %>
-  <p>ログインしてください</p>
-  <%= link_to "login", user_session_path %>
-  <%= link_to "sign_up", new_registration_path(:user) %>
-<% end %>
 
 <section class="home">
+  <%= render 'notify'%>
   <p class="title-text">
     積んどるか？
   </p>
+  <h1>
+    Tundocker
+  </h1>
+  <p class="title-content">
+    いつかやろうとしてませんかその積読、私と一緒に積読解消しませんか？
+    Learn Faster, make Learning cicle, share our tundoku
+  </p>
+
+  <% if user_signed_in? %>
+    <%= link_to 'study now', books_path, { class: "btn btn-lg_m_t_10", type: :button } %>
+  <% else %>
+    <%= link_to "Regist Now", new_registration_path(:user), { class: 'btn btn-lg_m_t_10', type: :button } %>
+  <% end %>
 </section>
-<div>
-  <%= link_to 'seiken', books_path %>
-</div>
-<div>
-  <%= link_to 'seiken', books_path %>
-</div>
-<div>
-  <%= link_to 'seiken', books_path %>
-</div>
-<div>
-  <%= link_to 'seiken', books_path %>
-</div>
-<div>
-  <%= link_to 'seiken', books_path %>
-</div>
-<div>
-  <%= link_to 'seiken', books_path %>
-</div>
-<div>
-  <%= link_to 'seiken', books_path %>
-</div>
-<div>
-  <%= link_to 'seiken', books_path %>
-</div>
-<div>
-  <%= link_to 'seiken', books_path %>
-</div>
-<div>
-  <%= link_to 'seiken', books_path %>
-</div>
-<div>
-  <%= link_to 'seiken', books_path %>
-</div>
-<div>
-  <%= link_to 'seiken', books_path %>
-</div>
-<div>
-  <%= link_to 'seiken', books_path %>
-</div>
-<div>
-  <%= link_to 'seiken', books_path %>
-</div>
-<div>
-  <%= link_to 'seiken', books_path %>
-</div>
-<div>
-  <%= link_to 'seiken', books_path %>
-</div>
-<div>
-  <%= link_to 'seiken', books_path %>
-</div>
-<div>
-  <%= link_to 'seiken', books_path %>
-</div>
-<div>
-  <%= link_to 'seiken', books_path %>
-</div>
-<div>
-  <%= link_to 'seiken', books_path %>
-</div>
-<div id="about">
-about
-</div>
-<div>
-  <%= link_to 'seiken', books_path %>
-</div>
-<div>
-  <%= link_to 'seiken', books_path %>
-</div>
-<div>
-  <%= link_to 'seiken', books_path %>
-</div>
-<div>
-  <%= link_to 'seiken', books_path %>
-</div>
-<div>
-  <%= link_to 'seiken', books_path %>
-</div>
-<div>
-  <%= link_to 'seiken', books_path %>
-</div>
-<div>
-  <%= link_to 'seiken', books_path %>
-</div>
-<div>
-  <%= link_to 'seiken', books_path %>
-</div>
-<div>
-  <%= link_to 'seiken', books_path %>
-</div>
-<div>
-  <%= link_to 'seiken', books_path %>
-</div>
-<div>
-  <%= link_to 'seiken', books_path %>
-</div>
-<div>
-  <%= link_to 'seiken', books_path %>
-</div>
-<div>
-  <%= link_to 'seiken', books_path %>
-</div>
-<div>
-  <%= link_to 'seiken', books_path %>
-</div>
-<div>
-  <%= link_to 'seiken', books_path %>
-</div>
-<div>
-  <%= link_to 'seiken', books_path %>
-</div>
-<div>
-  <%= link_to 'seiken', books_path %>
-</div>
-<div>
-  <%= link_to 'seiken', books_path %>
-</div>
+
+<section class="feature">
+  <p>
+  feature descripton
+  </p>
+</section>
+<section class="feature">
+  <p>
+  feature descripton
+  </p>
+</section>
+<section class="feature">
+  <p>
+  feature descripton
+  </p>
+</section>
+<section class="feature">
+  <p>
+  feature descripton
+  </p>
+</section>
+<section class="feature">
+  <p>
+  feature descripton
+  </p>
+</section>
+<section class="feature">
+  <p>
+  feature descripton
+  </p>
+</section>
+<section class="feature">
+  <p>
+  feature descripton
+  </p>
+</section>
+<section class="feature">
+  <p>
+  feature descripton
+  </p>
+</section>
+<section class="feature">
+  <p>
+  feature descripton
+  </p>
+</section>
+<section class="feature">
+  <p>
+  feature descripton
+  </p>
+</section>
+<section class="feature">
+  <p>
+  feature descripton
+  </p>
+</section>
+<section class="feature">
+  <p>
+  feature descripton
+  </p>
+</section>
+
+<section class="feature">
+  <p>
+  feature descripton
+  </p>
+</section>
+<section class="about" id="about">
+  <p>
+  about descripton
+  </p>
+</section>
+<section class="feature">
+  <p>
+  feature desc
+  </p>
+</section>
