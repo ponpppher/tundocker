@@ -1,24 +1,43 @@
-<h1>User profile</h1>
+<div class="container profile-body">
+  <h1>User profile</h1>
+  <div class="row">
 
-<div>
-  name: <%= @user.name %>
-</div>
+    <div class="col-lg-5">
+      <div class="media">
+        <a class="float-left" href="#">
+          <img class="media-object dp rounded-circle" src="<%= asset_url("girl.png") %>" style="width: 100px;height:100px;">
+        </a>
+        <div class="media-body">
+          <h4 class="media-heading">
+            name: <%= @user.name %>
+          </h4>
+          <% unless @user.provider.blank? %>
+            joined via <%= @user.provider %>
+          <% else %>
+            joined via email
+            <div>
+              email: <%= @user.email %>
+            </div>
+          <% end %>
 
-<% if @user.provider.blank? %>
-  <div>
-    email: <%= @user.email %>
+          <div>
+            start at: <%= time_present(@user.created_at) %>
+          </div>
+          <hr style="m-8 mb-8">
+          <div>
+            <% unless current_user.provider? %>
+              <%= link_to 'プロフィール変更', edit_user_registration_path %>
+            <% else %>
+              <h3>Cancel my account</h3>
+
+              <p>Unhappy? <%= button_to "Cancel my account", registration_path(@user), data: { confirm: "Are you sure?" }, method: :delete %></p>
+            <% end %>
+          </div>
+          <div>
+            <%= link_to "back to book list", books_path %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-<% end %>
-
-<div>
-  start at: <%= @user.created_at %>
-</div>
-
-<br />
-
-<div>
-<%= link_to 'プロフィール変更', edit_user_registration_path %>
-</div>
-<div>
-<%= link_to "back to book list", books_path %>
 </div>
