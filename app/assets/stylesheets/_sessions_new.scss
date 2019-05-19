@@ -1,0 +1,32 @@
+
+.sessions_container {
+  align-content: center;
+}
+
+.card-login{
+  height: 360px;
+  width: 400px;
+}
+
+.social_icon span:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.remember input {
+  width: 20px;
+  height: 20px;
+  margin-left: 15px;
+  margin-right: 5px;
+}
+
+.login_btn {
+  color: black;
+  background-color: #FFC312;
+  width: 100px;
+}
+
+.login_btn:hover {
+  color: white;
+  background-color:blue;
+}

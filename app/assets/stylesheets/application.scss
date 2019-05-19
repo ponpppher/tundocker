@@ -1,5 +1,28 @@
 @import "bootstrap";
+@import "font-awesome-sprockets";
 @import "font-awesome";
+
+@import "homes", "sessions_new", "regist_new", "users/show", "books";
+
+
+@include media-breakpoint-down(xs) {
+  .container {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/*
+* base css
+*/
+body {
+  background: asset-url('back_book.jpg') no-repeat fixed left bottom;
+  background-size: cover;
+  color: #151515;
+  text-align: center;
+  opacity: 1;
+}
+
 
 .b-date {
   display: inline-block;
@@ -8,4 +31,9 @@
 
 .fa-heart {
   color: red;
+}
+
+footer {
+  background-color: #151515;
+  color: #fff;
 }

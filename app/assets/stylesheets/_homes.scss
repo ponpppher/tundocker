@@ -1,0 +1,84 @@
+// Place all the styles related to the Homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.home {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+}
+
+.home .title-text {
+  padding-top: 120px;
+}
+
+h1 {
+  font-size: 5rem;
+  padding-bottom: 20px;
+}
+
+.home .title-content {
+  color: #ff9;
+  line-height: 2rem;
+  font-weight: bold;
+}
+
+.home .start-button {
+  margin-bottom: 30px;
+}
+
+.about {
+  padding: 80px 30px;
+  background-color: #fff;
+}
+
+.about .heading {
+  letter-spacing: 2px;
+  font-size: 3rem;
+}
+
+.about-text {
+  margin: 30px 0;
+  line-height: 2.5;
+}
+
+.scene {
+  background-color: #383634;
+  padding: 80px 0;
+  opacity: 0.95;
+}
+
+.scene .heading {
+  font-size: 3rem;
+  padding-bottom: 20px;
+  color: #fff;
+}
+
+.no-padding {
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
+}
+
+.no-padding > .col,
+.no-padding > [class*="col-"] {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.akan-title {
+  color: #fff;
+}
+
+.akan-content {
+  color: #fff;
+  line-height: 2.5;
+}
+
+.second-akan-title {
+  color: #fff;
+}
+
+.second-akan-content {
+  color: #fff;
+  line-height: 2.5;
+}

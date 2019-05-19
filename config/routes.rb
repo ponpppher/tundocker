@@ -4,14 +4,11 @@ Rails.application.routes.draw do
   # callback routing
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  # default root path
-  root to: 'books#index'
-
   resources :users, only: [:show]
 
   unauthenticated :users do
     # landing page
-    root to: 'homes#index', as: :unauthenticated #-> if user is not logged in
+    root to: 'homes#index', as: :root #-> if user is not logged in
   end
 
   resources :books do
@@ -26,4 +23,7 @@ Rails.application.routes.draw do
   resources :groups, only: [:create, :destroy]
   resources :regist_books, only: [:create, :destroy]
   resources :tags, only: [:new, :create, :destroy]
+
+  # set letter opener
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end
