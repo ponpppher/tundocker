@@ -7,7 +7,7 @@
 
 <% if @books.exists? %>
 
-  <div class="card-deck"> 
+  <div class="card-columns"> 
 
     <% @books.each do |book| %>
 
@@ -17,17 +17,25 @@
 
           <div class="col-md-4">
             <%= link_to image_tag(book.image.to_s, :size => '100x80'), book_path(book.id), { class: 'card-img' } %>
-            <span class="badge badge-pill badge-success">Article</span> <%= book.articles.count %>
+            <span class="badge badge-pill badge-success small">Article</span> <%= book.articles.count %>
           </div>
 
           <div class="col-md-8">
             <div class="card-body">
-              <span class="badge badge-pill badge-warning">up</span>
-                <%= time_present(book.articles.last.updated_at) %>
+              <% if book.articles.present? %>
+                <span class="badge badge-pill badge-warning">up</span>
+                <span class="small"><%= time_present(book.articles.last.updated_at) %></span>
+              <% end %>
               <h4 class="card-title"><%= link_to book.title, book_path(book.id), { class: 'text-dark' } %></h4>
+              <hr>
               <div class="d-flex flex-column">
+                <% unless book.articles.present? %>
+                  <div class="mb-4">
+                    no article here!
+                  </div>
+                <% end %>
                 <% book_articles(book.id).each do |ar| %>
-                  <%= link_to " #{ar.title}", book_article_path(id: ar.id, book_id: book.id), { class:"fa fa-book p-2 card-text" } %>
+                  <%= link_to " #{ar.title}", book_article_path(id: ar.id, book_id: book.id), { class:"fa fa-book p-2 card-text small" } %>
                 <% end %>
                 <div class="justify-content-end">
                   <%= link_to "new", new_book_article_path(book.id), { class: "btn btn-sm btn-primary col-mb-1 fas fa-pen" } %>
@@ -43,15 +51,4 @@
 
     <% end %> 
   </div>
-<% end %>
-
-
-<% if false %>
-
-        <%= link_to image_tag(book.image.to_s, :size => '300x250'), book_path(book.id), { class: 'card text-white book-image' } %>
-  <div>
-    <%= link_to "write", new_book_article_path(book.id), { class: "btn btn-sm btn-primary col-mb-1 fas fa-pen" } %>
-    <%= link_to "unregist", regist_book_path(book.id), { method: :delete, class: "btn btn-sm btn-danger col-mb-2" } %>
-  </div>
-                  <%= link_to 'more articles', books_path, { class: 'btn btn-sm btn-primary' } %>
 <% end %>

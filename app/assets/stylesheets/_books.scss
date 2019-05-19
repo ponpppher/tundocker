@@ -2,10 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.card-wrap{
-  background-color:#000;
+.card {
+  max-width: 300px;
+  min-height: 175px;
 }
 
-.book-img:hover {
-  opacity: 0.3;
+.card-body {
+  height: 100%;
+}
+
+.card-columns {
+  columns: 4;
 }
