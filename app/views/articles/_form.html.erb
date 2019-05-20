@@ -1,13 +1,14 @@
 <%= form_with(model: [@book, @article], local:true, url: article_choose_new_or_edit) do |f| %>
   <div class="form-group">
-    <%= f.label :title, "Title" %>
+    <%= f.label :title, { class: 'sr-only' } %>
     <%= f.text_field :title, {class: 'form-control', placeholder: 'Tile'} %>
   </div>
-
-  <div class="form-group">
-    <%= f.label :body, "input area"%>
-    <%= f.text_area :body, {class: 'form-control'} %>
+  <div class="row">
+    <div class="form-group col-md-9">
+      <%= f.label :body, { class: 'sr-only' } %>
+      <%= f.text_area :body, {id: 'article_textarea', class: 'form-control', placeholder: 'input text here'} %>
+    </div>
+    <%= render 'markdown_guide', { class: 'col-md-3' } %>
   </div>
-
-  <%= f.submit %>
+  <%= f.submit( class: 'float-right btn btn-primary btn-submit' )%>
 <% end %>

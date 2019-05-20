@@ -2,7 +2,7 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-@import "homes", "sessions_new", "regist_new", "users/show", "books";
+@import "homes", "sessions_new", "regist_new", "users/show", "books", "articles";
 
 
 @include media-breakpoint-down(xs) {
