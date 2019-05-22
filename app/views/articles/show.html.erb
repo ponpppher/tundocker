@@ -1,37 +1,71 @@
-<div class="d-flex">
-  <div class="p-2">
-    <%= image_tag @book.image.to_s, :size => '80x80' %>
-  </div>
-  <div class="p-2">
-    <h5>
-    Book Title: <%= @book.title %>
-    </h5>
-    <div>
-      Publish: <%= @book.publish_on %>
+<div class="container bg-white">
+  <div class="d-flex">
+    <div class="col-lg-5">
+      <div class="media p-2" style="margin:0 auto;">
+        <%= link_to image_tag(@book.image.to_s, :size => '80x80'), book_path(@book), { class: 'mr-3' } %>
+        <div class="media-body">
+          <h4 class="media-heading mb-0">
+            Book Title: <%= @book.title %>
+          </h4>
+          <div>
+            Publish: <%= time_present(@book.publish_on) %>
+          </div>
+        </div>
+      </div>
     </div>
-    <div>
-      number of pages of book: <%= @book.sheets %>page
+    <div class="col-lg-7">
+      <div>
+        author: <%= @article.user.name %>
+      </div>
+      <div>
+        Last Updated on: <%= time_present(@article.updated_at) %>
+      </div>
+      <div>
+        <%= link_to "edit", edit_book_article_path(@article), { class: "btn btn-sm btn-primary col-mb-1" } %>
+        <%= link_to "delete", book_article_path(@article), { method: :delete, class: "btn btn-sm btn-danger col-mb-1" } %>
+      </div>
     </div>
-    <div>
-      Price: <%= @book.price %>yen
-    </div>
-    <%= link_to "edit", edit_book_article_path(@article), { class: "btn btn-sm btn-primary col-mb-1" } %>
-    <%= link_to "delete", book_article_path(@article), { method: :delete, class: "btn btn-sm btn-danger col-mb-1" } %>
   </div>
 </div>
 
-<div>
-  Title: <%= @article.title %>
-  <%= render 'favs/fav', article: @article %>
-</div>
-<div>
-  Text: <%= markdown(@article.body).html_safe %>
+<hr>
+
+<div class="container bg-white">
+  <div class="d-flex no-gutters">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8">
+      <h4>
+        <%= @article.title %>
+      </h4>
+    </div>
+    <div class="col-md-2 float-right small">
+      99 liked <%= render 'favs/fav', article: @article %>
+    </div>
+  </div>
+  <hr>
+  <div class="text-container">
+    <%= markdown(@article.body).html_safe %>
+  </div>
 </div>
 
-<div id="comments_area">
-  <h4>comments</h4>
-  <%= render partial: 'comments/index', locals: { comments: @comments, article: @article } %>
+<hr>
+
+<div class="container">
+  <div class="d-flex justify-content-center">
+    <div class="card comment-card card-info">
+      <div class="card-header">
+        <h4>comments</h4>
+      </div>
+      <div class="card-body">
+        <%= render partial: 'comments/form', locals: { book: @book, comment: @comment, article: @article } %>
+        <hr>
+        <div id="comments_area">
+          <%= render partial: 'comments/index', locals: { comments: @comments, article: @article } %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<%= render partial: 'comments/form', locals: { book: @book, comment: @comment, article: @article } %>
 
 <%= link_to 'back to book list page', books_path %>

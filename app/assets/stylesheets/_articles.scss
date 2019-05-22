@@ -1,0 +1,43 @@
+// Place all the styles related to the Articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#article_textarea{
+  min-height: 60vh;
+  padding: 8px;
+}
+
+.guid-container {
+  max-height: 60vh;
+  min-width: 25vw;
+  background-color: white;
+  color: red;
+  align-items: left;
+}
+
+.btn-submit:hover {
+  background-color: yellowgreen;
+  cursor: pointer;
+}
+
+.text-container {
+  min-height: 200px;
+  text-align: left;
+}
+
+.comment-card {
+  min-width: 600px;
+
+}
+
+.no-gutters {
+  margin:0;
+  padding:0;
+}
+
+.no-gutters　> .col,
+.no-gutters　> [class*="col-"] {
+  margin:0;
+  padding:0;
+}

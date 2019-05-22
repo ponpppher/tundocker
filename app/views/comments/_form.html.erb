@@ -12,12 +12,12 @@
   <% end %>
 
     <div class="field">
-      <%= form.label :content %>
-      <%= form.text_area :content %>
+      <%= form.label :content, { class: 'sr-only' } %>
+      <%= form.text_area :content, { placeholder: 'write a comment', rows: '3', class: 'form-control' } %>
     </div>
 
 
-    <div class="actions">
-      <%= form.submit %>
+    <div class="action clearfix">
+      <%= form.submit 'post', { class: 'btn btn-default btn-primary float-right' } %>
     </div>
   <% end %>
