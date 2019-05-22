@@ -1,12 +1,24 @@
-<ul>
+<ul class="list-unstyled">
   <% comments.each do |comment| %>
     <% if comment.id.present? %>
-      <li>
-        <p>
-          <%= comment.content %>
-          <%= link_to "del", book_article_comment_path(article_id: article.id, id: comment.id), { method: :delete, class: "btn btn-sm btn-danger" } %>
-        </p>
+      <li class="media p-0 m-0">
+        <%= icon('fas', 'user-graduate', class: 'm-3 img-thumbnail') %>
+        <div class="media-body">
+          <div class="clearfix">
+            <span class="text-muted float-right">
+              <small class="text-muted"><%= time_present(comment.created_at) %></small>
+            </span>
+            <h6 class="text-success float-left"><%= comment.user.name %></h6>
+          </div>
+          <p class="text-left m-0">
+            <%= comment.content %>
+          </p>
+        </div>
       </li>
     <% end %>
   <% end %>
 </ul>
+
+<% if false %>
+  <%= link_to "del", book_article_comment_path(article_id: article.id, id: comment.id), { method: :delete, class: "btn btn-sm btn-danger" } %>
+<% end %>

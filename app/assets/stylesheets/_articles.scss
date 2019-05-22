@@ -20,3 +20,24 @@
   background-color: yellowgreen;
   cursor: pointer;
 }
+
+.text-container {
+  min-height: 200px;
+  text-align: left;
+}
+
+.comment-card {
+  min-width: 600px;
+
+}
+
+.no-gutters {
+  margin:0;
+  padding:0;
+}
+
+.no-gutters　> .col,
+.no-gutters　> [class*="col-"] {
+  margin:0;
+  padding:0;
+}
