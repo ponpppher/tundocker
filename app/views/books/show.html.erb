@@ -1,42 +1,129 @@
-<h1>Book detail</h1>
+<div class="container-fulid book-detial-container clearfix">
+  <h3>本の詳細</h3>
+  <div class="d-flex">
+    <div class="media p-0 m-0">
+      <div class="flex-column">
+        <%= image_tag( @book.image.to_s, :size => '180x180', class: 'thumbnail')%>
+        <div class="ml-3 pt-3">
+          <% if is_regist?(@book) %>
+            <%= link_to "本の登録を解除", regist_book_path(@book.id), { method: :delete, class: "btn btn-sm btn-danger" } %>
+          <% else %>
+            <%= link_to "本を登録", regist_books_path(book_id: @book.id), { method: :post, class: "btn btn-sm btn-info" } %>
+          <% end %>
+        </div>
+      </div>
+      <div class="media-body book-detail-body">
+        <div class="flex-row">
+          <h5>
+            <strong><%= @book.title %></strong>
+            <%= link_to icon('fas', 'pen'), edit_book_path(@book.id), { class: "btn btn-success btn-sm", data: { toggle: 'tooltip' }, title:'編集' } %>
+            <%= link_to icon('fas', 'trash-alt'), book_path(@book.id), { method: :delete,  class: "btn btn-danger btn-sm", data: { toggle: 'tooltip' }, title:'削除' } %>
+          </h5>
+        </div>
+        <div>
+          <span class="col-sm-1">
+            Publish:
+          </span>
+          <span><%= time_present(@book.publish_on) %></span>
+        </div>
+        <div>
+          <span class="col-sm-1">
+            Pages:
+          </span>
+          <span>
+            <%= @book.sheets %> page
+          </span>
+        </div>
+        <div>
+          <span class="col-sm-1">
+            Price:
+          </span>
+          <span>
+            <%= @book.price %>yen
+          </span>
+        </div>
+        <div>
+          <% if @book.tag_list.present? %>
+            <span class="col-sm-1">
+              tags:
+            </span>
+            <span>
+              <%= render 'books/tag_list', tag_list: @book.tag_list %>
+            </span>
+          <% else %>
+            <span class="col-sm-1">
+              tags:
+            </span>
+            <span>
+              no tags
+            </span>
+          <% end %>
+        </div>
+      </div>
+    </div>
 
-<h4>
-  <%= @book.title %>
-  <%= link_to "edit", edit_book_path(@book.id), { class: "btn btn-primary btn-sm" } %>
-  <%= link_to "delete", book_path(@book.id), { method: :delete,  class: "btn btn-danger btn-sm" } %>
-</h4>
-<div class="d-flex bd-hightlight">
-  <div class="p-2 bd-hightlight">
-    <%= image_tag @book.image.to_s, :size => '180x180' %>
-  </div>
-  <div class="p-2 bd-hightlight">
-    <div>
-      Publish: <%= @book.publish_on %>
-    </div>
-    <div>
-      number of pages of book: <%= @book.sheets %>page
-    </div>
-    <div>
-      Price: <%= @book.price %>yen
-    </div>
-    <div>
-      <% if @book.tag_list.present? %>
-        tags: <%= render 'books/tag_list', tag_list: @book.tag_list %>
-      <% else %>
-        tags: no tags
-      <% end %>
-    </div>
-    <div>
-      <% if is_regist?(@book) %>
-        <%= link_to "unregist this book", regist_book_path(@book.id), { method: :delete, class: "btn btn-sm btn-danger" } %>
-      <% else %>
-        <%= link_to "regist this book", regist_books_path(book_id: @book.id), { method: :post, class: "btn btn-sm btn-info" } %>
-      <% end %>
+    <!-- related articel tab-->
+    <div class="col-md-6">
+      <nav>
+        <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+          <%= link_to 'my articles', '#nav-my-article', { class: 'nav-item nav-link active', id: 'nav-my-article-tab', role: 'tab', data: { toggle: "tab" }, aria: { controles: 'nav-my-article', selected: 'true' } } %>
+          <%= link_to 'other article', '#nav-other-article', { class: 'nav-item nav-link', id: 'nav-other-article-tab', role: 'tab', data: { toggle: "tab" }, aria: { controles: 'nav-other-article', selected: 'false' } } %>
+        </div>
+      </nav>
+      <div class="tab-content" id="tabContent">
+        <div  class="tab-pane fade show active" id="nav-my-article" role="tabpannel" aria-labelledby="nav-my-article-tab">
+          <table class="table" cellspacing="0">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Up</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @articles.each do |article| %>
+                <tr class="small">
+                  <td>
+                    <%= link_to "#{article.title}", book_article_path(article.id) %>
+                  </td>
+                  <td>
+                    <%= truncate(article.body, length: 20)%>
+                  </td>
+                  <td>
+                    <%= time_present(article.created_at) %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+        <div class="tab-pane fade" id="nav-other-article" role="tabpannel" aria-labelledby="nav-other-article-tab">
+          <table class="table" cellspacing="0">
+            <thead>
+              <tr>
+                <th>writer</th>
+                <th>Title</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @other_articles.each do |article| %>
+                <tr class="small">
+                  <td>
+                    <%= article.user.name %>
+                  </td>
+                  <td>
+                    <%= truncate(article.title, length:10) %>
+                  </td>
+                  <td>
+                    <%= link_to "#{truncate(article.body, length: 20)}", book_article_path(book_id: @book, id: article) %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-
-<h2>Article Lists</h2>
-no impletemts<br/>
-
-<%= link_to 'back to book list page', books_path %>

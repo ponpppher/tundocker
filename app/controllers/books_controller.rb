@@ -12,7 +12,18 @@ class BooksController < ApplicationController
     @books = current_user.books.order(updated_at: :desc)
   end
 
-  def show; end
+  def show
+    # initialize other user's articles
+    @other_articles = []
+
+    other_users = User.where.not(id: current_user).reject { |u| u.articles.where(book_id: @book.id).empty? }
+    other_users.each do |u|
+      u.articles.where(book_id: @book.id).each { |article| @other_articles << article }
+    end
+
+    # return my articles
+    @articles = current_user.articles.where(book_id: @book, user_id: current_user)
+  end
 
   def new
     @book = Book.new
