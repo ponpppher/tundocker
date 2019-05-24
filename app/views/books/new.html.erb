@@ -1,5 +1,6 @@
-<h1>submit book infomation</h1>
+<h3>本の登録</h3>
 
+<p>新たに登録した本の情報を入力してください。</p>
 <% if @book.errors.any? %>
   <div id = "error_explanation">
     <h2><%= "#{@book.errors.count}エラーがありました。" %></h2>
@@ -11,4 +12,6 @@
   </div>
 <% end %>
 
-<%= render 'form' %>
+<div class="container p-0">
+  <%= render 'form' %>
+</div>

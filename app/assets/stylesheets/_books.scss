@@ -14,3 +14,39 @@
 .card-columns {
   columns: 4;
 }
+
+.form-table {
+  height: 330px;
+  min-width: 100%;
+  background-color: white;
+  border-top: 3px #333 solid;
+}
+
+.form-table th {
+  background-color: #e8f6f5;
+
+}
+
+.form-table td {
+  padding: 5px 20px;
+}
+
+.book-submit {
+  margin: 30px 0;
+}
+
+.book-detial-container {
+  background-color: #f8f8ff;
+  height: 82.4vh;
+}
+
+.book-detail-body {
+  text-align: left;
+  background-color:white;
+  min-height: 180px;
+  padding-left:3px;
+}
+
+.book-detail-body div{
+  padding-bottom: 5px;
+}
