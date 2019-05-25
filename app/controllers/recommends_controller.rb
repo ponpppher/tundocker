@@ -4,10 +4,15 @@ class RecommendsController < ApplicationController
   before_action :set_recommend, only: [:edit, :show, :update, :destroy]
 
   def index
+    # user recommend
     @recommend = current_user.recommends
-    @favs = current_user.favs
 
-    # return favorite group here
+    # other user recommend
+    @other_recommends = []
+    other_users = User.where.not(id: current_user).reject { |u| u.recommends.empty? }
+    other_users.each do |u|
+      u.recommends.each { |rec| @other_recommends << rec }
+    end
   end
 
   def show

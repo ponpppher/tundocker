@@ -17,6 +17,7 @@ class User < ApplicationRecord
   # article association
   has_many :articles, dependent: :destroy
   has_many :article_fav, dependent: :destroy
+  has_many :article_favs, through: :article_fav, source: :article
 
   # comment association
   has_many :comments

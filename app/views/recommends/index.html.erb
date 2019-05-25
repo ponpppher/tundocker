@@ -1,33 +1,89 @@
-<h1>Book group</h1>
+<div class="container rec-container">
 
-<div class="border border-primary py-2">
-  <p>created group</p>
+  <!-- page title -->
+  <h3>Book group</h3>
   <%= link_to 'make new book group?', new_recommend_path, { class: 'btn btn-sm btn-primary' } %>
-  <div class="card-deck">
-    <% @recommend.each do |r| %>
-      <div class="card" style="width: 200;">
-        <%= link_to r.name, recommend_path(r.id) %>
-        name: <%= r.name %><br />
-        summary: <%= r.summary.truncate(20) %><br />
-        fav: Number of fav
-      </div>
-    <% end %>
-  </div>
-</div>
-<br />
 
-<div class="border border-danger py-2">
-  <p>favorite group</p>
-  <div class="card-deck">
-    <% @favs.each do |fav| %>
-      <div class="card" style="width: 200;">
-        <%= link_to fav.name, recommend_path(fav.id) %>
-        name: <%= fav.name %><br />
-        summary: <%= fav.summary.truncate(20) %><br />
-        fav: Number of fav
-      </div>
-    <% end %>
-  </div>
-</div>
+  <!-- main container -->
+  <div class="d-flex flex-row">
 
-<%= link_to 'back to book list page', books_path %>
+    <!-- select menue -->
+    <div class="col-4">
+      <div class="list-group" id="list-tab" role="tablist">
+        <%= link_to 'my groups', '#my-group', { class: 'list-group-item list-group-item-action active', data: { toggle: 'list' }, role: "tab" } %>
+        <%= link_to 'other user\'s group', '#other-group', { class: 'list-group-item list-group-item-action', data: { toggle: 'list' }, role: "tab" } %>
+      </div>
+    </div>
+
+    <!-- contents -->
+    <div class="col-8">
+      <div class="tab-content">
+
+        <!-- my-group content -->
+        <div class="tab-pane active" id="my-group" role="tabpannel">
+          <% @recommend.each do |r| %>
+            <div class="d-flex flex-row">
+
+              <div class="col-md-6">
+                <h3>
+                  <%= link_to r.name, recommend_path(r.id) %>
+                  <small>
+                    <%= "#{fav_count(r)} faved"%>
+                    <%= icon('fas', 'heart') %>
+                  </small>
+                </h3>
+                <p class="small">
+                  <%= r.summary.truncate(50) %><br />
+                  created: <%= time_present(r.created_at) %>
+                </p>
+              </div>
+
+              <div class="col-md-6">
+                <%= image_tag(r.books.first.image.to_s, :size => '90x90', class: 'thumbnail') %>
+                <%= image_tag(r.books.second.image.to_s, :size => '90x90', class: 'thumbnail') %>
+                <%= image_tag(r.books.third.image.to_s, :size => '90x90', class: 'thumbnail') %>
+              </div>
+
+            </div>
+            <hr>
+          <% end %>
+        </div>
+
+        <!-- other-group content -->
+        <div class="tab-pane" id="other-group" role="tabpannel">
+          <% @other_recommends.each do |r| %>
+            <div class="d-flex flex-row">
+              <div class="col-md-6">
+                <h3>
+                  <%= link_to r.name, recommend_path(r.id) %>
+                  <small>
+                    <%= "#{fav_count(r)} faved"%>
+                    <%= icon('fas', 'heart') %>
+                  </small>
+                </h3>
+                <p class="small">
+                  <%= r.summary.truncate(20) %><br />
+                  <% if r.user.name.present? %>
+                    written by: <%= r.user.name %><br />
+                  <% end %>
+                  create: <%= time_present(r.created_at) %><br />
+                </p>
+              </div>
+
+              <div class="col-md-6">
+                <%= image_tag(r.books.first.image.to_s, :size => '90x90', class: 'thumbnail') %>
+                <%= image_tag(r.books.second.image.to_s, :size => '90x90', class: 'thumbnail') %>
+                <%= image_tag(r.books.third.image.to_s, :size => '90x90', class: 'thumbnail') %>
+              </div>
+            </div>
+            <hr>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- back link -->
+  <%= link_to 'back to book list page', books_path %>
+</div>
