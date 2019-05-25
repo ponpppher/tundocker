@@ -1,10 +1,8 @@
 <div class="container profile-body">
 
-  <!-- title -->
-  <h1>User profile</h1>
+  <div class="d-flex flex-row">
 
-  <div class="row">
-
+    <!-- user data -->
     <div class="col-md-5">
       <div class="media">
         <a class="float-left" href="#">
@@ -12,17 +10,18 @@
         </a>
         <div class="media-body">
           <h4 class="media-heading">
-            name: <%= @user.name %>
+            <strong><%= @user.name %></strong>
           </h4>
-          <% unless @user.provider.blank? %>
-            joined via <%= @user.provider %>
-          <% else %>
-            joined via email
-            <div>
-              email: <%= @user.email %>
-            </div>
-          <% end %>
-
+          <div class="small">
+            <% unless @user.provider.blank? %>
+              joined via <%= @user.provider %>
+            <% else %>
+              joined via email
+              <div>
+                email: <%= @user.email %>
+              </div>
+            <% end %>
+          </div>
           <div>
             start at: <%= time_present(@user.created_at) %>
           </div>
@@ -32,7 +31,6 @@
               <%= link_to 'プロフィール変更', edit_user_registration_path %>
             <% else %>
               <h3>Cancel my account</h3>
-
               <p>Unhappy? <%= button_to "Cancel my account", registration_path(@user), data: { confirm: "Are you sure?" }, method: :delete %></p>
             <% end %>
           </div>
@@ -43,24 +41,75 @@
       </div>
     </div>
 
-    <!-- faved group article element-->
+    <!-- favorite items -->
     <div class="col-md-7">
 
-      <div class="border border-danger py-2">
-        <p>favorite group</p>
-        <div class="card-deck">
-          <% @favs.each do |fav| %>
-            <div class="card" style="width: 200;">
-              <%= link_to fav.name, recommend_path(fav.id) %>
-              name: <%= fav.name %><br />
-              summary: <%= fav.summary.truncate(20) %><br />
-              fav: Number of fav
-            </div>
-          <% end %>
-        </div>
+      <!-- title -->
+      <h6>お気に入り</h6>
+
+      <!-- item tab -->
+      <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+        <%= link_to 'article', '#nav-article', { class: 'nav-item nav-link active', id: 'nav-article-tab', role: 'tab', data: { toggle: "tab" }, aria: { controles: 'nav-article', selected: 'true' } } %>
+        <%= link_to 'book list', '#nav-book-list', { class: 'nav-item nav-link', id: 'nav-book-group-tab', role: 'tab', data: { toggle: "tab" }, aria: { controles: 'nav-book-group', selected: 'false' } } %>
       </div>
 
-    </div>
+      <!-- item content -->
+      <div class="tab-content" id="tabContent">
 
+        <!-- article content -->
+        <div  class="tab-pane fade show active" id="nav-article" role="tabpannel" aria-labelledby="nav-article-tab">
+          <table class="table" cellspacing="0">
+            <thead>
+              <tr>
+                <th>Writer</th>
+                <th>Title</th>
+                <th>Up</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @article_favs.each do |article| %>
+                <tr class="small">
+                  <td>
+                    <%= article.user.name %>
+                  </td>
+                  <td>
+                    <%= link_to "#{article.title}", book_article_path(book_id: article.book.id, id: article.id) %>
+                  </td>
+                  <td>
+                    <%= time_present(article.created_at) %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- book list content -->
+        <div class="tab-pane fade" id="nav-book-list" role="tabpannel" aria-labelledby="nav-book-list-tab">
+          <table class="table" cellspacing="0">
+            <thead>
+              <tr>
+                <th>Author</th>
+                <th>Title</th>
+                <th>Summary</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @favs.each do |recommend| %>
+                <tr class="small">
+                  <td>
+                    <%= link_to "#{recommend.user.name}", recommend_path(recommend) %>
+                  </td>
+                  <td>
+                    <%= truncate(recommend.summary, length:10) %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
   </div>
 </div>

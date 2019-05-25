@@ -64,12 +64,10 @@
 
     <!-- related articel tab-->
     <div class="col-md-6">
-      <nav>
-        <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-          <%= link_to 'my articles', '#nav-my-article', { class: 'nav-item nav-link active', id: 'nav-my-article-tab', role: 'tab', data: { toggle: "tab" }, aria: { controles: 'nav-my-article', selected: 'true' } } %>
-          <%= link_to 'other article', '#nav-other-article', { class: 'nav-item nav-link', id: 'nav-other-article-tab', role: 'tab', data: { toggle: "tab" }, aria: { controles: 'nav-other-article', selected: 'false' } } %>
-        </div>
-      </nav>
+      <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+        <%= link_to 'my articles', '#nav-my-article', { class: 'nav-item nav-link active', id: 'nav-my-article-tab', role: 'tab', data: { toggle: "tab" }, aria: { controles: 'nav-my-article', selected: 'true' } } %>
+        <%= link_to 'other article', '#nav-other-article', { class: 'nav-item nav-link', id: 'nav-other-article-tab', role: 'tab', data: { toggle: "tab" }, aria: { controles: 'nav-other-article', selected: 'false' } } %>
+      </div>
       <div class="tab-content" id="tabContent">
         <div  class="tab-pane fade show active" id="nav-my-article" role="tabpannel" aria-labelledby="nav-my-article-tab">
           <table class="table" cellspacing="0">
