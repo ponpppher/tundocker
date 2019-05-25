@@ -8,4 +8,8 @@ module RecommendHelper
       recommends_path
     end
   end
+
+  def fav_count(recommend)
+    RecommendFav.where(recommend_id: recommend.id).count
+  end
 end
