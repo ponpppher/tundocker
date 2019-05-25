@@ -1,8 +1,11 @@
 <div class="container profile-body">
+
+  <!-- title -->
   <h1>User profile</h1>
+
   <div class="row">
 
-    <div class="col-lg-5">
+    <div class="col-md-5">
       <div class="media">
         <a class="float-left" href="#">
           <img class="media-object dp rounded-circle" src="<%= asset_url("girl.png") %>" style="width: 100px;height:100px;">
@@ -39,5 +42,25 @@
         </div>
       </div>
     </div>
+
+    <!-- faved group article element-->
+    <div class="col-md-7">
+
+      <div class="border border-danger py-2">
+        <p>favorite group</p>
+        <div class="card-deck">
+          <% @favs.each do |fav| %>
+            <div class="card" style="width: 200;">
+              <%= link_to fav.name, recommend_path(fav.id) %>
+              name: <%= fav.name %><br />
+              summary: <%= fav.summary.truncate(20) %><br />
+              fav: Number of fav
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 </div>

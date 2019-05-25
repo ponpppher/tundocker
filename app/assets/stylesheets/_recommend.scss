@@ -2,10 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.recommend-form-table td {
-
-}
-
 .recommend-form-table {
   height: 150px;
   min-width: 100%;
@@ -40,4 +36,8 @@
 .form-inline td {
   padding: 10px;
 
+}
+
+.rec-container {
+  background-color:#fafafc;
 }
