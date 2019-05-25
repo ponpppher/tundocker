@@ -6,6 +6,6 @@ class UsersController < ApplicationController
     @user = User.safe_name(user)
 
     @favs = current_user.favs
-    @article_favs = current_user.article_fav
+    @article_favs = current_user.article_favs
   end
 end
