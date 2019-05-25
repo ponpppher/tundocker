@@ -1,4 +1,6 @@
 <div class="container recommend_detail_container">
+
+  <!-- page title -->
   <h4>
     <strong><%= @recommend.name %></strong>
     <small>
@@ -9,7 +11,10 @@
     </small>
   </h4>
 
+  <!-- contents flex layout -->
   <div class="d-flex flex-row">
+
+    <!-- book group info -->
     <div class="col-md-7">
       <div>
         Author: <%= @user.name %>
@@ -18,59 +23,49 @@
         Summary: <%= @recommend.summary %>
       </div>
     </div>
+
+    <!-- each book info -->
     <div class="col-md-5">
       <% @groups.each do |g| %>
         <div class="d-flex">
           <div class="media p-0 m-0">
             <div class="flex-column">
               <%= link_to image_tag( g.book.image.to_s, :size => '180x180', class: 'thumbnail'), book_path(g.book.id) %>
-              <div class="ml-3 pt-3">
-              </div>
             </div>
 
+            <!-- book detail info-->
             <div class="media-body book-detail-body">
               <div class="flex-row">
                 <%= g.book.title %>
               </div>
               <div>
                 <span class="col-sm-1">
-                  Publish:
-                </span>
-                <span><%= time_present(g.book.publish_on) %></span>
-              </div>
-              <div>
-                <span class="col-sm-1">
-                  Pages:
-                </span>
-                <span>
-                  <%= g.book.sheets %> page
+                  Publish: <%= g.book.publish_on.nil? ? 'No data' : "#{time_present(g.book.publish_on)}" %>
                 </span>
               </div>
               <div>
                 <span class="col-sm-1">
-                  Price:
+                  Pages: <%= g.book.sheets.nil? ? 'No data' : "#{g.book.sheets} page" %>
                 </span>
-                <span>
-                  <%= g.book.price %>yen
+              </div>
+              <div>
+                <span class="col-sm-1">
+                  Price: <%= g.book.price.nil? ? 'No data' : "#{g.book.price} yen" %>
                 </span>
               </div>
               <div>
                 <% if g.book.tag_list.present? %>
                   <span class="col-sm-1">
-                    tags:
-                  </span>
-                  <span>
-                    <%= render 'books/tag_list', tag_list: g.book.tag_list %>
+                    tags: <%= render 'books/tag_list', tag_list: g.book.tag_list %>
                   </span>
                 <% else %>
                   <span class="col-sm-1">
-                    tags:
-                  </span>
-                  <span>
-                    no tags
+                    tags: no tags
                   </span>
                 <% end %>
               </div>
+
+              <!-- regist book button -->
               <div class="col-12">
                 <% if is_regist?(g.book) %>
                   <%= link_to "本の登録を解除", regist_book_path(g.book.id), { method: :delete, class: "btn btn-sm btn-danger" } %>
@@ -83,45 +78,8 @@
         </div>
       <% end %>
     </div>
-
-
-  </div>
-
-</div>
-
-<% if false %>
-<div lass="d-flex flex-column card">
-  <div>
-    Author: <%= @user.name %>
-  </div>
-  <div>
-    Summary: <%= @recommend.summary %>
   </div>
 </div>
 
-<% @groups.each do |g| %>
-  <% if g.book.nil? %>
-    no book registrated
-    <br />
-  <% else %>
-    <div class="card bg-light" style="max-width: 15rem;">
-      <div class="card-body">
-        <h4 class="card-title">
-          book title: <%= g.book.title %>
-        </h4>
-        <%= link_to 'more', book_path(g.book.id), { class: 'btn btn-sm btn-info' } %>
-        <div>
-          price: <%= g.book.price %>
-        </div>
-        <% if false %>
-        <p class="card-text">
-          description: <%= g.description %>
-        </p>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
-<% end %>
-<% end %>
-
+<!-- back book list -->
 <%= link_to 'back to book group', recommends_path %>
