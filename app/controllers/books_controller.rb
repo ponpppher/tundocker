@@ -9,7 +9,8 @@ class BooksController < ApplicationController
       return
     end
 
-    @books = current_user.books.order(updated_at: :desc)
+    @q = current_user.books.ransack(params[:q])
+    @books = @q.result
   end
 
   def show

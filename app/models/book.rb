@@ -13,4 +13,13 @@ class Book < ApplicationRecord
 
   # to user carrierwave
   mount_uploader :image, ImageUploader
+
+  # define search validation by ransack
+  def self.ransackable_attributes(*)
+    %w[title]
+  end
+
+  def self.ransackable_associations(*)
+    %w[articles]
+  end
 end
