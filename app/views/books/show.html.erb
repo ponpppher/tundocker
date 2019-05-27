@@ -82,7 +82,7 @@
               <% @articles.each do |article| %>
                 <tr class="small">
                   <td>
-                    <%= link_to "#{article.title}", book_article_path(article.id) %>
+                    <%= link_to "#{article.title}", book_article_path(book_id: @book, id: article.id) %>
                   </td>
                   <td>
                     <%= truncate(article.body, length: 20)%>
