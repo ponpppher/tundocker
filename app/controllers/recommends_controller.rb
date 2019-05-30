@@ -31,11 +31,6 @@ class RecommendsController < ApplicationController
   def create
     @recommend = current_user.recommends.new(recommend_params)
 
-    # ipnut groups
-    # @recommend.groups.each do |group|
-    #   @recommend.books.build(group.book)
-    # end
-
     if @recommend.save
       redirect_to recommends_path, flash: { notice: 'save your group' }
     else

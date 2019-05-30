@@ -29,6 +29,9 @@ $(function() {
       $('#' + e.detail[0]).removeClass('fa-heart-o').addClass('fa-heart');
     }
   }),
+  /*
+  *   tooltip
+  */
   $(document).on("turbolinks:load", function(){
     $('[data-toggle="tooltip"]').tooltip();
   })

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
 
   resources :books do
-    resources :articles do
+    resources :articles, except: :index do
       resources :comments, only: [:create, :destroy]
     end
   end

@@ -10,7 +10,6 @@ class Recommend < ApplicationRecord
   has_many :fav_user, through: :recommend_fav, source: :user
 
   # nested_params
-  # accepts_nested_attributes_for :groups, allow_destroy: true
   accepts_nested_attributes_for :books
 
   def fav(user)
