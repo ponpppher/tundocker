@@ -1,6 +1,34 @@
 ---
 ja:
   activerecord:
+    models:
+      article: "記事"
+      book: "本"
+      comment: "コメント"
+      recommend: "おすすめ本"
+      regist_book: "登録した本"
+      user: "ユーザー"
+    attritubes:
+      article:
+        title: "タイトル"
+        body: "本文"
+      book:
+        title: "タイトル"
+        publish_on: "出版日"
+        sheets: "ページ数"
+        price: "値段"
+        image: "サムネイル"
+      comment:
+        content: "本文"
+      recommend:
+        name: "グループ名"
+        summary: "概要"
+      user:
+        email: "メールアドレス"
+        current_password: "現在のパスワード"
+        password: "パスワード"
+        password_confirmation: "確認用パスワード"
+        remember_me: "ログインを記録"
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
@@ -17,7 +45,7 @@ ja:
     - 金
     - 土
     abbr_month_names:
-    - 
+    -
     - 1月
     - 2月
     - 3月
@@ -43,7 +71,7 @@ ja:
       long: "%Y年%m月%d日(%a)"
       short: "%m/%d"
     month_names:
-    - 
+    -
     - 1月
     - 2月
     - 3月
