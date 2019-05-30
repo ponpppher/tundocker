@@ -1,5 +1,7 @@
 <div class="container-fulid book_index_container">
   <div class="page title">
+
+    <!-- search book title or article title -->
     <%= search_form_for(@q, class: 'mb-2') do |f| %>
       <div class="form-group d-flex flex-row mb-0">
         <div class="col-sm-4"></div>
@@ -10,6 +12,8 @@
         </div>
       </div>
     <% end %>
+
+    <!-- book list -->
     <h4>
       your book list
     </h4>
@@ -26,6 +30,7 @@
 
           <div class="d-flex flex-row no-gutters ">
 
+            <!-- book title -->
             <div class="col-md-4">
               <%= link_to image_tag(book.image.to_s, :size => '100x80'), book_path(book.id), { class: 'card-img' } %>
               <span class="badge badge-pill badge-success small">Article</span> <%= book.articles.where(user_id: current_user).count %>
