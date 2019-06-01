@@ -11,4 +11,8 @@ protected
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
     devise_parameter_sanitizer.permit(:account_update, keys: [:name])
   end
+
+  def after_sign_in_path_for(_resource)
+    books_path # after logined page
+  end
 end
