@@ -10,10 +10,10 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         format.html { redirect_to book_article_path(article_id: article), notice: 'post comment!' }
-        format.js { render :index }
       else
-        format.html { redirect_to book_article_path(comment_params[:article_id], id: @comment.id), notice: 'update failed' }
+        flash.now[:error] = 'post failed'
       end
+      format.js { render :index }
     end
   end
 

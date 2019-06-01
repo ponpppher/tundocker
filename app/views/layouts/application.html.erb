@@ -9,9 +9,6 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <!--
-  <body class="d-flex flex-column" style="min-height: 100vh;width: 100%;">
-  -->
   <body>
     <header> 
       <nav class="navbar navbar-expand-lg navbar-light pt-2 bg-white no-padding">
@@ -48,5 +45,20 @@
         </span>
       </div>
     </footer>
+
+    <!-- フラッシュメッセージ表示 -->
+    <% flash.each do |type, msg| %>
+      <% type = 'info' if type == 'notice' %>
+      <% type = 'error' if type == 'alert' %>
+      <script>
+        toastr.options = {
+          "closeButton": true,
+          "positionClass": "toast-bottom-left",
+          "preventDuplicates": false,
+          "timeOut": "2000",
+        }
+        toastr['<%= type %>']('<%= msg %>')
+      </script>
+    <% end %>
   </body>
 </html>

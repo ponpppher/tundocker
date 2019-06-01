@@ -14,6 +14,7 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
+//= require toastr
 //= require activestorage
 //= require turbolinks
 //= require_tree .
@@ -29,6 +30,7 @@ $(function() {
       $('#' + e.detail[0]).removeClass('fa-heart-o').addClass('fa-heart');
     }
   }),
+
   /*
   *   tooltip
   */

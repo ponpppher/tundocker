@@ -15,6 +15,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'dotenv-rails'
 gem 'font-awesome-sass', '~> 5.8.1'
 gem 'rails-i18n'
+gem 'toastr-rails'
 
 # use javascript
 gem 'coffee-rails', '~> 4.2'

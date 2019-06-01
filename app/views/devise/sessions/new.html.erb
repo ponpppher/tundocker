@@ -15,6 +15,13 @@
     <div class="card-body">
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <% unless resource.errors.emtpy? %>
+          <script>
+            <% resource.errors.full_messages.each do |msg| %>
+              toastr.error('<%= msg %>');
+            <% end %>
+          </script>
+        <% end %>
 
         <div class="input-group form-group">
           <div class="input-group-prepend">
