@@ -14,6 +14,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'dotenv-rails'
 gem 'font-awesome-sass', '~> 5.8.1'
+gem 'rails-i18n'
 
 # use javascript
 gem 'coffee-rails', '~> 4.2'

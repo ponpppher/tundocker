@@ -14,11 +14,19 @@
 * base css
 */
 body {
+}
+
+body a{
+  color: rgb(96, 45, 108);
+}
+
+body .yield-wrapper {
   background: asset-url('back_book.jpg') no-repeat fixed left bottom;
   background-size: cover;
-  color: #151515;
-  text-align: center;
-  opacity: 1;
+  padding-right: 10px;
+  padding-left: 10px;
+
+  min-height: 85.6vh;
 }
 
 

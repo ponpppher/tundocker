@@ -14,10 +14,10 @@
     <% end %>
 
     <!-- book list -->
-    <h4>
-      your book list
+    <h4 class="text-white">
+      <%= t('views.title.books') %>
     </h4>
-    <%= link_to "add new book", new_book_path, { class: 'btn btn-primary' } %>
+    <%= link_to t('views.message.add_new_book'), new_book_path, { class: 'btn btn-primary' } %>
   </div>
 
   <% if @books.exists? %>
@@ -46,15 +46,15 @@
                 <hr>
                 <div class="d-flex flex-column">
                   <% unless book.articles.present? %>
-                    <div class="col-md-12 mb-3">
-                        no article here!
+                    <div class="col-md-12 mb-3 small">
+                      <%= t('views.message.no_article') %>
                     </div>
                   <% end %>
                   <% book_articles(book.id).each do |ar| %>
                     <%= link_to " #{truncate(ar.title, length: 18)}", book_article_path(id: ar.id, book_id: book.id), { class:"fa fa-book p-2 card-text small" } %>
                   <% end %>
                   <div class="justify-content-end">
-                    <%= link_to "new", new_book_article_path(book.id), { class: "btn btn-sm btn-primary col-mb-1 fas fa-pen" } %>
+                    <%= link_to t('views.message.new_article'), new_book_article_path(book.id), { class: "btn btn-sm btn-primary col-mb-1 fas fa-pen" } %>
                   </div>
                 </div>
 

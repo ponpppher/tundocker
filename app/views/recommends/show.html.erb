@@ -2,12 +2,12 @@
 
   <!-- page title -->
   <h4>
-    <strong><%= @recommend.name %></strong>
+    <strong class="mr-5"><%= @recommend.name %></strong>
     <small>
       <%= link_to 'edit', edit_recommend_path(@recommend.id), { class: 'btn btn-sm btn-info' } %>
-      <%= link_to 'delete', recommend_path(@recommend.id), {method: :delete, class: 'btn btn-sm btn-danger' } %>
-      <%= "#{fav_count(@recommend)} faved"%>
+      <%= link_to 'delete', recommend_path(@recommend.id), { method: :delete, class: 'btn btn-sm btn-danger' } %>
       <%= render 'recommend_favs/fav', recommend: @recommend %>
+      <%= "#{fav_count(@recommend)} faved"%>
     </small>
   </h4>
 

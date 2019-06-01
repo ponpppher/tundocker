@@ -28,14 +28,14 @@
           <hr style="m-8 mb-8">
           <div>
             <% unless current_user.provider? %>
-              <%= link_to 'プロフィール変更', edit_user_registration_path %>
+              <%= link_to t('views.user.profile'), edit_user_registration_path %>
             <% else %>
-              <h3>Cancel my account</h3>
-              <p>Unhappy? <%= button_to "Cancel my account", registration_path(@user), data: { confirm: "Are you sure?" }, method: :delete %></p>
+              <h5><%= t('views.title.cancel') %></h5>
+              <%= button_to t('views.user.cancel'), registration_path(@user), { data: { confirm: t('views.message.cancel') }, method: :delete, class: 'btn btn-danger mb-3' } %>
             <% end %>
           </div>
           <div>
-            <%= link_to "back to book list", books_path %>
+            <%= link_to t("views.message.back_home"), books_path, { class: 'btn btn-primary' } %>
           </div>
         </div>
       </div>
@@ -45,12 +45,12 @@
     <div class="col-md-7">
 
       <!-- title -->
-      <h6>お気に入り</h6>
+      <h6><%= t('views.title.favorite') %></h6>
 
       <!-- item tab -->
       <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-        <%= link_to 'article', '#nav-article', { class: 'nav-item nav-link active', id: 'nav-article-tab', role: 'tab', data: { toggle: "tab" }, aria: { controles: 'nav-article', selected: 'true' } } %>
-        <%= link_to 'book list', '#nav-book-list', { class: 'nav-item nav-link', id: 'nav-book-group-tab', role: 'tab', data: { toggle: "tab" }, aria: { controles: 'nav-book-group', selected: 'false' } } %>
+        <%= link_to t('views.title.article'), '#nav-article', { class: 'nav-item nav-link active', id: 'nav-article-tab', role: 'tab', data: { toggle: "tab" }, aria: { controles: 'nav-article', selected: 'true' } } %>
+        <%= link_to t('views.title.book_list'), '#nav-book-list', { class: 'nav-item nav-link', id: 'nav-book-group-tab', role: 'tab', data: { toggle: "tab" }, aria: { controles: 'nav-book-group', selected: 'false' } } %>
       </div>
 
       <!-- item content -->
