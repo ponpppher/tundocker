@@ -14,7 +14,7 @@
   -->
   <body>
     <header> 
-      <nav class="navbar navbar-expand-lg navbar-light py-2 bg-white no-padding">
+      <nav class="navbar navbar-expand-lg navbar-light pt-2 bg-white no-padding">
         <div class="container">
           <% if user_signed_in? %>
             <%= render partial: "login" %>
@@ -26,7 +26,7 @@
       </nav>
     </header>
 
-    <div class="yield-wrapper">
+    <div class="yield-wrapper d-flex flex-column">
       <%= yield %>
     </div>
 
