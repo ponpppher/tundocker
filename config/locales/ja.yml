@@ -2,16 +2,25 @@
 ja:
   views:
     title:
-      books: "登録した本一覧"
+      books: "本一覧"
+      edit_book: "本情報の編集"
+      regist_book: "本の登録"
       favorite: "お気に入り"
       cancel: "アカウントの削除"
       article: "記事一覧"
       book_list: "本のグループ"
+      new_recommend: "新規本のグループ"
       recommend_edit: "グループの編集"
       books_form: "本の登録フォーム"
+      my_groups: "自分のグループ"
+      other_groups: "他u人のグループ"
     button:
       new: "新規作成"
+      edit: "編集"
+      delete: "削除"
       logout: "ログアウト"
+      regist_book: "本を登録"
+      unregist_book: "本の登録を解除"
     article:
       title: "タイトル"
       body: "本文"
@@ -19,15 +28,21 @@ ja:
       title: "タイトル"
       publish_on: "出版日"
       sheets: "ページ数"
-      price: "値段"
+      price: "価格"
+      tags: "関連タグ"
       image: "サムネイル"
     comment:
       content: "本文"
     recommend:
       name: "グループ名"
       summary: "概要"
+      created_at: "作成日"
+      written_by: "作成者"
     user:
-      email: "メールアドレス"
+      author: "作者"
+      name: "ユーザー名"
+      email: "メール"
+      started_at: "登録日"
       current_password: "現在のパスワード"
       password: "パスワード"
       password_confirmation: "確認用パスワード"
@@ -42,6 +57,7 @@ ja:
       new_article: "記事を追加"
       regist: "本の登録"
       unregist: "本の登録を解除"
+      no_data: "データがありません"
   activerecord:
     errors:
       messages:

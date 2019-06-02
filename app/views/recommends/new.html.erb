@@ -1,7 +1,13 @@
 <div class="container-fluid recommend-background">
-  <div class="container">
-    <h3>New Book Group</h3>
+  <div class="container bg-white">
+    <!-- back link -->
+    <%= link_to recommends_path do %>
+      <%= icon('fas', 'angle-left') %> back to book group list
+    <% end %>
+
+    <h3 class="text-dark mt-3">
+      <%= t('views.title.new_recommend') %>
+    </h3>
     <%= render 'form' %>
-    <%= link_to "back to group page", recommends_path %>
   </div>
 </div>

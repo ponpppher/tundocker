@@ -8,7 +8,7 @@
           <%= f.label :name, 'グループ名' %>
         </th>
         <td id="group_name">
-          <%= f.text_field :name, { class: 'form-control', placeholder: 'Group Name' } %>
+          <%= f.text_field :name, { class: 'form-control', placeholder: '例: 初心者用Java文法本' } %>
         </td>
       </tr>
 
@@ -17,13 +17,13 @@
           <%= f.label :summary, '概要' %>
         </th>
         <td>
-          <%= f.text_field :summary, { class: 'form-control', placeholder: 'Summary' } %>
+          <%= f.text_area :summary, { class: 'form-control', placeholder: '例: book1 javaの概要に詳しく図などがあり丁寧 book2 javaの文法を踏み込んで理解する book3' } %>
         </th>
       </tr>
     </tbody>
   </table>
 
-  <div class="text-white my-2">
+  <div class="text-dark my-3">
     <h3><%= t('views.title.books_form') %></h3>
   </div>
 
@@ -38,7 +38,7 @@
           </th>
 
           <td>
-            <%= b.text_field :title, { class: 'form-control', placeholder: 'title' } %>
+            <%= b.text_field :title, { class: 'form-control', placeholder: 'リファクタリング' } %>
           </td>
 
           <td>

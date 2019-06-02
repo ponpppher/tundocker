@@ -8,7 +8,7 @@
         <a class="float-left" href="#">
           <img class="media-object dp rounded-circle" src="<%= asset_url("girl.png") %>" style="width: 100px;height:100px;">
         </a>
-        <div class="media-body">
+        <div class="media-body ml-3">
           <h4 class="media-heading">
             <strong><%= @user.name %></strong>
           </h4>
@@ -18,12 +18,12 @@
             <% else %>
               joined via email
               <div>
-                email: <%= @user.email %>
+                <%= t('views.user.email') %>: <%= @user.email %>
               </div>
             <% end %>
           </div>
-          <div>
-            start at: <%= time_present(@user.created_at) %>
+          <div class="small">
+            <%= t('views.user.started_at') %>: <%= time_present(@user.created_at) %>
           </div>
           <hr style="m-8 mb-8">
           <div>

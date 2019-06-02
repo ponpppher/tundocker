@@ -1,17 +1,27 @@
-<h3>本の登録</h3>
+<div class="container bg-white pt-3">
+  <!-- back link -->
+  <%= link_to books_path do %>
+    <%= icon('fas', 'angle-left') %> back to book list
+  <% end %>
 
-<p>新たに登録した本の情報を入力してください。</p>
-<% if @book.errors.any? %>
-  <div id = "error_explanation">
-    <h2><%= "#{@book.errors.count}エラーがありました。" %></h2>
-    <ul>
-      <% @book.errors.full_messages.each do |msg| %>
-        <p><%= msg %></p>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+  <h3 class="mt-2">
+    <%= t('views.title.regist_book') %>
+  </h3>
 
-<div class="container p-0">
+  <p class="small">
+    新たに登録した本の情報を入力してください。
+  </p>
+
+  <% if @book.errors.any? %>
+    <div id = "error_explanation">
+      <h2><%= "#{@book.errors.count}エラーがありました。" %></h2>
+      <ul>
+        <% @book.errors.full_messages.each do |msg| %>
+          <p><%= msg %></p>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <%= render 'form' %>
 </div>

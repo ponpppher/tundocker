@@ -19,8 +19,8 @@
     <!-- select menue -->
     <div class="col-4">
       <div class="list-group" id="list-tab" role="tablist">
-        <%= link_to 'my groups', '#my-group', { class: 'list-group-item list-group-item-action active', data: { toggle: 'list' }, role: "tab" } %>
-        <%= link_to 'other user\'s group', '#other-group', { class: 'list-group-item list-group-item-action', data: { toggle: 'list' }, role: "tab" } %>
+        <%= link_to t('views.title.my_groups'), '#my-group', { class: 'list-group-item list-group-item-action active', data: { toggle: 'list' }, role: "tab" } %>
+        <%= link_to t('views.title.other_groups'), '#other-group', { class: 'list-group-item list-group-item-action', data: { toggle: 'list' }, role: "tab" } %>
       </div>
     </div>
 
@@ -42,8 +42,8 @@
                   </small>
                 </h3>
                 <p class="small">
-                  <%= r.summary.truncate(50) %><br />
-                  created: <%= time_present(r.created_at) %>
+                  <%= r.summary.truncate(120) %><br />
+                  <%= t('views.recommend.created_at') %>: <%= time_present(r.created_at) %>
                 </p>
               </div>
 
@@ -70,12 +70,12 @@
                     <%= icon('fas', 'heart') %>
                   </small>
                 </h3>
-                <p class="small">
-                  <%= r.summary.truncate(20) %><br />
+                <p class="small mb-0">
+                  <%= r.summary.truncate(25) %><br />
                   <% if r.user.name.present? %>
-                    written by: <%= r.user.name %><br />
+                    <%= t('views.recommend.written_by') %>: <%= r.user.name %><br />
                   <% end %>
-                  create: <%= time_present(r.created_at) %><br />
+                  <%= t('views.recommend.created_at') %>: <%= time_present(r.created_at) %><br />
                 </p>
               </div>
 

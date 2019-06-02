@@ -16,8 +16,8 @@
     <!-- book list -->
     <h4 class="text-white">
       <%= t('views.title.books') %>
+      <%= link_to t('views.message.add_new_book'), new_book_path, { class: 'ml-3 btn btn-primary' } %>
     </h4>
-    <%= link_to t('views.message.add_new_book'), new_book_path, { class: 'btn btn-primary' } %>
   </div>
 
   <% if @books.exists? %>
