@@ -14,7 +14,12 @@
 /*
 * base css
 */
-body {
+html, body{
+  height: 100%;
+}
+
+.container .container-fluid .row .column {
+  height: 100%;
 }
 
 body a{
@@ -24,8 +29,7 @@ body a{
 body .yield-wrapper {
   background: asset-url('back_book.jpg') no-repeat fixed left bottom;
   background-size: cover;
-
-  min-height: 85.6vh;
+  min-height: 100vh;
 }
 
 

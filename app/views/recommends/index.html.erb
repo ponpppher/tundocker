@@ -1,11 +1,20 @@
-<div class="container rec-container">
-
-  <!-- page title -->
-  <h3>Book group</h3>
-  <%= link_to 'make new book group?', new_recommend_path, { class: 'btn btn-sm btn-primary' } %>
+<!-- page title -->
+<h4 class="recommend-heading">
+  <div class="container">
+    <%= t('views.title.book_list') %>
+    <%= link_to t('views.button.new'), new_recommend_path, { class: 'btn btn-sm btn-primary btn-new' } %>
+  </div>
+</h4>
+<div class="container-fluid recommend-container">
+  <div class="container py-2 recommend-back-link">
+    <!-- back link -->
+    <%= link_to books_path do %>
+      <%= icon('fas', 'angle-left') %> back to book list
+    <% end %>
+  </div>
 
   <!-- main container -->
-  <div class="d-flex flex-row">
+  <div class="container recommend-table d-flex flex-row">
 
     <!-- select menue -->
     <div class="col-4">
@@ -70,11 +79,13 @@
                 </p>
               </div>
 
+              <!-- registed books -->
               <div class="col-md-6">
                 <%= image_tag(r.books.first.image.to_s, :size => '90x90', class: 'thumbnail') %>
                 <%= image_tag(r.books.second.image.to_s, :size => '90x90', class: 'thumbnail') %>
                 <%= image_tag(r.books.third.image.to_s, :size => '90x90', class: 'thumbnail') %>
               </div>
+
             </div>
             <hr>
           <% end %>
@@ -84,6 +95,4 @@
 
   </div>
 
-  <!-- back link -->
-  <%= link_to 'back to book list page', books_path %>
 </div>

@@ -10,6 +10,7 @@ ja:
       recommend_edit: "グループの編集"
       books_form: "本の登録フォーム"
     button:
+      new: "新規作成"
       logout: "ログアウト"
     article:
       title: "タイトル"
