@@ -7,7 +7,7 @@
     <div class="card-body">
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <% unless resource.errors.emtpy? %>
+        <% unless resource.errors.empty? %>
           <script>
             <% resource.errors.full_messages.each do |msg| %>
               toastr.error('<%= msg %>');
