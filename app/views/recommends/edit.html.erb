@@ -1,6 +1,13 @@
-<h1>Recommend#edit</h1>
-<p>Find me in app/views/recommend/edit.html.erb</p>
+<div class="container-fluid recommend-background">
+  <div class="container bg-white">
+    <!-- back link -->
+    <%= link_to recommends_path do %>
+      <%= icon('fas', 'angle-left') %> back to book group list
+    <% end %>
 
-<%= render 'form' %>
-
-<%= link_to "back to group page", recommend_path(@recommend.id) %>
+    <h3 class="text-dark mt-3">
+      <%= t('views.title.recommend_edit') %>
+    </h3>
+    <%= render 'form' %>
+  </div>
+</div>

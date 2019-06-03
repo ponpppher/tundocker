@@ -1,6 +1,16 @@
-<h3>編集</h3>
+<div class="container bg-white pt-3">
+  <!-- back link -->
+  <%= link_to books_path do %>
+    <%= icon('fas', 'angle-left') %> back to book list
+  <% end %>
 
-<strong>本の情報の更新</strong>
-<div class="container">
+  <h3 class="mt-2">
+    <%= t('views.title.edit_book') %>
+  </h3>
+
+  <small>
+    本の情報の更新
+  </small>
+
   <%= render 'form' %>
 </div>

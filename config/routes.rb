@@ -2,7 +2,10 @@
 
 Rails.application.routes.draw do
   # callback routing
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    omniauth_callbacks: 'users/omniauth_callbacks'
+  }
 
   resources :users, only: [:show]
 
@@ -12,7 +15,7 @@ Rails.application.routes.draw do
   end
 
   resources :books do
-    resources :articles do
+    resources :articles, except: :index do
       resources :comments, only: [:create, :destroy]
     end
   end

@@ -1,72 +1,69 @@
+<%= form_with(model: @recommend, local: true, url: recommend_choose_new_or_edit) do |f| %>
 
-<div class="container">
+  <table class="recommend-form-table">
+    <tbody>
 
-  <%= form_with(model: @recommend, local: true, url: recommend_choose_new_or_edit) do |f| %>
+      <tr class='form_group'>
+        <th>
+          <%= f.label :name, 'グループ名' %>
+        </th>
+        <td id="group_name">
+          <%= f.text_field :name, { class: 'form-control', placeholder: '例: 初心者用Java文法本' } %>
+        </td>
+      </tr>
 
-    <table class="recommend-form-table">
-      <tbody>
+      <tr class='form_group'>
+        <th>
+          <%= f.label :summary, '概要' %>
+        </th>
+        <td>
+          <%= f.text_area :summary, { class: 'form-control', placeholder: '例: book1 javaの概要に詳しく図などがあり丁寧 book2 javaの文法を踏み込んで理解する book3' } %>
+        </th>
+      </tr>
+    </tbody>
+  </table>
 
-        <tr class='form_group'>
+  <div class="text-dark my-3">
+    <h3><%= t('views.title.books_form') %></h3>
+  </div>
+
+
+  <table class="form-inline book-form-inline">
+
+      <%= f.fields_for :books do |b| %>
+        <div class="align-items-center">
           <th>
-            <%= f.label :name, 'グループ名' %>
+            Book
+            <%= b.options[:child_index] + 1 %>
           </th>
-          <td id="group_name">
-            <%= f.text_field :name, { class: 'form-control', placeholder: 'Group Name' } %>
+
+          <td>
+            <%= b.text_field :title, { class: 'form-control', placeholder: 'リファクタリング' } %>
+          </td>
+
+          <td>
+            <%= b.date_select :publish_on, {}, { class: 'form-control' } %>
+          </td>
+
+          <td>
+            <%= b.number_field :sheets, { min: 0, max: 10000000, step: 1, class: "form-control", placeholder: 'pages' } %>
+          </td>
+
+          <td>
+            <%= b.number_field :price, { min: 1, max: 10000000, step: 1, class: 'form-control', placeholder: 'yen' } %>
+          </td>
+
+          <td>
+            <label>
+              <span class="btn btn-primary">
+                File
+                <%= b.file_field :image, { class: 'form-control-file', style: "display:none" } %>
+              </span>
+            </label>
           </td>
         </tr>
-
-        <tr class='form_group'>
-          <th>
-            <%= f.label :summary, '概要' %>
-          </th>
-          <td>
-            <%= f.text_field :summary, { class: 'form-control', placeholder: 'Summary' } %>
-          </th>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="my-2">
-      <h3>Book registration form</h3>
-    </div>
-
-
-    <table class="form-inline book-form-inline">
-
-        <%= f.fields_for :books do |b| %>
-          <div class="align-items-center">
-            <th>
-              data
-            </th>
-
-            <td>
-              <%= b.text_field :title, { class: 'form-control', placeholder: 'title' } %>
-            </td>
-
-            <td>
-              <%= b.date_select :publish_on, {}, { class: 'form-control' } %>
-            </td>
-
-            <td>
-              <%= b.number_field :sheets, { min: 0, max: 10000000, step: 1, class: "form-control", placeholder: 'pages' } %>
-            </td>
-
-            <td>
-              <%= b.number_field :price, { min: 1, max: 10000000, step: 1, class: 'form-control', placeholder: 'yen' } %>
-            </td>
-
-            <td>
-              <label>
-                <span class="btn btn-primary">
-                  File
-                  <%= b.file_field :image, { class: 'form-control-file', style: "display:none" } %>
-                </span>
-              </label>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-    <%= f.submit(class: 'btn btn-primary')%>
-  <% end %>
-</div>
+      <% end %>
+    </tbody>
+  </table>
+  <%= f.submit(class: 'btn btn-primary my-3')%>
+<% end %>

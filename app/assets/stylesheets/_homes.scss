@@ -1,14 +1,11 @@
-// Place all the styles related to the Homes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 .home {
   background-color: rgba(0, 0, 0, 0.4);
   color: #fff;
+  text-align: center;
 }
 
 .home .title-text {
-  padding-top: 120px;
+  padding-top: 20px;
 }
 
 h1 {
@@ -29,6 +26,7 @@ h1 {
 .about {
   padding: 80px 30px;
   background-color: #fff;
+  text-align: center;
 }
 
 .about .heading {
@@ -45,6 +43,7 @@ h1 {
   background-color: #383634;
   padding: 80px 0;
   opacity: 0.95;
+  text-align: center;
 }
 
 .scene .heading {

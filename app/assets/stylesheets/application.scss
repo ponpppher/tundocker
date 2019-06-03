@@ -1,10 +1,8 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-	
-
+@import "toastr";
 @import "homes", "sessions", "registrations", "users/show", "books", "articles", "recommend";
-
 
 @include media-breakpoint-down(xs) {
   .container {
@@ -16,12 +14,22 @@
 /*
 * base css
 */
-body {
+html, body{
+  height: 100%;
+}
+
+.container .container-fluid .row .column {
+  height: 100%;
+}
+
+body a{
+  color: rgb(96, 45, 108);
+}
+
+body .yield-wrapper {
   background: asset-url('back_book.jpg') no-repeat fixed left bottom;
   background-size: cover;
-  color: #151515;
-  text-align: center;
-  opacity: 1;
+  min-height: 100vh;
 }
 
 

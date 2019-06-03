@@ -1,6 +1,5 @@
-
+<!-- site index -->
 <section class="home">
-  <%= render 'notify'%>
   <p class="title-text">
     積んどるか？
   </p>
@@ -12,7 +11,7 @@
     Learn Faster, make Learning cicle, share our tundoku
   </p>
   <% if user_signed_in? %>
-    <%= link_to 'study now', books_path, { class: "btn btn-primary start-button", type: :button } %>
+    <%= link_to "study now", books_path, { class: "btn btn-primary start-button", type: :button } %>
   <% else %>
     <%= link_to "Regist Now", new_registration_path(:user), { class: 'btn btn-primary start-button', type: :button } %>
   <% end %>
@@ -20,7 +19,7 @@
 
 <section class="about" id="about">
   <h2 class="heading">
-  ABOUT
+    ABOUT
   </h2>
   <p class="about-text">
     It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.<br />

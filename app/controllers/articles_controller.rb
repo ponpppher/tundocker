@@ -4,11 +4,6 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:edit, :show, :update, :destroy]
   before_action :set_book, only: [:show, :new, :create]
 
-  def index
-    # return registed book's aritcles
-    # no implements
-  end
-
   def show
     @comments = @article.comments
     @comment = @article.comments.build

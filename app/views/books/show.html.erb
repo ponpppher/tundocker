@@ -6,9 +6,9 @@
         <%= image_tag( @book.image.to_s, :size => '180x180', class: 'thumbnail')%>
         <div class="ml-3 pt-3">
           <% if is_regist?(@book) %>
-            <%= link_to "本の登録を解除", regist_book_path(@book.id), { method: :delete, class: "btn btn-sm btn-danger" } %>
+            <%= link_to t('views.message.unregist'), regist_book_path(@book.id), { method: :delete, class: "btn btn-sm btn-danger" } %>
           <% else %>
-            <%= link_to "本を登録", regist_books_path(book_id: @book.id), { method: :post, class: "btn btn-sm btn-info" } %>
+            <%= link_to t('views.message.regist'), regist_books_path(book_id: @book.id), { method: :post, class: "btn btn-sm btn-info" } %>
           <% end %>
         </div>
       </div>

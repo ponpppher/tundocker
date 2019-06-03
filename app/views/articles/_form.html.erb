@@ -1,9 +1,9 @@
 <%= form_with(model: [@book, @article], local:true, url: article_choose_new_or_edit) do |f| %>
   <div class="form-group">
     <%= f.label :title, { class: 'sr-only' } %>
-    <%= f.text_field :title, {class: 'form-control', placeholder: 'Tile'} %>
+    <%= f.text_field :title, {class: 'form-control mt-3', placeholder: 'Tile'} %>
   </div>
-  <div class="row">
+  <div class="d-flex flex-row">
     <div class="form-group col-md-9">
       <%= f.label :body, { class: 'sr-only' } %>
       <%= f.text_area :body, {id: 'article_textarea', class: 'form-control', placeholder: 'input text here'} %>

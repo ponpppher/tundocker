@@ -1,10 +1,7 @@
-// Place all the styles related to the Books controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 .book_index_container {
-  background: rgba(27,171,161, 0.8);
-  height: 82.4vh;
+  background: rgba(74,72,42, 0.5);
+  min-height: 100vh;
+  text-align: center;
 }
 
 
@@ -22,6 +19,7 @@
   min-width: 100%;
   background-color: white;
   border-top: 3px #333 solid;
+  box-shadow: 0 6px 24px 0 rgba(0, 0, 0, 0.1);
 }
 
 .form-table th {

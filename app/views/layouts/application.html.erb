@@ -9,9 +9,9 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="d-flex flex-column" style="min-height: 100vh;width: 100%;">
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <body>
+    <header> 
+      <nav class="navbar navbar-expand-lg navbar-light pt-1 pb-2 bg-white no-padding">
         <div class="container">
           <% if user_signed_in? %>
             <%= render partial: "login" %>
@@ -23,15 +23,17 @@
       </nav>
     </header>
 
-    <%= yield %>
+    <div class="yield-wrapper d-flex flex-column">
+      <%= yield %>
+    </div>
 
     <footer class="justify-content-end d-flex mt-auto">
       <nav>
         <span class="mx-1">
-          <%= link_to icon('fab', 'twitter'), "https://twitter.com/symphogeek", { class: 'nav-item' } %>
+          <%= link_to icon('fab', 'twitter').concat("Twitter"), "https://twitter.com/symphogeek", { class: 'nav-item' } %>
         </span>
         <span class="mx-1">
-          <%= link_to icon('fab', 'github-alt'), "https://github.com/ponpppher", { class: 'text-muted' } %>
+          <%= link_to icon('fab', 'github-alt').concat("Github"), "https://github.com/ponpppher", { class: 'text-muted' } %>
         </span>
       </nav>
       <div>
@@ -43,5 +45,20 @@
         </span>
       </div>
     </footer>
+
+    <!-- フラッシュメッセージ表示 -->
+    <% flash.each do |type, msg| %>
+      <% type = 'info' if type == 'notice' %>
+      <% type = 'error' if type == 'alert' %>
+      <script>
+        toastr.options = {
+          "closeButton": true,
+          "positionClass": "toast-bottom-left",
+          "preventDuplicates": false,
+          "timeOut": "2000",
+        }
+        toastr['<%= type %>']('<%= msg %>')
+      </script>
+    <% end %>
   </body>
 </html>

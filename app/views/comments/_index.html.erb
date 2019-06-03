@@ -19,6 +19,20 @@
   <% end %>
 </ul>
 
+<% flash.each do |type, msg| %>
+  <% type = 'info' if type == 'notice' %>
+  <% type = 'error' if type == 'alert' %>
+  <script>
+    toastr.options = {
+      "closeButton": true,
+      "positionClass": "toast-bottom-left",
+      "preventDuplicates": false,
+      "timeOut": "2000",
+    }
+    toastr['<%= type %>']('<%= msg %>')
+  </script>
+<% end %>
+
 <% if false %>
   <%= link_to "del", book_article_comment_path(article_id: article.id, id: comment.id), { method: :delete, class: "btn btn-sm btn-danger" } %>
 <% end %>
