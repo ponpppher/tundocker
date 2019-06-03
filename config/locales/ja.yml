@@ -14,6 +14,8 @@ ja:
       books_form: "本の登録フォーム"
       my_groups: "自分のグループ"
       other_groups: "他u人のグループ"
+      password_change: "パスワードのリセット"
+      forgot_password: "パスワードを忘ましたか？"
     button:
       new: "新規作成"
       edit: "編集"
@@ -21,6 +23,7 @@ ja:
       logout: "ログアウト"
       regist_book: "本を登録"
       unregist_book: "本の登録を解除"
+      change_password: "パスワードの更新"
     article:
       title: "タイトル"
       body: "本文"
@@ -41,10 +44,11 @@ ja:
     user:
       author: "作者"
       name: "ユーザー名"
-      email: "メール"
+      email: "メールアドレス"
       started_at: "登録日"
       current_password: "現在のパスワード"
       password: "パスワード"
+      new_password: "新パスワード"
       password_confirmation: "確認用パスワード"
       remember_me: "ログインを記録"
       profile: "プロフィール変更"

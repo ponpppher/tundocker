@@ -1,7 +1,9 @@
 <div class="sessions_container mx-auto">
-  <div class="card card-sign-up">
+  <div class="card card-sign-up card-forgot">
     <div class="card-header">
-      <h2>Forgot your password?</h2>
+      <h4>
+        <%= t('views.title.forgot_password') %>
+      </h4>
     </div>
 
     <div class="card-body">
@@ -16,10 +18,10 @@
         <% end %>
 
         <div class="form-group input-group">
-          <div class="input-group-prepend align-items-center col-md-3">
-            <%= f.label :email, { class: 'control-label' } %>
+          <div class="input-group-prepend align-items-center col-md-4">
+            <%= f.label :email, t('views.user.email'), { class: 'control-label' } %>
           </div>
-            <%= f.email_field :email, { autocomplate: 'email', class: 'form-control col-md-9', autofocus: true, placeholder: 'Email Address', required: true } %>
+            <%= f.email_field :email, { autocomplate: 'email', class: 'form-control col-md-8', autofocus: true, placeholder: 'Email Address', required: true } %>
         </div>
 
         <div class="form-group">
