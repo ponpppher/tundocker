@@ -33,7 +33,7 @@ ja:
       sheets: "ページ数"
       price: "価格"
       tags: "関連タグ"
-      image: "サムネイル"
+      image: "本のサムネイル"
     comment:
       content: "本文"
     recommend:

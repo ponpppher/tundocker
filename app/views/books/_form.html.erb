@@ -5,7 +5,7 @@
 
       <tr class="form-group">
         <th>
-          <%= f.label :title, "タイトル" %>
+          <%= f.label :title, t('views.book.title') %>
         </th>
         <td style="min-width:500px;">
           <%= f.text_field :title, {class: 'form-control', placeholder: '例：ヒト夜の永い夢はたった6枚の冴えたトンカツ'} %>
@@ -14,7 +14,7 @@
 
       <tr class="form-group">
         <th>
-          <%= f.label :publish_on, "Publish date"%>
+          <%= f.label :publish_on, t('views.book.publish_on') %>
         </th>
         <td class="d-flex flex-row">
           <%= f.date_select :publish_on, {}, {class: 'form-control'} %>
@@ -23,7 +23,7 @@
 
       <tr class="form-group clearfix">
         <th>
-          <%= f.label :sheets, "Number of pages of book"%>
+          <%= f.label :sheets, t('views.book.sheets') %>
         </th>
         <td class="float-left">
           <%= f.number_field :sheets, min: 0, max: 10000000, step: 1 %> pages
@@ -32,7 +32,7 @@
 
       <tr class="form-group clearfix">
         <th>
-          <%= f.label :price, "Price"%>
+          <%= f.label :price, t('views.book.price') %>
         </th>
         <td class="float-left">
           <%= f.number_field :price, min: 1, max: 10000000, step: 1 %> yen
@@ -41,7 +41,7 @@
 
       <tr class="form-group clearfix">
         <th>
-          <%= f.label :image, "Picture of book"%>
+          <%= f.label :image, t('views.book.image') %>
         </th>
         <td class="float-left">
           <%= f.file_field :image %>
@@ -50,7 +50,7 @@
 
       <tr class="form-group">
         <th>
-          <%= f.label :tag_list %>
+          <%= f.label :tag_list, t('views.book.tags') %>
         </th>
         <td>
           <%= f.text_field :tag_list, { value: @book.tag_list.join(','), class: "form-control" } %>
