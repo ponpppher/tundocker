@@ -1,7 +1,9 @@
 <div class="container-fulid book-detial-container clearfix">
-  <h3>本の詳細</h3>
+  <h4>
+    <%= t('views.title.book_detail') %>
+  </h4>
   <div class="d-flex">
-    <div class="media p-0 m-0">
+    <div class="col-md-5 media p-0 m-0">
       <div class="flex-column">
         <%= image_tag( @book.image.to_s, :size => '180x180', class: 'thumbnail')%>
         <div class="ml-3 pt-3">
@@ -22,13 +24,13 @@
         </div>
         <div>
           <span class="col-sm-1">
-            Publish:
+            <%= t('views.book.publish_on') %>:
           </span>
           <span><%= time_present(@book.publish_on) %></span>
         </div>
         <div>
           <span class="col-sm-1">
-            Pages:
+            <%= t('views.book.sheets') %>:
           </span>
           <span>
             <%= @book.sheets %> page
@@ -36,7 +38,7 @@
         </div>
         <div>
           <span class="col-sm-1">
-            Price:
+            <%= t('views.book.price') %>:
           </span>
           <span>
             <%= @book.price %>yen
@@ -45,7 +47,7 @@
         <div>
           <% if @book.tag_list.present? %>
             <span class="col-sm-1">
-              tags:
+            <%= t('views.book.tags') %>:
             </span>
             <span>
               <%= render 'books/tag_list', tag_list: @book.tag_list %>
@@ -63,10 +65,10 @@
     </div>
 
     <!-- related articel tab-->
-    <div class="col-md-6">
+    <div class="col-md-7">
       <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-        <%= link_to 'my articles', '#nav-my-article', { class: 'nav-item nav-link active', id: 'nav-my-article-tab', role: 'tab', data: { toggle: "tab" }, aria: { controles: 'nav-my-article', selected: 'true' } } %>
-        <%= link_to 'other article', '#nav-other-article', { class: 'nav-item nav-link', id: 'nav-other-article-tab', role: 'tab', data: { toggle: "tab" }, aria: { controles: 'nav-other-article', selected: 'false' } } %>
+        <%= link_to t('views.article.my_article'), '#nav-my-article', { class: 'nav-item nav-link active', id: 'nav-my-article-tab', role: 'tab', data: { toggle: "tab" }, aria: { controles: 'nav-my-article', selected: 'true' } } %>
+        <%= link_to t('views.article.other_article'), '#nav-other-article', { class: 'nav-item nav-link', id: 'nav-other-article-tab', role: 'tab', data: { toggle: "tab" }, aria: { controles: 'nav-other-article', selected: 'false' } } %>
       </div>
       <div class="tab-content" id="tabContent">
         <div  class="tab-pane fade show active" id="nav-my-article" role="tabpannel" aria-labelledby="nav-my-article-tab">

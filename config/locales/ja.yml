@@ -3,6 +3,7 @@ ja:
   views:
     title:
       books: "本一覧"
+      book_detail: "本の詳細"
       edit_book: "本情報の編集"
       regist_book: "本の登録"
       favorite: "お気に入り"
@@ -25,6 +26,8 @@ ja:
       unregist_book: "本の登録を解除"
       change_password: "パスワードの更新"
     article:
+      my_article: "自分の記事"
+      other_article: "他人の記事"
       title: "タイトル"
       body: "本文"
     book:
