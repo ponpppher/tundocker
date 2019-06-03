@@ -36,7 +36,7 @@
         <% else %>
           <%= link_to current_user.name, '#', { class: "strong nav-link dropdown-toggle", id: "navbarDropdown", role: "button", data: { toggle: "dropdown" }, aria: { haspopup: "true", expanded: "false" } } %>
         <% end %>
-      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
         <%= link_to "ユーザー情報", user_path(current_user.id), { class: "dropdown-item" } %>
         <%= link_to t('views.button.logout'), destroy_user_session_path, { method: :delete, class: 'dropdown-item' } %>
       </div>
