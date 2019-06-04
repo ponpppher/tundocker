@@ -41,23 +41,23 @@
             <%= t('views.book.price') %>:
           </span>
           <span>
-            <%= @book.price %>yen
+            <%= @book.price %> yen
           </span>
         </div>
         <div>
           <% if @book.tag_list.present? %>
             <span class="col-sm-1">
-            <%= t('views.book.tags') %>:
+              <%= t('views.book.tags') %>:
             </span>
             <span>
               <%= render 'books/tag_list', tag_list: @book.tag_list %>
             </span>
           <% else %>
             <span class="col-sm-1">
-              tags:
+              <%= t('views.book.tags') %>:
             </span>
             <span>
-              no tags
+              <%= t('views.message.no_tags') %>
             </span>
           <% end %>
         </div>

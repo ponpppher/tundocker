@@ -30,6 +30,7 @@ ja:
       other_article: "他人の記事"
       title: "タイトル"
       body: "本文"
+      last_update: "最終更新日"
     book:
       title: "タイトル"
       publish_on: "出版日"
@@ -65,6 +66,7 @@ ja:
       regist: "本の登録"
       unregist: "本の登録を解除"
       no_data: "データがありません"
+      no_tags: "タグがありません"
   activerecord:
     errors:
       messages:
