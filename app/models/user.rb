@@ -22,7 +22,12 @@ class User < ApplicationRecord
   # comment association
   has_many :comments
 
+  # devise setting
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :omniauthable
+
+  # validate
+  validates :name, length: { maximum: 30 }
+  validates :email, presence: true, length: { in: 1..254 }, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }, uniqueness: true
 
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
