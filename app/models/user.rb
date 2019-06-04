@@ -2,7 +2,7 @@
 
 class User < ApplicationRecord
   module NameGen
-    (NAME = 'no name').freeze
+    (NAME = 'No Name').freeze
   end
 
   # book association
@@ -38,8 +38,7 @@ class User < ApplicationRecord
     user
   end
 
-  def self.safe_name(user)
-    user.name = NameGen::NAME if user.name.blank?
-    user
+  def safe_name
+    name.blank? ? NameGen::NAME : name
   end
 end

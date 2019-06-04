@@ -2,8 +2,7 @@
 
 class UsersController < ApplicationController
   def show
-    user = User.find(params[:id])
-    @user = User.safe_name(user)
+    @user = User.find(params[:id])
 
     @favs = current_user.favs
     @article_favs = current_user.article_favs

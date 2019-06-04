@@ -24,6 +24,7 @@ ja:
       regist_book: "本を登録"
       unregist_book: "本の登録を解除"
       change_password: "パスワードの更新"
+      user_info: "ユーザー情報"
     article:
       title: "タイトル"
       body: "本文"
