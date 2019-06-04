@@ -20,7 +20,7 @@
         <strong class="mr-1">
           <%= t('views.user.author') %>
         </strong>
-        <%= @user.name %>
+        <%= @user.safe_name %>
       </div>
       <p class="mb-0">
         <%= icon('fas', 'scroll') %>

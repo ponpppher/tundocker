@@ -3,8 +3,13 @@
 module ApplicationHelper
   require 'redcarpet'
   require 'coderay'
+  require 'time'
   def current_user?(user)
     user == current_user
+  end
+
+  def time_present(time_date)
+    time_date.strftime('%Y年 %m月%d日') unless time_date&.nil?
   end
 
   class HTMLwithCoderay < Redcarpet::Render::HTML

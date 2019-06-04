@@ -19,7 +19,7 @@
     <!-- detail -->
     <div class="col-lg-7">
       <div>
-        author: <%= @article.user.name %>
+        author: <%= @article.user.safe_name %>
       </div>
       <div>
         Last Updated on: <%= time_present(@article.updated_at) %>

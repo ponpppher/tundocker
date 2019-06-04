@@ -10,7 +10,7 @@
         </a>
         <div class="media-body ml-3">
           <h4 class="media-heading">
-            <strong><%= @user.name %></strong>
+            <strong><%= @user.safe_name %></strong>
           </h4>
           <div class="small">
             <% unless @user.provider.blank? %>
@@ -70,7 +70,7 @@
               <% @article_favs.each do |article| %>
                 <tr class="small">
                   <td>
-                    <%= article.user.name %>
+                    <%= article.user.safe_name%>
                   </td>
                   <td>
                     <%= link_to "#{article.title}", book_article_path(book_id: article.book.id, id: article.id) %>
@@ -98,7 +98,7 @@
               <% @favs.each do |recommend| %>
                 <tr class="small">
                   <td>
-                    <%= link_to "#{recommend.user.name}", recommend_path(recommend) %>
+                    <%= link_to "#{recommend.user.safe_name}", recommend_path(recommend) %>
                   </td>
                   <td>
                     <%= truncate(recommend.summary, length:10) %>
