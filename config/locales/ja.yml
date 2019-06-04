@@ -70,6 +70,7 @@ ja:
   activerecord:
     errors:
       messages:
+        invalid: '不正な日付です。'
         record_invalid: 'バリデーションに失敗しました: %{errors}'
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"

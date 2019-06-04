@@ -4,10 +4,16 @@ class Article < ApplicationRecord
   belongs_to :book
   belongs_to :user
 
+  # comments asocciation
   has_many :comments, dependent: :destroy
 
+  # favorites asocciation
   has_many :article_fav, dependent: :destroy
   has_many :fav_user, through: :article_fav, source: :user
+
+  # validate
+  validates :title, presence: true, length: { in: 1..255 }
+  validates :body, length: { maximum: 255 }
 
   def fav(user)
     article_fav.create(user_id: user.id)
