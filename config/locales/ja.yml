@@ -55,7 +55,8 @@ ja:
       profile: "プロフィール変更"
       cancel: "削除"
     message:
-      cancel: "本当に削しますか？"
+      cancel: "本当に削除しますか？"
+      sure?: "本当にアカウントを削除しますか？"
       back_home: ホームに戻る
       add_new_book: "本を追加"
       no_article: "記事がありません"
