@@ -15,6 +15,11 @@
   align-items: left;
 }
 
+.markdown-guide {
+  box-shadow: 0 6px 24px 0 rgba(0, 0, 0, 0.1);
+  margin-bottom: 3px;
+}
+
 .btn-submit:hover {
   background-color: yellowgreen;
   cursor: pointer;
