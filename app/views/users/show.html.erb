@@ -70,7 +70,7 @@
               <% @article_favs.each do |article| %>
                 <tr class="small">
                   <td>
-                    <%= article.user.safe_name%>
+                    <%= article.user.safe_name %>
                   </td>
                   <td>
                     <%= link_to "#{article.title}", book_article_path(book_id: article.book.id, id: article.id) %>
