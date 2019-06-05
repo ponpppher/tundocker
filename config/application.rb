@@ -23,7 +23,7 @@ module Tundocker
     config.i18n.default_locale = :ja
 
     # fix: field_for_errors layout
-    config.action_view.field_error_proc = proc.new { |html_tag, _| html_tag }
+    config.action_view.field_error_proc = proc { |html_tag, _| html_tag }
 
     # suppress generate test files
     config.generators do |g|
