@@ -33,7 +33,7 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     if @book.save
-      # regst user's book list
+      # regist user's book list
       current_user.regist_books.build(book_id: @book.id).save
       redirect_to books_path, flash: { notice: 'success subscribe your book!' }
     else
