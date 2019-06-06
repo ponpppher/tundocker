@@ -10,12 +10,14 @@ class DateValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, _)
     before_cast_value = record.send("#{attribute}_before_type_cast")
 
-    string_value = before_cast_value.map(&:to_s).join || ''
+    sliced_value = before_cast_value.map { |_, value| value.to_s }.slice(0..2)
+    year = sliced_value[0]
+    month_day = sliced_value.slice(1, 2).map { |v| format('%02d', v) }
+    parse_string = year << month_day.join
 
     begin
-      Date.parse string_value if string_value.present?
+      Date.parse parse_string if parse_string.present?
     rescue ArgumentError
-      # byebug
       record.errors.add(attribute, '不正な日付です')
     end
   end

@@ -14,7 +14,7 @@ class Book < ApplicationRecord
 
   # validate
   validates :title, presence: true, length: { in: 1..10_000 }
-  # validates :publish_on, presence: true, date: true
+  validates :publish_on, presence: true, date: true
   validates :sheets, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
