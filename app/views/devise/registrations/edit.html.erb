@@ -36,7 +36,7 @@
             <div class="input-group-prepend align-items-center col-md-3">
               <%= f.label :password %>
             </div>
-            <%= f.password_field :password, { autocomplete: 'new-password', class: 'form-control col-md-9' , autofocus: true, placeholder: 'Password', required: true }%>
+            <%= f.password_field :password, { autocomplete: 'new-password', class: 'form-control col-md-9' , autofocus: true, placeholder: 'Password' }%>
             <div class="col-md-12">
               <i>(leave blank if you don't want to change it)</i><br />
               <% if @minimum_password_length %>
@@ -59,7 +59,7 @@
             <div class="input-group-prepend align-items-center col-md-3">
               <%= f.label :current_password %>
             </div>
-            <%= f.password_field :current_password, { autocomplete: "current-password", class: 'form-control col-md-9', placeholder: 'Current Password'}%>
+            <%= f.password_field :current_password, { autocomplete: "current-password", class: 'form-control col-md-9', required: true, placeholder: 'Current Password'}%>
             <div class="col-md-12">
               <i>(we need your current password to confirm your changes)</i><br />
             </div>
@@ -73,7 +73,7 @@
       <% end %>
       <div class="card-footer">
         <h4>Cancel my account</h4>
-        <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+        <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: t('views.message.sure?') }, method: :delete %></p>
         <%= link_to "Back", :back %>
       </div>
     </div>

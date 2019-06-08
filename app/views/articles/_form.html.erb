@@ -1,14 +1,20 @@
-<%= form_with(model: [@book, @article], local:true, url: article_choose_new_or_edit) do |f| %>
-  <div class="form-group">
-    <%= f.label :title, { class: 'sr-only' } %>
-    <%= f.text_field :title, {class: 'form-control mt-3', placeholder: 'Tile'} %>
+<div class="container-fluid article_form_container">
+  <div class="container bg-white py-3 clearfix">
+    <%= form_with(model: [@book, @article], local:true, url: article_choose_new_or_edit) do |f| %>
+        <div class="form-group">
+          <%= f.label :title, { class: 'sr-only' } %>
+          <%= f.text_field :title, {class: 'form-control', placeholder: 'Tile'} %>
+        </div>
+        <div class="d-flex flex-row">
+          <div class="form-group col-md-9 p-0">
+            <%= f.label :body, { class: 'sr-only' } %>
+            <%= f.text_area :body, {id: 'article_textarea', class: 'form-control', placeholder: 'input text here'} %>
+          </div>
+          <div class="col-md-3 pl-2 p-0 markdown-guide">
+            <%= render 'markdown_guide' %>
+          </div>
+        </div>
+        <%= f.submit( class: 'float-right btn btn-primary btn-submit mt-2' )%>
+    <% end %>
   </div>
-  <div class="d-flex flex-row">
-    <div class="form-group col-md-9">
-      <%= f.label :body, { class: 'sr-only' } %>
-      <%= f.text_area :body, {id: 'article_textarea', class: 'form-control', placeholder: 'input text here'} %>
-    </div>
-    <%= render 'markdown_guide', { class: 'col-md-3' } %>
-  </div>
-  <%= f.submit( class: 'float-right btn btn-primary btn-submit' )%>
-<% end %>
+</div>

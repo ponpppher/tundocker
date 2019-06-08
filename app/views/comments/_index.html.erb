@@ -26,7 +26,7 @@
                 <%= link_to t('views.button.delete'), book_article_comment_path(article_id: article.id, id: comment.id), { method: :delete, class: 'text-muted small mr-1' }%>
               </div>
             </span>
-            <h6 class="text-success float-left"><%= comment.user.name %></h6>
+            <h6 class="text-success float-left"><%= comment.user.safe_name %></h6>
           </div>
           <p class="text-left m-0">
             <%= comment.content %>

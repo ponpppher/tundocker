@@ -26,6 +26,7 @@ ja:
       regist_book: "本を登録"
       unregist_book: "本の登録を解除"
       change_password: "パスワードの更新"
+      user_info: "ユーザー情報"
     article:
       my_article: "自分の記事"
       other_article: "他人の記事"
@@ -60,8 +61,9 @@ ja:
       profile: "プロフィール変更"
       cancel: "削除"
     message:
+      cancel: "本当に削除しますか？"
+      sure?: "本当にアカウントを削除しますか？"
       book_input: "登録する本の情報を入力してください。"
-      cancel: "本当に削しますか？"
       back_home: ホームに戻る
       add_new_book: "本を追加"
       no_article: "記事がありません"

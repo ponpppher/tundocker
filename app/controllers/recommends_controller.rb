@@ -17,7 +17,7 @@ class RecommendsController < ApplicationController
 
   def show
     @groups = @recommend.groups
-    @user = User.safe_name(current_user)
+    @user = current_user
   end
 
   def new

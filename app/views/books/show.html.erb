@@ -110,7 +110,7 @@
               <% @other_articles.each do |article| %>
                 <tr class="small">
                   <td>
-                    <%= article.user.name %>
+                    <%= article.user.safe_name %>
                   </td>
                   <td>
                     <%= truncate(article.title, length:10) %>

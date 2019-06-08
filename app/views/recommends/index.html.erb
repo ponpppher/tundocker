@@ -72,9 +72,7 @@
                 </h3>
                 <p class="small mb-0">
                   <%= r.summary.truncate(25) %><br />
-                  <% if r.user.name.present? %>
-                    <%= t('views.recommend.written_by') %>: <%= r.user.name %><br />
-                  <% end %>
+                  <%= t('views.recommend.written_by') %>: <%= r.user.safe_name %><br />
                   <%= t('views.recommend.created_at') %>: <%= time_present(r.created_at) %><br />
                 </p>
               </div>
