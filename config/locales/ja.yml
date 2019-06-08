@@ -21,6 +21,7 @@ ja:
       new: "新規作成"
       edit: "編集"
       delete: "削除"
+      post: "投稿"
       logout: "ログアウト"
       regist_book: "本を登録"
       unregist_book: "本の登録を解除"
@@ -40,6 +41,7 @@ ja:
       image: "本のサムネイル"
     comment:
       content: "本文"
+      write_comment: "コメントを入力して下さい。"
     recommend:
       name: "グループ名"
       summary: "概要"
@@ -58,19 +60,32 @@ ja:
       profile: "プロフィール変更"
       cancel: "削除"
     message:
+      book_input: "登録する本の情報を入力してください。"
       cancel: "本当に削しますか？"
       back_home: ホームに戻る
       add_new_book: "本を追加"
       no_article: "記事がありません"
       new_article: "記事を追加"
+      create_article: "記事を作成しました。"
+      update_article: "記事を更新しました。"
+      del_article: "記事を削除しました。"
       regist: "本の登録"
       unregist: "本の登録を解除"
       no_data: "データがありません"
       no_tags: "タグがありません"
+      regist_book: "本を登録しました。"
+      update_book: "本の情報を更新しました。"
+      delete_regist_book: "本の登録を解除しました。"
+      book_group: "本のグループを作成しました。"
+      failed_book_group: "本のグループを作成できませんでした。"
+      delete_book_group: "グループを削除しました。"
+      update_book_group: "グループを更新しました。"
+      failed_update_book_group: "グループを削除しました。"
+      post_comment: "コメントを投稿しました。"
   activerecord:
     errors:
       messages:
-        invalid: '不正な日付です。'
+        invalid_date: 'は正しい日付ではありません。'
         record_invalid: 'バリデーションに失敗しました: %{errors}'
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"

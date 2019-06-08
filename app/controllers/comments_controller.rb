@@ -8,11 +8,7 @@ class CommentsController < ApplicationController
 
     @comment = article.comments.build(comment_params)
     respond_to do |format|
-      if @comment.save
-        format.html { redirect_to book_article_path(article_id: article), notice: 'post comment!' }
-      else
-        flash.now[:error] = 'post failed'
-      end
+      @comment.save
       format.js { render :index }
     end
   end
@@ -22,7 +18,6 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.destroy
         format.html { redirect_to book_article_path(id: @article), notice: 'delete comment' }
-        format.js { render :index }
       else
         format.html { redirect_to book_article_path(article_id: @article, id: @comment) }
       end

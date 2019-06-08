@@ -18,7 +18,10 @@ class DateValidator < ActiveModel::EachValidator
     begin
       Date.parse parse_string if parse_string.present?
     rescue ArgumentError
-      record.errors.add(attribute, '不正な日付です')
+      record.errors.add(
+        attribute,
+        I18n.t('activerecord.errors.messages.invalid_date')
+      )
     end
   end
 end

@@ -35,7 +35,7 @@ class BooksController < ApplicationController
     if @book.save
       # regist user's book list
       current_user.regist_books.build(book_id: @book.id).save
-      redirect_to books_path, flash: { notice: 'success subscribe your book!' }
+      redirect_to books_path, notice: t('views.message.regist_book')
     else
       render :new
     end
@@ -45,7 +45,7 @@ class BooksController < ApplicationController
 
   def update
     if @book.update(book_params)
-      redirect_to books_path
+      redirect_to books_path, notice: t('views.message.update_book')
     else
       render :edit
     end
@@ -53,7 +53,7 @@ class BooksController < ApplicationController
 
   def destroy
     @book.destroy
-    redirect_to books_path, flash: { notice: 'success delete book' }
+    redirect_to books_path, notice: t('views.message.delete_book')
   end
 
 private

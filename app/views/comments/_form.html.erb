@@ -1,25 +1,11 @@
-
 <%= form_with(model: [book, article, comment]) do |form| %>
-  <% if false %>
-  <% if comment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment form being saved:</h2>
-      <ul>
-      <% comment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <% end %>
 
     <div class="field">
       <%= form.label :content, { class: 'sr-only' } %>
-      <%= form.text_area :content, { placeholder: 'write a comment', rows: '3', class: 'form-control' } %>
+      <%= form.text_area :content, { placeholder: t('views.comment.write_comment') , rows: '3', class: 'form-control' } %>
     </div>
-
 
     <div class="action clearfix">
-      <%= form.submit 'post', { class: 'btn btn-default btn-primary float-right' } %>
+      <%= form.submit t('views.button.post'), { class: 'btn btn-default btn-primary float-right' } %>
     </div>
-  <% end %>
+<% end %>
