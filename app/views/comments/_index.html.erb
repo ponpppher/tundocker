@@ -1,5 +1,20 @@
 <ul class="list-unstyled">
+
   <% comments.each do |comment| %>
+    <% if comment.errors.any? %>
+      <% comment.errors.full_messages.each do |msg| %>
+        <script>
+          toastr.options = {
+            "closeButton": true,
+            "positionClass": "toast-bottom-left",
+            "preventDuplicates": false,
+            "timeOut": "2000",
+          }
+          toastr['error']('<%= msg %>')
+        </script>
+      <% end %>
+    <% end %>
+
     <% if comment.id.present? %>
       <li class="media p-0 m-0">
         <%= icon('fas', 'user-graduate', class: 'm-3 img-thumbnail') %>
@@ -7,6 +22,9 @@
           <div class="clearfix">
             <span class="text-muted float-right">
               <small class="text-muted"><%= time_present(comment.created_at) %></small>
+              <div>
+                <%= link_to t('views.button.delete'), book_article_comment_path(article_id: article.id, id: comment.id), { method: :delete, class: 'text-muted small mr-1' }%>
+              </div>
             </span>
             <h6 class="text-success float-left"><%= comment.user.safe_name %></h6>
           </div>
@@ -18,21 +36,3 @@
     <% end %>
   <% end %>
 </ul>
-
-<% flash.each do |type, msg| %>
-  <% type = 'info' if type == 'notice' %>
-  <% type = 'error' if type == 'alert' %>
-  <script>
-    toastr.options = {
-      "closeButton": true,
-      "positionClass": "toast-bottom-left",
-      "preventDuplicates": false,
-      "timeOut": "2000",
-    }
-    toastr['<%= type %>']('<%= msg %>')
-  </script>
-<% end %>
-
-<% if false %>
-  <%= link_to "del", book_article_comment_path(article_id: article.id, id: comment.id), { method: :delete, class: "btn btn-sm btn-danger" } %>
-<% end %>

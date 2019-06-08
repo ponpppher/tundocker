@@ -1,4 +1,5 @@
 <span id="favorite">
+  <%= @article.article_fav.count %> liked
   <% if !article.faved?(current_user) %>
     <%= link_to article_favs_path(id: "#{article.id}"), { method: :post, class: "fav", remote: true } do %>
       <%= icon('far', 'heart', id: "#{article.id}" )%>

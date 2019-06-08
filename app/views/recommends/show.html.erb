@@ -10,7 +10,6 @@
           <%= link_to t('views.button.edit'), edit_recommend_path(@recommend.id), { class: 'btn btn-sm btn-info' } %>
           <%= link_to t('views.button.delete'), recommend_path(@recommend.id), { method: :delete, class: 'btn btn-sm btn-danger' } %>
           <%= render 'recommend_favs/fav', recommend: @recommend %>
-          <%= "#{fav_count(@recommend)} faved"%>
         </small>
       </h4>
 

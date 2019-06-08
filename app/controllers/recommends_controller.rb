@@ -22,7 +22,6 @@ class RecommendsController < ApplicationController
 
   def new
     @recommend = Recommend.new
-    # @recommend.groups.build
 
     # require 3 books
     3.times { @recommend.books.build }
@@ -32,9 +31,9 @@ class RecommendsController < ApplicationController
     @recommend = current_user.recommends.new(recommend_params)
 
     if @recommend.save
-      redirect_to recommends_path, flash: { notice: 'save your group' }
+      redirect_to recommends_path, notice: t('views.message.book_group')
     else
-      flash[:notice] = 'failed save group'
+      flash[:alert] = t('views.message.failed_book_group')
       render :new
     end
   end
@@ -45,17 +44,16 @@ class RecommendsController < ApplicationController
 
   def update
     if @recommend.update(recommend_params)
-      redirect_to recommends_path
-      # 個別ページに飛ばす？
+      redirect_to recommends_path, notice: t('views.message.update_book_group')
     else
-      flash[:notice] = 'failed update group'
+      flash[:alert] = t('views.message.failed_update_book_group')
       render :edit
     end
   end
 
   def destroy
     @recommend.destroy
-    redirect_to recommends_path, flash: { notice: 'group deleted' }
+    redirect_to recommends_path, alert: t('views.message.delete_book_group')
   end
 
 private

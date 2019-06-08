@@ -8,7 +8,7 @@ ja:
       recommend: "おすすめ本"
       regist_book: "登録した本"
       user: "ユーザー"
-    attritubes:
+    attributes:
       article:
         title: "タイトル"
         body: "本文"

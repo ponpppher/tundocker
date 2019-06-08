@@ -7,10 +7,10 @@
         <%= link_to image_tag(@book.image.to_s, :size => '80x80'), book_path(@book), { class: 'mr-3' } %>
         <div class="media-body">
           <h4 class="media-heading mb-0">
-            Book Title: <%= @book.title %>
+            <%= @book.title %>
           </h4>
-          <div>
-            Publish: <%= time_present(@book.publish_on) %>
+          <div class="small mt-1 date-item">
+            <%= t('views.book.publish_on') %>: <%= time_present(@book.publish_on) %>
           </div>
         </div>
       </div>
@@ -18,15 +18,16 @@
 
     <!-- detail -->
     <div class="col-lg-7">
-      <div>
-        author: <%= @article.user.safe_name %>
+      <div class="mb-2">
+        <%= @article.user.name %>
+        <span class="small pl-3 date-item">
+          <%= t('views.article.last_update') %>:
+          <%= time_present(@article.updated_at) %>
+        </span>
       </div>
       <div>
-        Last Updated on: <%= time_present(@article.updated_at) %>
-      </div>
-      <div>
-        <%= link_to "edit", edit_book_article_path(@article), { class: "btn btn-sm btn-primary col-mb-1" } %>
-        <%= link_to "delete", book_article_path(@article), { method: :delete, class: "btn btn-sm btn-danger col-mb-1" } %>
+        <%= link_to t('views.button.edit'), edit_book_article_path(@article), { class: "btn btn-sm btn-primary col-mb-1" } %>
+        <%= link_to t('views.button.delete'), book_article_path(@article), { method: :delete, class: "btn btn-sm btn-danger col-mb-1" } %>
       </div>
     </div>
   </div>
@@ -40,12 +41,12 @@
     <div class="col-md-2">
     </div>
     <div class="col-md-8">
-      <h4>
+      <h3>
         <%= @article.title %>
-      </h4>
+      </h3>
     </div>
     <div class="col-md-2 float-right small">
-      99 liked <%= render 'favs/fav', article: @article %>
+      <%= render 'favs/fav', article: @article %>
     </div>
   </div>
   <hr>
@@ -75,5 +76,3 @@
     </div>
   </div>
 </div>
-
-<%= link_to 'back to book list page', books_path %>

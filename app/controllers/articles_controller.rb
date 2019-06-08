@@ -16,7 +16,7 @@ class ArticlesController < ApplicationController
   def create
     article = @book.articles.build(article_params)
     if article.save
-      redirect_to books_path, flash: { notice: 'save your article!' }
+      redirect_to books_path, notice: t('views.message.create_article')
     else
       render :new
     end
@@ -26,7 +26,7 @@ class ArticlesController < ApplicationController
 
   def update
     if @article.update(article_params)
-      redirect_to books_path
+      redirect_to books_path, notice: t('views.message.update_article')
     else
       render :edit
     end
@@ -34,7 +34,7 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article.destroy
-    redirect_to books_path
+    redirect_to books_path, alert: t('views.message.del_article')
   end
 
 private

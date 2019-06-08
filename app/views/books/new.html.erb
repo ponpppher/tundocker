@@ -9,19 +9,9 @@
   </h3>
 
   <p class="small">
-    新たに登録した本の情報を入力してください。
+    <%= t('views.message.book_input') %>
   </p>
 
-  <% if @book.errors.any? %>
-    <div id = "error_explanation">
-      <h2><%= "#{@book.errors.count}エラーがありました。" %></h2>
-      <ul>
-        <% @book.errors.full_messages.each do |msg| %>
-          <p><%= msg %></p>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <%= render 'form' %>
+
 </div>
