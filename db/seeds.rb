@@ -5,27 +5,57 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'i18n'
+require 'faker'
+Faker::Config.locale = :en
+
+# 登録特にいらないで使ってもらうためのユーザー
 user = User.new(
-  email: 'a@gmail.com',
-  password: 'aaaaaa'
+  email: 'testuser@gmail.com',
+  password: 'testtest',
 )
 user.save!
 
-5.times do |num|
-  book = Book.create!(
-    title: ['emotion java', 'go lang', 'php hyperapp', 'origin edge server', 'five factor'][num.to_i],
-    publish_on: (Time.zone.now + Random.rand(0..10)).to_s,
-    sheets: Random.rand(60..500),
-    price: Random.rand(1000..7000),
-    image: open("#{Rails.root}/app/assets/images/book_sample#{Random.rand(0..2)}.jpg")
-  )
+# dev用ユーザー
+user = User.new(
+  email: 'a@gmail.com',
+  password: 'aaaaaa',
+)
+user.save!
 
-  user.regist_books.create!(book_id: book.id)
+# その他ユーザー
+10.times do
+  user = User.new(
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    password: Faker::Lorem.characters(10),
+  )
+  user.save!
 end
 
-3.times do |num|
-  user.recommends.create(
-    name: ['advanced linux', 'beginner frontend', 'hyper edge jail'][num.to_i],
-    summary: 'summary discription'
+
+50.times do |num|
+  book = Book.new(
+    title: Faker::Book.title,
+    publish_on: (Time.zone.now + Random.rand(0..10000)).to_s,
+    sheets: Random.rand(60..500),
+    price: Random.rand(1000..7000),
+    image: open("#{Rails.root}/app/assets/images/book_sample#{Random.rand(0..2)}.jpg"),
   )
+  book.save!(validate: false)
+  User.find(Random.rand(1..12)).regist_books.create!(book_id: book.id)
+end
+
+25.times do |num|
+  user = User.find(Random.rand(1..12))
+  user.recommends.create!(
+    name: Faker::Book.title,
+    summary: Faker::GreekPhilosophers.quote
+  )
+  3.times {
+    Group.create!(
+      recommend_id: user.recommends.last.id,
+      book_id: Random.rand(1..Book.all.count)
+    )
+  }
 end
