@@ -48,9 +48,11 @@
               </div>
 
               <div class="col-md-6">
-                <%= image_tag(r.books.first.image.to_s, :size => '90x90', class: 'thumbnail') %>
-                <%= image_tag(r.books.second.image.to_s, :size => '90x90', class: 'thumbnail') %>
-                <%= image_tag(r.books.third.image.to_s, :size => '90x90', class: 'thumbnail') %>
+                <% if r.books.exists? %>
+                  <%= image_tag(r.books.first.image.to_s, :size => '90x90', class: 'thumbnail') %>
+                  <%= image_tag(r.books.second.image.to_s, :size => '90x90', class: 'thumbnail') %>
+                  <%= image_tag(r.books.third.image.to_s, :size => '90x90', class: 'thumbnail') %>
+                <% end %>
               </div>
 
             </div>
@@ -79,9 +81,11 @@
 
               <!-- registed books -->
               <div class="col-md-6">
-                <%= image_tag(r.books.first.image.to_s, :size => '90x90', class: 'thumbnail') %>
-                <%= image_tag(r.books.second.image.to_s, :size => '90x90', class: 'thumbnail') %>
-                <%= image_tag(r.books.third.image.to_s, :size => '90x90', class: 'thumbnail') %>
+                <% if r.books.exists? %>
+                  <%= image_tag(r.books.first.image.to_s, :size => '90x90', class: 'thumbnail') %>
+                  <%= image_tag(r.books.second.image.to_s, :size => '90x90', class: 'thumbnail') %>
+                  <%= image_tag(r.books.third.image.to_s, :size => '90x90', class: 'thumbnail') %>
+                <% end %>
               </div>
 
             </div>
