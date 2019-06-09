@@ -1,19 +1,19 @@
 <!-- site index -->
 <section class="home">
-  <p class="title-text">
-    積んどるか？
+  <p class="title-text-sub">
+    積読してますか？
   </p>
-  <h1>
+  <h1 class="title-text">
     Tundocker
   </h1>
   <p class="title-content">
-    いつかやろうとしてませんかその積読、私と一緒に積読解消しませんか？<br />
-    Learn Faster, make Learning cicle, share our tundoku
+    日々積まれる本たちに悩めるものたちの支援サイト
   </p>
   <% if user_signed_in? %>
     <%= link_to "study now", books_path, { class: "btn btn-primary start-button", type: :button } %>
   <% else %>
-    <%= link_to "Regist Now", new_registration_path(:user), { class: 'btn btn-primary start-button', type: :button } %>
+    <%= link_to "Regist Now", new_registration_path(:user), { class: 'btn btn-primary start-button', type: :button } %><br />
+    <%= link_to "Sign in with #{OmniAuth::Utils.camelize('twitter')}", omniauth_authorize_path('user', 'twitter'), { class: 'fab fa-twitter-square text-white' } %>
   <% end %>
 </section>
 
@@ -22,45 +22,57 @@
     ABOUT
   </h2>
   <p class="about-text">
-    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.<br />
-    The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.<br />
-    Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum'<br />
+    いつか読もうとしているその積読、みんなで解消！<br />
+    技術身につける手段は様々ですが、本は数ある手段の中でもいまだに有用であると思います。<br/>
+    ですが、本を読むだけで内容を定着させる事は難しいです。<br/>
+    読むこととアウトプットの間を限りなく無くしていくことが重要であると私は考えます。<br/>
+    その一つのきっかけとしてみんなで気軽にアウトプットしやすくなるサイトを考えました。
   </p>
 </section>
 
 <section class="scene" id="scene">
-  <h2 class="heading">
-    SCENES
-  </h2>
-  <div class="d-flex">
-    <div class="col-md-6 no-padding">
-      <%= image_tag('background_book.jpg', :size => "200x200")%>
+  <div class="container">
+    <h2 class="heading">
+      SCENES
+    </h2>
+    <div class="row mb-5">
+      <div class="col-md-6 col-sm-12 mb-5 no-padding">
+        <%= image_tag('tumi.jpg', class: 'image-fluid', :size => "200x200")%>
+      </div>
+      <div class="col-md-5 col-sm-12 no-padding">
+        <span class="text-white">
+          <%= icon('fas', 'book-reader', class: "fa-2x") %>
+        </span>
+        <h3 class="h4 my-4 scenes-title">
+          読みたい本がたまってしまう</h3>
+        <p class="scenes-content">
+          消化する積み本だけこのサイトへ登録しましょう。<br />
+          時には雑に読むだけでもよいでしょう。<br />
+          そんなときもアウトプットを少しでも残してください。<br />
+          そうする事で、あなたの積読が可視化されるでしょう。<br />
+        </p>
+      </div>
     </div>
-    <div class="col-md-5 no-padding">
-      <h3 class="akan-title">akan</h3>
-      <p class="akan-content">
-        moundameda aaaaaaaaaaaaaaaaa<br />
-        moundameda aaaaaaaaaaaaaaaaa
-        moundameda aaaaaaaaaaaaaaaaa
-        moundameda aaaaaaaaaaaaaaaaa
-      </p>
+    <div class="row mb-5">
+      <div class="col-md-6 col-sm-12 no-padding">
+        <span class="text-white">
+          <%= icon('fas', 'laptop-code', class: 'fa-2x') %>
+        </span>
+        <h3 class="h4 my-4 scenes-title">
+          一人では捗らない。
+        </h3>
+        <p class="scenes-content">
+          同じ本を勉強している同士でアウトプットをシェアします。<br />
+          人によってアウトプットの仕方は様々です。<br />
+          様々な視点のアウトプットを共有できたら学習も深まるでしょう。<br />
+        </p>
+      </div>
+      <div class="col-md-5 col-sm-12 no-padding">
+        <%= image_tag('background_book.jpg', class: "image-fluid", :size => "200x200")%>
+      </div>
     </div>
+    <p>
+      scene descripton
+    </p>
   </div>
-  <div class="d-flex">
-    <div class="col-md-6 no-padding">
-      <h3 class="second-akan-title">akan</h3>
-      <p class="second-akan-content">
-        moundameda aaaaaaaaaaaaaaaaa<br />
-        moundameda aaaaaaaaaaaaaaaaa
-        moundameda aaaaaaaaaaaaaaaaa
-        moundameda aaaaaaaaaaaaaaaaa
-      </p>
-    </div>
-    <div class="col-md-5 no-padding">
-      <%= image_tag('background_book.jpg', :size => "200x200")%>
-    </div>
-  </div>
-  <p>
-    scene descripton
-  </p>
 </section>

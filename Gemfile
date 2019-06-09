@@ -50,7 +50,7 @@ gem 'coderay'
 gem 'omniauth'
 gem 'omniauth-twitter'
 
-# gem 'cocoon'
+gem 'brakeman'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
