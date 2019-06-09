@@ -45,4 +45,16 @@ body .yield-wrapper {
 footer {
   background-color: #151515;
   color: #fff;
+  text-align: center;
+}
+
+.share-icons li {
+  display: inline-block;
+  border:1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  padding: 12px 0;
+  list-style: none;
+  margin: 0 20px;
 }
