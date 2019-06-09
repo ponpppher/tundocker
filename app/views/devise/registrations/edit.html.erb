@@ -1,8 +1,8 @@
 
 <div class="sessions_container mx-auto">
-  <div class="card card-sign-up">
+  <div class="card card-edit-user">
     <div class="card-header">
-      <h2>Edit <%= resource_name.to_s.humanize %></h2>
+      <h3><%= t('views.title.edit_profile') %></h3>
     </div>
 
     <div class="card-body">
@@ -19,24 +19,24 @@
           <% end %>
 
           <div class="form-group input-group">
-            <div class="input-group-prepend align-items-center col-md-3">
-              <%= f.label :name, { class: 'control-label' } %>
+            <div class="input-group-prepend align-items-center col-md-4">
+              <%= f.label :name, t('views.user.name'), { class: 'control-label' } %>
             </div>
-            <%= f.text_field :name, { autocomplete: 'name', class: 'form-control col-md-9', placeholder: 'name' } %>
+            <%= f.text_field :name, { autocomplete: 'name', class: 'form-control col-md-8', placeholder: 'Ninja Nande' } %>
           </div>
 
           <div class="form-group input-group">
-            <div class="input-group-prepend align-items-center col-md-3">
-              <%= f.label :email %><br />
+            <div class="input-group-prepend align-items-center col-md-4">
+              <%= f.label :email %>
             </div>
-            <%= f.email_field :email, { autocomplate: 'email', class: 'form-control col-md-9', placeholder: 'Email Address', required: true } %>
+            <%= f.email_field :email, { autocomplate: 'email', class: 'form-control col-md-8', placeholder: 'sample@example.com', required: true } %>
           </div>
 
           <div class="form-group input-group">
-            <div class="input-group-prepend align-items-center col-md-3">
+            <div class="input-group-prepend align-items-center col-md-4">
               <%= f.label :password %>
             </div>
-            <%= f.password_field :password, { autocomplete: 'new-password', class: 'form-control col-md-9' , autofocus: true, placeholder: 'Password' }%>
+            <%= f.password_field :password, { autocomplete: 'new-password', class: 'form-control col-md-8' , autofocus: true, placeholder: 'Password' }%>
             <div class="col-md-12">
               <i>(leave blank if you don't want to change it)</i><br />
               <% if @minimum_password_length %>
@@ -46,36 +46,41 @@
           </div>
 
           <div class="form-group input-group">
-            <div class="input-group-prepend align-items-center col-md-3">
-              <%= f.label :password_confirmation, 'Password' %><br />
+            <div class="input-group-prepend align-items-center col-md-4">
+              <%= f.label :password_confirmation, t('views.user.password') %><br />
             </div>
-            <%= f.password_field :password_confirmation, { autocomplete: "new-password", class: 'form-control col-md-9', placeholder: 'Confrim Password'} %>
+            <%= f.password_field :password_confirmation, { autocomplete: "new-password", class: 'form-control col-md-8', placeholder: 'Confrim Password'} %>
             <div class="col-md-12">
               <em>(confirm password)</em>
             </div>
           </div>
 
           <div class="form-group input-group">
-            <div class="input-group-prepend align-items-center col-md-3">
+            <div class="input-group-prepend align-items-center col-md-4">
               <%= f.label :current_password %>
             </div>
-            <%= f.password_field :current_password, { autocomplete: "current-password", class: 'form-control col-md-9', required: true, placeholder: 'Current Password'}%>
+            <%= f.password_field :current_password, { autocomplete: "current-password", class: 'form-control col-md-8', required: true, placeholder: 'Current Password'}%>
             <div class="col-md-12">
               <i>(we need your current password to confirm your changes)</i><br />
             </div>
           </div>
 
           <div class="actions">
-            <%= f.submit "Update" %>
+            <%= f.submit t('views.user.profile'), { class: 'btn btn-primary' } %>
           </div>
           <br />
         <% end %>
       <% end %>
-      <div class="card-footer">
-        <h4>Cancel my account</h4>
-        <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: t('views.message.sure?') }, method: :delete %></p>
-        <%= link_to "Back", :back %>
-      </div>
     </div>
+    <div class="card-footer">
+      <h5>
+        <%= t('views.title.cancel') %>
+      </h5>
+      <p>
+        <%= button_to t('views.button.delete'), registration_path(resource_name), { class: 'btn btn-danger', data: { confirm: t('views.message.sure?') }, method: :delete } %>
+      </p>
+      <%= link_to "Back", :back %>
+    </div>
+
   </div>
 </div>
