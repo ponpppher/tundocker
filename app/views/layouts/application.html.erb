@@ -27,22 +27,22 @@
       <%= yield %>
     </div>
 
-    <footer class="justify-content-end d-flex mt-auto">
-      <nav>
-        <span class="mx-1">
-          <%= link_to icon('fab', 'twitter').concat("Twitter"), "https://twitter.com/symphogeek", { class: 'nav-item' } %>
-        </span>
-        <span class="mx-1">
-          <%= link_to icon('fab', 'github-alt').concat("Github"), "https://github.com/ponpppher", { class: 'text-muted' } %>
-        </span>
-      </nav>
-      <div>
-        <span class="mx-3">
-        Logo made with <a href="https://www.designevo.com/en/" title="Free Online Logo Maker">DesignEvo</a>
-        <span>
-        <span class="mx-3">
-          Made by ponpher 2019 all rights reserved
-        </span>
+    <footer class="mt-auto">
+      <div class="container pt-5 pb-2">
+        <div class="col-md-12">
+          <ul class="share-icons p-0 mb-0">
+            <li>
+              <%= link_to icon('fab', 'twitter'), "https://twitter.com/symphogeek", { class: 'nav-item' } %>
+            </li>
+            <li>
+              <%= link_to icon('fab', 'github-alt'), "https://github.com/ponpppher", { class: 'text-muted' } %>
+            </li>
+          </ul>
+          <p class="mb-0 py-2">
+            Made by ponpher 2019 all rights reserved<br />
+            Logo made with <a href="https://www.designevo.com/en/" title="Free Online Logo Maker">DesignEvo</a>
+          </p>
+        </div>
       </div>
     </footer>
 
