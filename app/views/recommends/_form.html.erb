@@ -67,3 +67,17 @@
   </table>
   <%= f.submit(class: 'btn btn-primary my-3')%>
 <% end %>
+
+<% if @recommend.errors.any? %>
+  <% @recommend.errors.full_messages.each do |msg| %>
+    <script>
+      toastr.options = {
+        "closeButton": true,
+        "positionClass": "toast-bottom-left",
+        "preventDuplicates": false,
+        "timeOut": "2000",
+      }
+      toastr['error']('<%= msg %>')
+    </script>
+  <% end %>
+<% end %>
