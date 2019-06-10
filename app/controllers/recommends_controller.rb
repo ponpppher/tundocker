@@ -30,7 +30,6 @@ class RecommendsController < ApplicationController
   def create
     @recommend = current_user.recommends.new(recommend_params)
 
-    # byebug
     if @recommend.save
       redirect_to recommends_path, notice: t('views.message.book_group')
     else
