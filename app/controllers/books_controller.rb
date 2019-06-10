@@ -32,6 +32,7 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
+
     if @book.save
       # regist user's book list
       current_user.regist_books.build(book_id: @book.id).save

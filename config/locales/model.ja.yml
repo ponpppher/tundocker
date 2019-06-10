@@ -23,6 +23,12 @@ ja:
       recommend:
         name: "グループ名"
         summary: "概要"
+      recommend/books:
+        title: "タイトル"
+        publish_on: "出版日"
+        sheets: "ページ数"
+        price: "値段"
+        image: "サムネイル"
       user:
         email: "メールアドレス"
         current_password: "現在のパスワード"
