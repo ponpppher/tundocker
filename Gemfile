@@ -40,6 +40,7 @@ gem 'acts-as-taggable-on', '~> 6.0'
 
 # deploy
 gem 'capistrano-rails', group: :development
+gem 'faker'
 
 # advanced function
 gem 'ransack'
@@ -63,7 +64,6 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'faker'
   gem 'bullet'
   gem 'letter_opener_web'
 
