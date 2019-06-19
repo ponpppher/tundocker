@@ -55,6 +55,7 @@ gem 'brakeman'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'factory_bot_rails', '~> 4.11'
+  gem 'capybara', '>= 2.15'
 end
 
 group :development do
@@ -75,7 +76,6 @@ end
 
 group :test do
   gem 'rspec-rails', '~>3.7'
-  gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
-  gem 'chromedriver-helper'
+  gem 'webdrivers'
 end

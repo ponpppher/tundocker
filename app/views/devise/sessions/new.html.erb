@@ -27,6 +27,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text"><%= icon('fas', 'user', class: 'user-icon') %></span>
           </div>
+          <%= f.label :email, { class: 'sr-only' } %>
           <%= f.email_field :email, { autofocus: true, autocomplete: "email", placeholder: 'email' } %>
         </div>
 
@@ -34,6 +35,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text"><%= icon('fas', 'key') %></span>
           </div>
+          <%= f.label :password, { class: 'sr-only' } %>
           <%= f.password_field :password, { autocomplete: 'current-password', placeholder: 'password' } %>
         </div>
 
