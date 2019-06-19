@@ -4,6 +4,7 @@ AllCops:
   Exclude:
     - db/**/*
     - tmp/**/*
+    - spec/**/*
     - lib/geohash.rb
     - lib/manager/geo.rb
     - bin/spring

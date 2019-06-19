@@ -5,9 +5,6 @@ FactoryBot.define do
     sheets { '333' }
     price { '1500' }
 
-    # to skip validate, set trait attribute
-    trait :skip_validate do
-      to_create { |instance| instance.save(validate: false) }
-    end
+    to_create { |instance| instance.save(validate: false) }
   end
 end

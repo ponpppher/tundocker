@@ -18,17 +18,11 @@
 
 require 'capybara/rspec'
 
-# set
-# require 'selenium-webdriver'
-
 RSpec.configure do |config|
 
   config.before(:each, type: :system) do
     driven_by :selenium_chrome_headless
   end
-
-  # set
-  # config.include Capybara::DSL
 
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
@@ -110,26 +104,6 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
-
-# Capybara.register_driver :headless_chromium do |app|
-#   caps = Selenium::WebDriver::Remote::Capabilities.chrome(
-#     "chromeOptions" => {
-#       'binary' => "/home/ponpher/.rbenv/shims/chromedriver",
-#       'args' => args
-#     }
-#   )
-#   driver = Capybara::Selenium::Driver.new(
-#     app,
-#     browser: :chrome,
-#     desired_capabilities: caps
-#   )
-# end
-
-# Capybara.register_driver :chrome do |app|
-#   Capybara::Selenium::Driver.new(app, :browser => :chrome)
-# end
-#
-# Capybara.javascript_driver = :chrome
 
 Capybara.configure do |config|
   config.server_port = 9515
