@@ -12,6 +12,7 @@
 
 .card-columns {
   columns: 4;
+  min-height: 70%;
 }
 
 .form-table {
@@ -48,4 +49,8 @@
 
 .book-detail-body div{
   padding-bottom: 5px;
+}
+
+.pagination {
+  justify-content: center;
 }
