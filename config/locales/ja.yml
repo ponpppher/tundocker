@@ -41,6 +41,7 @@ ja:
       price: "価格"
       tags: "関連タグ"
       image: "本のサムネイル"
+      tags_explain: "カンマ区切りで入力してください。ex) aaa,bbbb"
     comment:
       content: "本文"
       write_comment: "コメントを入力して下さい。"
