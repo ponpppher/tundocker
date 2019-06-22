@@ -44,12 +44,30 @@
           <%= icon('fas', 'book-reader', class: "fa-2x") %>
         </span>
         <h3 class="h4 my-4 scenes-title">
-          読みたい本がたまってしまう</h3>
+          読みたい本がたまってしまう
+        </h3>
         <p class="scenes-content">
-          消化する積み本だけこのサイトへ登録しましょう。<br />
-          時には雑に読むだけでもよいでしょう。<br />
-          そんなときもアウトプットを少しでも残してください。<br />
-          そうする事で、あなたの積読が可視化されるでしょう。<br />
+          インプットする積み本だけこのサイトへ登録しましょう。<br />
+          <%= link_to books_path, {class: 'books_link' } do %>
+            本の一覧
+            <span>
+              <%= image_tag('intro_book.png') %>
+            </span>
+          <% end %>
+          ページより
+          <%= link_to '#scene', { class: 'btn btn-primary btn-intro' } do %>
+            <%= icon('fas', 'book', class: 'pr-1') %>
+            <%= t('views.message.add_new_book') %>
+          <% end %>
+          をクリック！<br/>
+          本が登録できたら
+          <%= link_to '#scene', { class: 'btn btn-primary btn-intro' } do %>
+            <%= icon('fas', 'pen', class: 'pr-1') %>
+            <%= t('views.message.new_article') %>
+          <% end %>
+          をクリックし、<br/>
+          どんどん記事を投稿していって下さい。<br/>
+          <br/>
         </p>
       </div>
     </div>
@@ -65,6 +83,14 @@
           同じ本を勉強している同士でアウトプットをシェアします。<br />
           人によってアウトプットの仕方は様々です。<br />
           様々な視点のアウトプットを共有できたら学習も深まるでしょう。<br />
+          また本のグループにあなたのおすすめの本を登録していって下さい。<br/>
+          他の人のおすすめしている本も見つけられるので、<br />
+          学習のロードマップとして参考にしましょう。<br />
+          <%= link_to '#scene', { class: 'btn btn-primary btn-intro' } do %>
+            <%= icon('fas', 'book', class: 'pr-1') %>
+            <%= t('views.button.regist_book') %>
+          <% end %>
+          をクリックする事で本の一覧に追加されます。
         </p>
       </div>
       <div class="col-md-5 col-sm-12 no-padding">
