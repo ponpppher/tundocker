@@ -72,10 +72,9 @@
   <% @recommend.errors.full_messages.each do |msg| %>
     <script>
       toastr.options = {
-        "closeButton": true,
         "positionClass": "toast-bottom-left",
         "preventDuplicates": false,
-        "timeOut": "2000",
+        "timeOut": "10000",
       }
       toastr['error']('<%= msg %>')
     </script>
