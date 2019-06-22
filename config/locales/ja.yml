@@ -14,8 +14,8 @@ ja:
       new_recommend: "新規本のグループ"
       recommend_edit: "グループの編集"
       books_form: "本の登録フォーム"
-      my_groups: "自分のグループ"
-      other_groups: "他人のグループ"
+      my_groups: "作成したグループ"
+      other_groups: "みんなの作ったグループ"
       password_change: "パスワードのリセット"
       forgot_password: "パスワードを忘ましたか？"
     button:
@@ -41,12 +41,16 @@ ja:
       price: "価格"
       tags: "関連タグ"
       image: "本のサムネイル"
+      tags_explain: "カンマ区切りで入力してください。ex) aaa,bbbb"
     comment:
       content: "本文"
       write_comment: "コメントを入力して下さい。"
     recommend:
       name: "グループ名"
+      name_placeholder: "例: 初心者用のjava本"
       summary: "概要"
+      summary_placeholder: "例:\n私がおすすめする本たちです。初版が古いものもありますので注意してください。\nbook1 javaの概要に詳しく図などがあり丁寧です。最初に読むのがよいでしょう\nbook2 文法を網羅的に学ぶことができます。\nbook3 実践的な開発をjavaを通じて知ることができます。"
+      book_form: "本のタイトルを入力"
       created_at: "作成日"
       written_by: "作成者"
     user:

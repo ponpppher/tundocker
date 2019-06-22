@@ -53,7 +53,7 @@
           <%= f.label :tag_list, t('views.book.tags') %>
         </th>
         <td>
-          <%= f.text_field :tag_list, { value: @book.tag_list.join(','), class: "form-control" } %>
+          <%= f.text_field :tag_list, { value: @book.tag_list.join(','), class: "form-control", placeholder: t('views.book.tags_explain') } %>
         </td>
       </tr>
 

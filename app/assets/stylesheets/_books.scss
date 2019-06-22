@@ -4,6 +4,25 @@
   text-align: center;
 }
 
+a.books_link {
+  color: white;
+  &:hover {
+    position: relative;
+    text-decoration: none;
+  }
+}
+a.books_link span {
+  display: none;
+  position: absolute;
+  top: 1rem;
+  left:-200;
+  z-index: 2;
+}
+a.books_link:hover span {
+  border: none;
+  display: block;
+  width: 210px;
+}
 
 .book-card {
   max-width: 300px;

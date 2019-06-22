@@ -5,19 +5,19 @@
 
       <tr class='form_group'>
         <th>
-          <%= f.label :name, 'グループ名' %>
+          <%= f.label :name, t('views.recommend.name') %>
         </th>
         <td id="group_name">
-          <%= f.text_field :name, { class: 'form-control', placeholder: '例: 初心者用Java文法本' } %>
+          <%= f.text_field :name, { class: 'form-control', placeholder: t('views.recommend.name_placeholder') } %>
         </td>
       </tr>
 
       <tr class='form_group'>
         <th>
-          <%= f.label :summary, '概要' %>
+          <%= f.label :summary, t('views.recommend.summary') %>
         </th>
         <td>
-          <%= f.text_area :summary, { class: 'form-control', placeholder: '例: book1 javaの概要に詳しく図などがあり丁寧 book2 javaの文法を踏み込んで理解する book3' } %>
+          <%= f.text_area :summary, { class: 'form-control', rows: 5, placeholder: t('views.recommend.summary_placeholder')} %>
         </th>
       </tr>
     </tbody>
@@ -38,7 +38,7 @@
           </th>
 
           <td>
-            <%= b.text_field :title, { class: 'form-control', placeholder: 'リファクタリング' } %>
+            <%= b.text_field :title, { class: 'form-control', placeholder: t('views.recommend.book_form') } %>
           </td>
 
           <td>
@@ -72,10 +72,9 @@
   <% @recommend.errors.full_messages.each do |msg| %>
     <script>
       toastr.options = {
-        "closeButton": true,
         "positionClass": "toast-bottom-left",
         "preventDuplicates": false,
-        "timeOut": "2000",
+        "timeOut": "10000",
       }
       toastr['error']('<%= msg %>')
     </script>
