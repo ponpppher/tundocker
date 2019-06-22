@@ -4,13 +4,14 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:edit, :show, :update, :destroy]
 
   def index
-    if params[:tag_name]
-      @books = current_user.books.tagged_with(params[:tag_name].to_s)
-      return
-    end
-
     @q = current_user.books.ransack(params[:q])
-    @books = @q.result(distinct: true).page(params[:page]).per(10)
+
+    if params[:tag_name]
+      books = current_user.books.tagged_with(params[:tag_name].to_s)
+      @books = books.page(params[:page]).per(10)
+    else
+      @books = @q.result(distinct: true).page(params[:page]).per(10)
+    end
   end
 
   def show
