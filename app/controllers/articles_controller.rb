@@ -14,8 +14,8 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    article = @book.articles.build(article_params)
-    if article.save
+    @article = @book.articles.build(article_params)
+    if @article.save
       redirect_to books_path, notice: t('views.message.create_article')
     else
       render :new

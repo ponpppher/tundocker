@@ -1,14 +1,2 @@
-<% if @article.errors.any? %>
-  <div id = "error_explanation">
-    <h2><%= "#{@article.errors.count}エラーがありました。" %></h2>
-    <ul>
-      <% @article.errors.full_messages.each do |msg| %>
-        <p><%= msg %></p>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-
 <%= render 'form' %>
 
-<%= link_to 'back to book list', books_path %>
