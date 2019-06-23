@@ -15,7 +15,8 @@
 
     <!-- book list -->
     <h4 class="text-white">
-      <%= link_to new_book_path, { class: 'btn btn-primary' } do %>
+      <%= t('views.title.books') %>
+      <%= link_to new_book_path, { class: 'ml-3 btn btn-primary' } do %>
         <%= icon('fas', 'book', class: 'pr-2') %>
         <%= t('views.message.add_new_book') %>
       <% end %>
