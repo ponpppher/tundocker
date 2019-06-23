@@ -33,6 +33,12 @@
         <%= t('views.title.book_list') %>
       <% end %>
     </li>
+    <li class="nav-item">
+      <%= link_to user_path(current_user), { class: 'nav-link' } do %>
+        <%= icon('fas', 'heart') %>
+        <%= t('views.title.favorite') %>
+      <% end %>
+    </li>
 
     <!-- user setting -->
     <li class="nav-item dropdown">
