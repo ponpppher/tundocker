@@ -53,7 +53,7 @@
           <%= f.label :tag_list, t('views.book.tags') %>
         </th>
         <td>
-          <%= f.text_field :tag_list, { value: @book.tag_list.join(','), class: "form-control", placeholder: t('views.book.tags_explain') } %>
+          <%= f.text_field :tag_list, { value: @book.tag_list.join(','), id: "tag-input", class: "form-control", placeholder: t('views.book.tags_explain') } %>
         </td>
       </tr>
 
@@ -65,6 +65,12 @@
   </p>
 
 <% end %>
+<script type="text/javascript">
+$(function() {
+    var tags_explain = "<%= t('views.book.tags_explain') %>";
+    $('#tag-input').tagit({placeholderText: tags_explain});
+});
+</script>
 
 <% if @book.errors.any? %>
   <% @book.errors.full_messages.each do |msg| %>

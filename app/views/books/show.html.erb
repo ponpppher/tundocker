@@ -18,8 +18,8 @@
         <div class="flex-row">
           <h5>
             <strong><%= @book.title %></strong>
-            <%= link_to icon('fas', 'pen'), edit_book_path(@book.id), { class: "btn btn-success btn-sm", data: { toggle: 'tooltip' }, title:'編集' } %>
-            <%= link_to icon('fas', 'trash-alt'), book_path(@book.id), { method: :delete,  class: "btn btn-danger btn-sm", data: { toggle: 'tooltip' }, title:'削除' } %>
+            <%= link_to icon('fas', 'pen'), edit_book_path(@book.id), { class: "book-tooltip btn btn-success btn-sm", title:'編集' } %>
+            <%= link_to icon('fas', 'trash-alt'), book_path(@book.id), { method: :delete,  class: "book-tooltip btn btn-danger btn-sm", title:'削除' } %>
           </h5>
         </div>
         <div>
