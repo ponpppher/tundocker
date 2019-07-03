@@ -13,8 +13,10 @@
 //= require rails-ujs
 //= require jquery3
 //= require popper
+//= require jquery-ui.min
 //= require bootstrap
 //= require toastr
+//= require tag-it.min
 //= require activestorage
 //= require turbolinks
 //= require_tree .
@@ -29,12 +31,6 @@ $(function() {
     } else {
       $('#' + e.detail[0]).removeClass('fa-heart-o').addClass('fa-heart');
     }
-  }),
-
-  /*
-  *   tooltip
-  */
-  $(document).on("turbolinks:load", function(){
-    $('[data-toggle="tooltip"]').tooltip();
-  })
+  });
+  $('.book-tooltip').tooltip();
 })

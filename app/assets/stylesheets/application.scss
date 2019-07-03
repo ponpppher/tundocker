@@ -2,6 +2,8 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "toastr";
+@import "jquery.tagit";
+@import "tagit.ui-zendesk";
 @import "homes", "sessions", "registrations", "users/show", "books", "articles", "recommend";
 
 @include media-breakpoint-down(xs) {
