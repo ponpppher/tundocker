@@ -32,7 +32,7 @@
         <div class="col-md-12">
           <ul class="share-icons p-0 mb-0">
             <li>
-              <%= link_to icon('fab', 'twitter'), "https://twitter.com/symphogeek", { class: 'nav-item' } %>
+              <%= link_to icon('fab', 'twitter'), "http://twitter.com/intent/tweet?url=https://shrouded-harbor-83322.herokuapp.com/&text=積読解消していきます!&hashtags=tundocker", { class: 'nav-item' } %>
             </li>
             <li>
               <%= link_to icon('fab', 'github-alt'), "https://github.com/ponpppher", { class: 'text-muted' } %>
@@ -60,5 +60,6 @@
         toastr['<%= type %>']('<%= msg %>')
       </script>
     <% end %>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   </body>
 </html>
