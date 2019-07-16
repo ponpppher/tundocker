@@ -13,7 +13,7 @@
     <%= link_to "study now", books_path, { class: "btn btn-primary start-button", type: :button } %>
   <% else %>
     <%= link_to "Regist Now", new_registration_path(:user), { class: 'btn btn-primary start-button', type: :button } %><br />
-    <%= link_to "Sign in with #{OmniAuth::Utils.camelize('twitter')}", omniauth_authorize_path('user', 'twitter'), { class: 'fab fa-twitter-square text-white' } %>
+    <%= link_to "Sign in with #{OmniAuth::Utils.camelize('twitter')}", omniauth_authorize_path('user', 'twitter'), { method: :post, class: 'fab fa-twitter-square text-white' } %>
   <% end %>
 </section>
 
