@@ -45,7 +45,7 @@ gem 'faker'
 
 # advanced function
 gem 'ransack'
-gem 'redcarpet', '~>2.3.0'
+gem 'redcarpet', '~>3.5.1'
 gem 'coderay'
 
 # twitter login
